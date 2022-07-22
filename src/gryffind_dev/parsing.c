@@ -1,7 +1,7 @@
 //
 // Created by Gryffindor Dodie on 7/22/22.
 //
-
+// привет мир
 #include "parsing.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -17,7 +17,6 @@ int reading_counting(char *file_name, data *inf) {
     strcat(path, file_name);
     size_t len = 0;
     ssize_t read;
-//    printf("%s\n", path);
     stream = fopen(path, "r");
     if (stream == NULL)
         code = 1;
@@ -125,3 +124,4 @@ void poligon_memory(char *input, data *inf, int polygons_N) {
     }
     inf->poligons[polygons_N].numbers_of_vertexes_in_facets = count;
 }
+
