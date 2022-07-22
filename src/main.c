@@ -1,41 +1,20 @@
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-
-int main()
-{
-    printf("\n go");
-
+#include "underfile.h"
+// прототип функции
+int parser();
+int main() {
+    parser();
     return 0;
 }
-//GLfloat triangle[] = {
-//    0.0,0.8,
-//    -0.8, -0.8,
-//    0.8, -0.8
-//};
-//GLfloat triangle_colors[] = {
-//    0.0,0.0,1.0,
-//    0.0, 1.0, 0.0,
-//    1.0, 0.0, 0.0
-//};
 
-g
-for (int i = 0; i < 96; i++) {
 
+int parser() {
+    FILE *fp;
+    char *filename = "cub.obj";
+    fp = fopen(filename, "r");
+    char *str = NULL;
+    size_t l_buf_size = 0;
+    while ((getline(&str, &l_buf_size, fp)) != EOF) printf("%s", str);
+    fclose(fp);
+    return 0;
 }
-// #include <stdio.h>
-// #include <stdlib.h>
-// int main(void) {
-// int * array = malloc(5*sizeof(int));
-//   for (int i = 0; i < 10; i++) {
-//     // printf("%p\n", &a[i]);
-//     array[i] = i;
-//   }  
-//   array = realloc(array, 20 * sizeof(int));
-//   for (int i = 0; i < 10; i++) {
-//     printf("%d\n", array[i]);
-//     // array[i] = i;
-//   }  
-//   free(array);
-//   return 0;
-// }
+
