@@ -46,7 +46,7 @@ int parsing_matrix(char *file_name, data *inf) {
     size_t read;
 //    printf("%s\n", path);
     stream = fopen(path, "r");
-    s21_create_matrix(inf->count_of_vertex, 3, &inf->matrix);
+    s21_create_matrix(inf->count_of_vertex + 1, 3, &inf->matrix);
     inf->poligons = malloc((inf->count_of_polygons + 1)*sizeof(polygon_t));
     int row = 0;
     int column = 0;
@@ -58,7 +58,7 @@ int parsing_matrix(char *file_name, data *inf) {
     if (code == 0) {
         while ((read = getline(&line, &len, stream)) != -1) {
             column = 0;
-            if (line[0] == 'v') {
+            if (line[0] == 'v' && line[1] == ' ') {
                 for (int i = 0;line[i] != '\n'; i++) {
                     if (line[i] == '-') {i++; sign = 1;}
                     if (line[i] >= 48 && line[i] <= 57) {

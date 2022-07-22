@@ -7,7 +7,7 @@ void print_matrix(matrix_t mat);
 void pol_print(data inf);
 
 int main() {
-    char fn[100] = "uploads_files_2787791_Mercedes+Benz+GLS+580.obj";
+    char fn[100] = "cub.obj";
     data info;
     info.count_of_polygons = 0;
     info.count_of_vertex = 0;
