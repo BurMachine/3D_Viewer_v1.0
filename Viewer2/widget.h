@@ -7,6 +7,11 @@
 #include <QGuiApplication>
 #include <QTimer>
 #include <QMouseEvent>
+
+extern "C" {
+#include "../src/underfile.h"
+}
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
 QT_END_NAMESPACE
@@ -20,6 +25,9 @@ private:
     QPoint mPos;
     QTimer tmr;
     void drawCube(float a);
+    void drawCube_2();
+    void drawCube_3();
+    void drawCube_kube();
     void mousePressEvent(QMouseEvent *) override;
     void mouseMoveEvent(QMouseEvent *) override;
     void initializeGL() override;

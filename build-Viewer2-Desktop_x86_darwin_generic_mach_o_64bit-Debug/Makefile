@@ -52,9 +52,11 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../Viewer2/main.cpp \
+SOURCES       = ../src/translator.c \
+		../Viewer2/main.cpp \
 		../Viewer2/widget.cpp moc_widget.cpp
-OBJECTS       = main.o \
+OBJECTS       = translator.o \
+		main.o \
 		widget.o \
 		moc_widget.o
 DIST          = /usr/local/share/qt/mkspecs/features/spec_pre.prf \
@@ -312,7 +314,9 @@ DIST          = /usr/local/share/qt/mkspecs/features/spec_pre.prf \
 		/usr/local/share/qt/mkspecs/features/exceptions.prf \
 		/usr/local/share/qt/mkspecs/features/yacc.prf \
 		/usr/local/share/qt/mkspecs/features/lex.prf \
-		../Viewer2/Viewer2.pro ../Viewer2/widget.h ../Viewer2/main.cpp \
+		../Viewer2/Viewer2.pro ../src/underfile.h \
+		../Viewer2/widget.h ../src/translator.c \
+		../Viewer2/main.cpp \
 		../Viewer2/widget.cpp
 QMAKE_TARGET  = Viewer2
 DESTDIR       = 
@@ -891,8 +895,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/local/share/qt/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../Viewer2/widget.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../Viewer2/main.cpp ../Viewer2/widget.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../src/underfile.h ../Viewer2/widget.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../src/translator.c ../Viewer2/main.cpp ../Viewer2/widget.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../Viewer2/widget.ui $(DISTDIR)/
 
 
@@ -938,6 +942,11 @@ moc_widget.cpp: ../Viewer2/widget.h \
 		/usr/local/lib/QtGui.framework/Headers/qopenglfunctions.h \
 		/usr/local/lib/QtGui.framework/Headers/QGuiApplication \
 		/usr/local/lib/QtGui.framework/Headers/qguiapplication.h \
+		/usr/local/lib/QtCore.framework/Headers/QTimer \
+		/usr/local/lib/QtCore.framework/Headers/qtimer.h \
+		/usr/local/lib/QtGui.framework/Headers/QMouseEvent \
+		/usr/local/lib/QtGui.framework/Headers/qevent.h \
+		../src/underfile.h \
 		moc_predefs.h \
 		/usr/local/share/qt/libexec/moc
 	/usr/local/share/qt/libexec/moc $(DEFINES) --include /Users/corkiudy/C8_3DViewer_v1.0-0/build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/moc_predefs.h -I/usr/local/share/qt/mkspecs/macx-clang -I/Users/corkiudy/C8_3DViewer_v1.0-0/Viewer2 -I/usr/local/lib/QtOpenGLWidgets.framework/Headers -I/usr/local/lib/QtOpenGL.framework/Headers -I/usr/local/lib/QtWidgets.framework/Headers -I/usr/local/lib/QtGui.framework/Headers -I/usr/local/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/usr/local/lib ../Viewer2/widget.h -o moc_widget.cpp
@@ -965,6 +974,9 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 
 ####### Compile
 
+translator.o: ../src/translator.c ../src/underfile.h
+	$(CC) -c $(CFLAGS) $(INCPATH) -o translator.o ../src/translator.c
+
 main.o: ../Viewer2/main.cpp ../Viewer2/widget.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QWidget \
 		/usr/local/lib/QtWidgets.framework/Headers/qwidget.h \
@@ -972,6 +984,11 @@ main.o: ../Viewer2/main.cpp ../Viewer2/widget.h \
 		/usr/local/lib/QtGui.framework/Headers/qopenglfunctions.h \
 		/usr/local/lib/QtGui.framework/Headers/QGuiApplication \
 		/usr/local/lib/QtGui.framework/Headers/qguiapplication.h \
+		/usr/local/lib/QtCore.framework/Headers/QTimer \
+		/usr/local/lib/QtCore.framework/Headers/qtimer.h \
+		/usr/local/lib/QtGui.framework/Headers/QMouseEvent \
+		/usr/local/lib/QtGui.framework/Headers/qevent.h \
+		../src/underfile.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QApplication \
 		/usr/local/lib/QtWidgets.framework/Headers/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Viewer2/main.cpp
@@ -983,6 +1000,11 @@ widget.o: ../Viewer2/widget.cpp ../Viewer2/widget.h \
 		/usr/local/lib/QtGui.framework/Headers/qopenglfunctions.h \
 		/usr/local/lib/QtGui.framework/Headers/QGuiApplication \
 		/usr/local/lib/QtGui.framework/Headers/qguiapplication.h \
+		/usr/local/lib/QtCore.framework/Headers/QTimer \
+		/usr/local/lib/QtCore.framework/Headers/qtimer.h \
+		/usr/local/lib/QtGui.framework/Headers/QMouseEvent \
+		/usr/local/lib/QtGui.framework/Headers/qevent.h \
+		../src/underfile.h \
 		ui_widget.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o widget.o ../Viewer2/widget.cpp
 
