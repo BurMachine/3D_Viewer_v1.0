@@ -1,0 +1,3 @@
+/Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/CMakeFiles/rebuild_cache.dir
+/Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/CMakeFiles/edit_cache.dir
+/Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/CMakeFiles/gryffind_dev.dir

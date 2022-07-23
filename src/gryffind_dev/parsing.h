@@ -27,5 +27,9 @@ int parsing_matrix(char *file_name, data *obj);
 int is_num(char ex);
 void poligon_memory(char *input, data *obj, int polygons_N);
 void poligon_string_parsing(char *input, data *obj, int polygons_N);
+void vertex_filler(char *line, data *struct_obj, int *row, int *column);
 
+// ---- printers
+void print_matrix(matrix_t mat);
+void poligon_print(data obj);
 #endif //GRYFFIND_DEV_PARSING_H

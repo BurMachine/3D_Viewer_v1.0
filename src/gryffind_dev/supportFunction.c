@@ -1,30 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "parsing.h"
-#include "./matrix/s21_matrix.h"
-
-void copy_obj(data *obj, data *obj_new);
-void copy_matrix(matrix_t *A, matrix_t *result);
-//void multiple_facets(data *obj)
-int main() {
-    char filename[100] = "cub.obj";
-    data obj;
-    data obj_new;
-    obj.count_of_polygons = 0;
-    obj.count_of_vertex = 0;
-    reading_counting(filename, &obj);
-    printf("%d\n%d\n", obj.count_of_vertex, obj.count_of_polygons);
-    parsing_matrix(filename, &obj);
-    print_matrix(obj.matrix);
-    poligon_print(obj);
-    copy_obj(&obj, &obj_new);
-    printf("\n----------\n");
-    print_matrix(obj.matrix);
-    poligon_print(obj_new);
-}
-
-
-void multiple_facets(data *obj, data *obj_new) {
+void copy_obj(data *obj, data *obj_new) {
     obj_new->count_of_polygons = obj->count_of_polygons;
     obj_new->count_of_vertex = obj->count_of_vertex;
 
@@ -44,3 +19,10 @@ void multiple_facets(data *obj, data *obj_new) {
     }
 }
 
+void copy_matrix(matrix_t *A, matrix_t *result) {
+    for (int i = 0; i < A->rows; i++) {
+        for (int j = 0; j < A->columns; j++) {
+            result->matrix[i][j] = A->matrix[i][j];
+        }
+    }
+}
