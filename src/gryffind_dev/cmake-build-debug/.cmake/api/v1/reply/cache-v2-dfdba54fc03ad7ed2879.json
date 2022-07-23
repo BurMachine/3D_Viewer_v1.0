@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/Users/gryffind/C8_3DViewer_v1.0-1/src/gryffind_dev/cmake-build-debug"
+			"value" : "/Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -419,7 +419,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/Users/gryffind/C8_3DViewer_v1.0-1/src/gryffind_dev"
+			"value" : "/Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev"
 		},
 		{
 			"name" : "CMAKE_INSTALL_NAME_TOOL",
@@ -991,7 +991,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/gryffind/C8_3DViewer_v1.0-1/src/gryffind_dev/cmake-build-debug"
+			"value" : "/Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/cmake-build-debug"
 		},
 		{
 			"name" : "gryffind_dev_IS_TOP_LEVEL",
@@ -1015,7 +1015,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/gryffind/C8_3DViewer_v1.0-1/src/gryffind_dev"
+			"value" : "/Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev"
 		}
 	],
 	"kind" : "cache",

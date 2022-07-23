@@ -1,4 +1,4 @@
-# Install script for directory: /Users/gryffind/C8_3DViewer_v1.0-1/src/gryffind_dev
+# Install script for directory: /Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/gryffind/C8_3DViewer_v1.0-1/src/gryffind_dev/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
