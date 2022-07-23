@@ -4,7 +4,7 @@
 #include "./matrix/s21_matrix.h"
 
 void print_matrix(matrix_t mat);
-void pol_print(data inf);
+void pol_print(data obj);
 
 int main() {
     char fn[100] = "cub.obj";
@@ -29,12 +29,12 @@ void print_matrix(matrix_t mat) {
     }
 }
 
-void pol_print(data inf) {
-    for (int i = 0;i < inf.count_of_polygons ; i++) {
-        for (int j = 0; j < inf.poligons[i].numbers_of_vertexes_in_facets; j++) {
-            printf("%d ", inf.poligons[i].vertexes[j]);
+void pol_print(data obj) {
+    for (int i = 0;i < obj.count_of_polygons ; i++) {
+        for (int j = 0; j < obj.poligons[i].numbers_of_vertexes_in_facets; j++) {
+            printf("%d ", obj.poligons[i].vertexes[j]);
         }
-        printf("\t\t%d", inf.poligons->numbers_of_vertexes_in_facets);
+        printf("\t\t%d", obj.poligons->numbers_of_vertexes_in_facets);
         printf("\n");
     }
 }

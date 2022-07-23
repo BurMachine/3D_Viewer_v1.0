@@ -21,11 +21,11 @@ typedef struct info {
 
 
 
-int reading_counting(char *file_name, data *inf);
-int parsing_matrix(char *file_name, data *inf);
+int reading_counting(char *file_name, data *obj);
+int parsing_matrix(char *file_name, data *obj);
 
 int is_num(char ex);
-void poligon_memory(char *input, data *inf, int polygons_N);
-void poligon_string_parsing(char *input, data *inf, int polygons_N);
+void poligon_memory(char *input, data *obj, int polygons_N);
+void poligon_string_parsing(char *input, data *obj, int polygons_N);
 
 #endif //GRYFFIND_DEV_PARSING_H

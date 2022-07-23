@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-int reading_counting(char *file_name, data *inf) {
+int reading_counting(char *file_name, data *obj) {
     int code = 0;
     int counter_v = 0;
     int counter_f = 0;
@@ -26,15 +26,15 @@ int reading_counting(char *file_name, data *inf) {
             if (line[0] == 'v') counter_v++;
             if (line[0] == 'f') counter_f++;
         }
-        inf->count_of_vertex = counter_v;
-        inf->count_of_polygons = counter_f;
+        obj->count_of_vertex = counter_v;
+        obj->count_of_polygons = counter_f;
     }
     free(line);
     fclose(stream);
     return code;
 }
 
-int parsing_matrix(char *file_name, data *inf) {
+int parsing_matrix(char *file_name, data *obj) {
     int code = 0;
     int counter_v = 0;
     int counter_f = 0;
@@ -46,8 +46,8 @@ int parsing_matrix(char *file_name, data *inf) {
     size_t read;
 //    printf("%s\n", path);
     stream = fopen(path, "r");
-    s21_create_matrix(inf->count_of_vertex + 1, 3, &inf->matrix);
-    inf->poligons = malloc((inf->count_of_polygons + 1)*sizeof(polygon_t));
+    s21_create_matrix(obj->count_of_vertex + 1, 3, &obj->matrix);
+    obj->poligons = malloc((obj->count_of_polygons + 1)*sizeof(polygon_t));
     int row = 0;
     int column = 0;
     int sign = 0;
@@ -69,7 +69,7 @@ int parsing_matrix(char *file_name, data *inf) {
                         char *finish = &line[--i];
                         double num = strtod(start_num, &finish);
                         if (sign) num *= (-1);
-                        inf->matrix.matrix[row][column] = num;
+                        obj->matrix.matrix[row][column] = num;
                         column++;
                     }
                     if (column == 3) break;
@@ -77,8 +77,8 @@ int parsing_matrix(char *file_name, data *inf) {
                 }
             }
             if (line[0] == 'f') {
-                poligon_memory(line, inf, polygons);
-                poligon_string_parsing(line, inf, polygons);
+                poligon_memory(line, obj, polygons);
+                poligon_string_parsing(line, obj, polygons);
                 polygons++;
             }
             row++;
@@ -90,17 +90,17 @@ int parsing_matrix(char *file_name, data *inf) {
     return code;
 }
 int is_num(char ex) {
-    int errror = 1;
+    int flag_error = 1;
     if ((ex >= '0' && ex <= '9') || ex == '.') {
-        errror = 0;
+        flag_error = 0;
     }
-    return errror;
+    return flag_error;
 }
 
-void poligon_string_parsing(char *input, data *inf, int polygons_N) {
+void poligon_string_parsing(char *input, data *obj, int polygons_N) {
     int poligon;
     int count = 0;
-    inf->poligons[polygons_N].vertexes = calloc(inf->poligons[polygons_N].numbers_of_vertexes_in_facets, (inf->poligons[polygons_N].numbers_of_vertexes_in_facets + 1)*sizeof(int));
+    obj->poligons[polygons_N].vertexes = calloc(obj->poligons[polygons_N].numbers_of_vertexes_in_facets, (obj->poligons[polygons_N].numbers_of_vertexes_in_facets + 1)*sizeof(int));
     for (int i = 0; input[i] != '\n'; i++) {
         if ((is_num(input[i]) == 0) && input[i - 1] == ' ') {
             char *start_num = &input[i];
@@ -110,19 +110,19 @@ void poligon_string_parsing(char *input, data *inf, int polygons_N) {
             char *finish = &input[--i];
             double num = strtod(start_num, &finish);
             poligon = (int)num;
-            inf->poligons[polygons_N].vertexes[count] = poligon;
+            obj->poligons[polygons_N].vertexes[count] = poligon;
             count++;
         }
     }
 }
 
-void poligon_memory(char *input, data *inf, int polygons_N) {
+void poligon_memory(char *input, data *obj, int polygons_N) {
     int count = 0;
     for (int i = 0; input[i] != '\n'; i++) {
         if ((is_num(input[i]) == 0) && input[i - 1] == ' ') {
             count++;
         }
     }
-    inf->poligons[polygons_N].numbers_of_vertexes_in_facets = count;
+    obj->poligons[polygons_N].numbers_of_vertexes_in_facets = count;
 }
 
