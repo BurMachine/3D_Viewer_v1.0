@@ -9,7 +9,8 @@
 #include <QMouseEvent>
 
 extern "C" {
-#include "../src/underfile.h"
+#include "../src/gryffind_dev/parsing.h"
+#include "../src/gryffind_dev/matrix/s21_matrix.h"
 }
 
 QT_BEGIN_NAMESPACE
@@ -24,15 +25,18 @@ private:
     double xRot, yRot, zRot;
     QPoint mPos;
     QTimer tmr;
-    void drawCube(float a);
-    void drawCube_2();
-    void drawCube_3();
-    void drawCube_kube();
+//    void drawCube(float a);
+//    void drawCube_2();
+//    void drawCube_3();
+//    void drawCube_kube();
     void mousePressEvent(QMouseEvent *) override;
     void mouseMoveEvent(QMouseEvent *) override;
     void initializeGL() override;
     void resizeGL(int w, int h) override;
     void paintGL() override;
+    void drawCube_23();
+//    void print_matrix_new(matrix_t mat);
+
 public:
     Widget(QWidget *parent = nullptr);
     ~Widget();

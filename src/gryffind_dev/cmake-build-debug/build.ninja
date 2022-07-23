@@ -132,8 +132,14 @@ build CMakeFiles/gryffind_dev.dir/matrix/check.c.o: C_COMPILER__gryffind_dev_Deb
   OBJECT_DIR = CMakeFiles/gryffind_dev.dir
   OBJECT_FILE_DIR = CMakeFiles/gryffind_dev.dir/matrix
 
-build CMakeFiles/gryffind_dev.dir/printers.c.o: C_COMPILER__gryffind_dev_Debug /Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/printers.c || cmake_object_order_depends_target_gryffind_dev
-  DEP_FILE = CMakeFiles/gryffind_dev.dir/printers.c.o.d
+build CMakeFiles/gryffind_dev.dir/main.c.o: C_COMPILER__gryffind_dev_Debug /Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/main.c || cmake_object_order_depends_target_gryffind_dev
+  DEP_FILE = CMakeFiles/gryffind_dev.dir/main.c.o.d
+  FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11.6 -std=gnu11
+  OBJECT_DIR = CMakeFiles/gryffind_dev.dir
+  OBJECT_FILE_DIR = CMakeFiles/gryffind_dev.dir
+
+build CMakeFiles/gryffind_dev.dir/supportFunction.c.o: C_COMPILER__gryffind_dev_Debug /Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/supportFunction.c || cmake_object_order_depends_target_gryffind_dev
+  DEP_FILE = CMakeFiles/gryffind_dev.dir/supportFunction.c.o.d
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11.6 -std=gnu11
   OBJECT_DIR = CMakeFiles/gryffind_dev.dir
   OBJECT_FILE_DIR = CMakeFiles/gryffind_dev.dir
@@ -144,8 +150,8 @@ build CMakeFiles/gryffind_dev.dir/parsing.c.o: C_COMPILER__gryffind_dev_Debug /U
   OBJECT_DIR = CMakeFiles/gryffind_dev.dir
   OBJECT_FILE_DIR = CMakeFiles/gryffind_dev.dir
 
-build CMakeFiles/gryffind_dev.dir/main.c.o: C_COMPILER__gryffind_dev_Debug /Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/main.c || cmake_object_order_depends_target_gryffind_dev
-  DEP_FILE = CMakeFiles/gryffind_dev.dir/main.c.o.d
+build CMakeFiles/gryffind_dev.dir/printers.c.o: C_COMPILER__gryffind_dev_Debug /Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/printers.c || cmake_object_order_depends_target_gryffind_dev
+  DEP_FILE = CMakeFiles/gryffind_dev.dir/printers.c.o.d
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11.6 -std=gnu11
   OBJECT_DIR = CMakeFiles/gryffind_dev.dir
   OBJECT_FILE_DIR = CMakeFiles/gryffind_dev.dir
@@ -158,7 +164,7 @@ build CMakeFiles/gryffind_dev.dir/main.c.o: C_COMPILER__gryffind_dev_Debug /User
 #############################################
 # Link the executable gryffind_dev
 
-build gryffind_dev: C_EXECUTABLE_LINKER__gryffind_dev_Debug CMakeFiles/gryffind_dev.dir/matrix/s21_calc_complements.c.o CMakeFiles/gryffind_dev.dir/matrix/s21_create_matrix.c.o CMakeFiles/gryffind_dev.dir/matrix/s21_eq_matrix.c.o CMakeFiles/gryffind_dev.dir/matrix/s21_inverse_matrix.c.o CMakeFiles/gryffind_dev.dir/matrix/s21_mult.c.o CMakeFiles/gryffind_dev.dir/matrix/s21_remove_matrix.c.o CMakeFiles/gryffind_dev.dir/matrix/s21_sum_sub.c.o CMakeFiles/gryffind_dev.dir/matrix/s21_transpon.c.o CMakeFiles/gryffind_dev.dir/matrix/determinant.c.o CMakeFiles/gryffind_dev.dir/matrix/check.c.o CMakeFiles/gryffind_dev.dir/printers.c.o CMakeFiles/gryffind_dev.dir/parsing.c.o CMakeFiles/gryffind_dev.dir/main.c.o
+build gryffind_dev: C_EXECUTABLE_LINKER__gryffind_dev_Debug CMakeFiles/gryffind_dev.dir/matrix/s21_calc_complements.c.o CMakeFiles/gryffind_dev.dir/matrix/s21_create_matrix.c.o CMakeFiles/gryffind_dev.dir/matrix/s21_eq_matrix.c.o CMakeFiles/gryffind_dev.dir/matrix/s21_inverse_matrix.c.o CMakeFiles/gryffind_dev.dir/matrix/s21_mult.c.o CMakeFiles/gryffind_dev.dir/matrix/s21_remove_matrix.c.o CMakeFiles/gryffind_dev.dir/matrix/s21_sum_sub.c.o CMakeFiles/gryffind_dev.dir/matrix/s21_transpon.c.o CMakeFiles/gryffind_dev.dir/matrix/determinant.c.o CMakeFiles/gryffind_dev.dir/matrix/check.c.o CMakeFiles/gryffind_dev.dir/main.c.o CMakeFiles/gryffind_dev.dir/supportFunction.c.o CMakeFiles/gryffind_dev.dir/parsing.c.o CMakeFiles/gryffind_dev.dir/printers.c.o
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11.6
   OBJECT_DIR = CMakeFiles/gryffind_dev.dir
   POST_BUILD = :

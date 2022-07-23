@@ -9,3 +9,6 @@ int main(int argc, char *argv[])
     w.show();
     return a.exec();
 }
+
+//qDebug() << "This will output to the spawned console!";
+//qDebug() << str;

@@ -52,14 +52,51 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../src/translator.c \
+SOURCES       = ../src/gryffind_dev/matrix/check.c \
+		../src/gryffind_dev/matrix/determinant.c \
+		../src/gryffind_dev/matrix/s21_calc_complements.c \
+		../src/gryffind_dev/matrix/s21_create_matrix.c \
+		../src/gryffind_dev/matrix/s21_eq_matrix.c \
+		../src/gryffind_dev/matrix/s21_inverse_matrix.c \
+		../src/gryffind_dev/matrix/s21_mult.c \
+		../src/gryffind_dev/matrix/s21_remove_matrix.c \
+		../src/gryffind_dev/matrix/s21_sum_sub.c \
+		../src/gryffind_dev/matrix/s21_transpon.c \
+		../src/gryffind_dev/parsing.c \
+		../src/gryffind_dev/supportFunction.c \
+		../src/translator.c \
 		../Viewer2/main.cpp \
 		../Viewer2/widget.cpp moc_widget.cpp
-OBJECTS       = translator.o \
+OBJECTS       = check.o \
+		determinant.o \
+		s21_calc_complements.o \
+		s21_create_matrix.o \
+		s21_eq_matrix.o \
+		s21_inverse_matrix.o \
+		s21_mult.o \
+		s21_remove_matrix.o \
+		s21_sum_sub.o \
+		s21_transpon.o \
+		parsing.o \
+		supportFunction.o \
+		translator.o \
 		main.o \
 		widget.o \
 		moc_widget.o
-DIST          = /usr/local/share/qt/mkspecs/features/spec_pre.prf \
+DIST          = ../src/gryffind_dev/matrix/Makefile \
+		../src/gryffind_dev/matrix/check.o \
+		../src/gryffind_dev/matrix/determinant.o \
+		../src/gryffind_dev/matrix/libs21_matrix.a \
+		../src/gryffind_dev/matrix/s21_calc_complements.o \
+		../src/gryffind_dev/matrix/s21_create_matrix.o \
+		../src/gryffind_dev/matrix/s21_eq_matrix.o \
+		../src/gryffind_dev/matrix/s21_inverse_matrix.o \
+		../src/gryffind_dev/matrix/s21_matrix.a \
+		../src/gryffind_dev/matrix/s21_mult.o \
+		../src/gryffind_dev/matrix/s21_remove_matrix.o \
+		../src/gryffind_dev/matrix/s21_sum_sub.o \
+		../src/gryffind_dev/matrix/s21_transpon.o \
+		/usr/local/share/qt/mkspecs/features/spec_pre.prf \
 		/usr/local/share/qt/mkspecs/features/device_config.prf \
 		/usr/local/share/qt/mkspecs/common/unix.conf \
 		/usr/local/share/qt/mkspecs/common/mac.conf \
@@ -314,8 +351,22 @@ DIST          = /usr/local/share/qt/mkspecs/features/spec_pre.prf \
 		/usr/local/share/qt/mkspecs/features/exceptions.prf \
 		/usr/local/share/qt/mkspecs/features/yacc.prf \
 		/usr/local/share/qt/mkspecs/features/lex.prf \
-		../Viewer2/Viewer2.pro ../src/underfile.h \
-		../Viewer2/widget.h ../src/translator.c \
+		../Viewer2/Viewer2.pro ../src/gryffind_dev/matrix/s21_matrix.h \
+		../src/gryffind_dev/parsing.h \
+		../src/underfile.h \
+		../Viewer2/widget.h ../src/gryffind_dev/matrix/check.c \
+		../src/gryffind_dev/matrix/determinant.c \
+		../src/gryffind_dev/matrix/s21_calc_complements.c \
+		../src/gryffind_dev/matrix/s21_create_matrix.c \
+		../src/gryffind_dev/matrix/s21_eq_matrix.c \
+		../src/gryffind_dev/matrix/s21_inverse_matrix.c \
+		../src/gryffind_dev/matrix/s21_mult.c \
+		../src/gryffind_dev/matrix/s21_remove_matrix.c \
+		../src/gryffind_dev/matrix/s21_sum_sub.c \
+		../src/gryffind_dev/matrix/s21_transpon.c \
+		../src/gryffind_dev/parsing.c \
+		../src/gryffind_dev/supportFunction.c \
+		../src/translator.c \
 		../Viewer2/main.cpp \
 		../Viewer2/widget.cpp
 QMAKE_TARGET  = Viewer2
@@ -895,8 +946,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/local/share/qt/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../src/underfile.h ../Viewer2/widget.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../src/translator.c ../Viewer2/main.cpp ../Viewer2/widget.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../src/gryffind_dev/matrix/s21_matrix.h ../src/gryffind_dev/parsing.h ../src/underfile.h ../Viewer2/widget.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../src/gryffind_dev/matrix/check.c ../src/gryffind_dev/matrix/determinant.c ../src/gryffind_dev/matrix/s21_calc_complements.c ../src/gryffind_dev/matrix/s21_create_matrix.c ../src/gryffind_dev/matrix/s21_eq_matrix.c ../src/gryffind_dev/matrix/s21_inverse_matrix.c ../src/gryffind_dev/matrix/s21_mult.c ../src/gryffind_dev/matrix/s21_remove_matrix.c ../src/gryffind_dev/matrix/s21_sum_sub.c ../src/gryffind_dev/matrix/s21_transpon.c ../src/gryffind_dev/parsing.c ../src/gryffind_dev/supportFunction.c ../src/translator.c ../Viewer2/main.cpp ../Viewer2/widget.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../Viewer2/widget.ui $(DISTDIR)/
 
 
@@ -946,7 +997,8 @@ moc_widget.cpp: ../Viewer2/widget.h \
 		/usr/local/lib/QtCore.framework/Headers/qtimer.h \
 		/usr/local/lib/QtGui.framework/Headers/QMouseEvent \
 		/usr/local/lib/QtGui.framework/Headers/qevent.h \
-		../src/underfile.h \
+		../src/gryffind_dev/parsing.h \
+		../src/gryffind_dev/matrix/s21_matrix.h \
 		moc_predefs.h \
 		/usr/local/share/qt/libexec/moc
 	/usr/local/share/qt/libexec/moc $(DEFINES) --include /Users/corkiudy/C8_3DViewer_v1.0-0/build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/moc_predefs.h -I/usr/local/share/qt/mkspecs/macx-clang -I/Users/corkiudy/C8_3DViewer_v1.0-0/Viewer2 -I/usr/local/lib/QtOpenGLWidgets.framework/Headers -I/usr/local/lib/QtOpenGL.framework/Headers -I/usr/local/lib/QtWidgets.framework/Headers -I/usr/local/lib/QtGui.framework/Headers -I/usr/local/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/usr/local/lib ../Viewer2/widget.h -o moc_widget.cpp
@@ -974,6 +1026,44 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 
 ####### Compile
 
+check.o: ../src/gryffind_dev/matrix/check.c ../src/gryffind_dev/matrix/s21_matrix.h
+	$(CC) -c $(CFLAGS) $(INCPATH) -o check.o ../src/gryffind_dev/matrix/check.c
+
+determinant.o: ../src/gryffind_dev/matrix/determinant.c ../src/gryffind_dev/matrix/s21_matrix.h
+	$(CC) -c $(CFLAGS) $(INCPATH) -o determinant.o ../src/gryffind_dev/matrix/determinant.c
+
+s21_calc_complements.o: ../src/gryffind_dev/matrix/s21_calc_complements.c ../src/gryffind_dev/matrix/s21_matrix.h
+	$(CC) -c $(CFLAGS) $(INCPATH) -o s21_calc_complements.o ../src/gryffind_dev/matrix/s21_calc_complements.c
+
+s21_create_matrix.o: ../src/gryffind_dev/matrix/s21_create_matrix.c ../src/gryffind_dev/matrix/s21_matrix.h
+	$(CC) -c $(CFLAGS) $(INCPATH) -o s21_create_matrix.o ../src/gryffind_dev/matrix/s21_create_matrix.c
+
+s21_eq_matrix.o: ../src/gryffind_dev/matrix/s21_eq_matrix.c ../src/gryffind_dev/matrix/s21_matrix.h
+	$(CC) -c $(CFLAGS) $(INCPATH) -o s21_eq_matrix.o ../src/gryffind_dev/matrix/s21_eq_matrix.c
+
+s21_inverse_matrix.o: ../src/gryffind_dev/matrix/s21_inverse_matrix.c ../src/gryffind_dev/matrix/s21_matrix.h
+	$(CC) -c $(CFLAGS) $(INCPATH) -o s21_inverse_matrix.o ../src/gryffind_dev/matrix/s21_inverse_matrix.c
+
+s21_mult.o: ../src/gryffind_dev/matrix/s21_mult.c ../src/gryffind_dev/matrix/s21_matrix.h
+	$(CC) -c $(CFLAGS) $(INCPATH) -o s21_mult.o ../src/gryffind_dev/matrix/s21_mult.c
+
+s21_remove_matrix.o: ../src/gryffind_dev/matrix/s21_remove_matrix.c ../src/gryffind_dev/matrix/s21_matrix.h
+	$(CC) -c $(CFLAGS) $(INCPATH) -o s21_remove_matrix.o ../src/gryffind_dev/matrix/s21_remove_matrix.c
+
+s21_sum_sub.o: ../src/gryffind_dev/matrix/s21_sum_sub.c ../src/gryffind_dev/matrix/s21_matrix.h
+	$(CC) -c $(CFLAGS) $(INCPATH) -o s21_sum_sub.o ../src/gryffind_dev/matrix/s21_sum_sub.c
+
+s21_transpon.o: ../src/gryffind_dev/matrix/s21_transpon.c ../src/gryffind_dev/matrix/s21_matrix.h
+	$(CC) -c $(CFLAGS) $(INCPATH) -o s21_transpon.o ../src/gryffind_dev/matrix/s21_transpon.c
+
+parsing.o: ../src/gryffind_dev/parsing.c ../src/gryffind_dev/parsing.h \
+		../src/gryffind_dev/matrix/s21_matrix.h
+	$(CC) -c $(CFLAGS) $(INCPATH) -o parsing.o ../src/gryffind_dev/parsing.c
+
+supportFunction.o: ../src/gryffind_dev/supportFunction.c ../src/gryffind_dev/parsing.h \
+		../src/gryffind_dev/matrix/s21_matrix.h
+	$(CC) -c $(CFLAGS) $(INCPATH) -o supportFunction.o ../src/gryffind_dev/supportFunction.c
+
 translator.o: ../src/translator.c ../src/underfile.h
 	$(CC) -c $(CFLAGS) $(INCPATH) -o translator.o ../src/translator.c
 
@@ -988,7 +1078,8 @@ main.o: ../Viewer2/main.cpp ../Viewer2/widget.h \
 		/usr/local/lib/QtCore.framework/Headers/qtimer.h \
 		/usr/local/lib/QtGui.framework/Headers/QMouseEvent \
 		/usr/local/lib/QtGui.framework/Headers/qevent.h \
-		../src/underfile.h \
+		../src/gryffind_dev/parsing.h \
+		../src/gryffind_dev/matrix/s21_matrix.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QApplication \
 		/usr/local/lib/QtWidgets.framework/Headers/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Viewer2/main.cpp
@@ -1004,7 +1095,8 @@ widget.o: ../Viewer2/widget.cpp ../Viewer2/widget.h \
 		/usr/local/lib/QtCore.framework/Headers/qtimer.h \
 		/usr/local/lib/QtGui.framework/Headers/QMouseEvent \
 		/usr/local/lib/QtGui.framework/Headers/qevent.h \
-		../src/underfile.h \
+		../src/gryffind_dev/parsing.h \
+		../src/gryffind_dev/matrix/s21_matrix.h \
 		ui_widget.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o widget.o ../Viewer2/widget.cpp
 

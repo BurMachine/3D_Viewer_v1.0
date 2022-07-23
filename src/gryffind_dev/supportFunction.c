@@ -1,5 +1,6 @@
 #include "parsing.h"
-void copy_obj(data *obj, data *obj_new) {
+
+void copy_obj(Data *obj, Data *obj_new) {
     obj_new->count_of_polygons = obj->count_of_polygons;
     obj_new->count_of_vertex = obj->count_of_vertex;
 
