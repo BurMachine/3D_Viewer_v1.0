@@ -12,7 +12,7 @@ void print_matrix(matrix_t mat) {
 void poligon_print(Data obj) {
     for (int i = 0;i < obj.count_of_polygons ; i++) {
         for (int j = 0; j < obj.poligons[i].numbers_of_vertexes_in_facets*2; j++) {
-            printf("%d, ", obj.poligons[i].vertexes[j] - 1);
+            printf("%d, ", obj.poligons[i].vertexes[j]);
         }
 //        printf("\t\t%d", obj.poligons->numbers_of_vertexes_in_facets);
         printf("\n");

@@ -3,8 +3,8 @@
 #include "ui_widget.h"
 #include "math.h"
 //extern "C" double *translator(double array_coordinat[], int len);
-extern "C" int reading_counting(char *file_name, Data *obj);
-extern "C" int parsing_matrix(char *file_name, Data *obj);
+//extern "C" int reading_counting(char *file_name, Data *obj);
+//extern "C" int parsing_matrix(char *file_name, Data *obj);
 //Конструктор класса
 Widget::Widget(QWidget *parent)
     : QOpenGLWidget(parent)
@@ -16,6 +16,7 @@ Widget::Widget(QWidget *parent)
 //    z = 0;
 ////    соединим таймер со слотом
     connect(&tmr,SIGNAL(timeout()), this, SLOT (changeZ()));
+    filler();
 ////    укажем задержку в 100 мс
 //    tmr.start(100);
 }
@@ -46,17 +47,47 @@ void Widget::resizeGL(int w, int h) {
 
 
 
+void Widget::filler() {
+    char filename[50] = "cub.obj";
+//    char filename[50] = "easyCube.obj";
+
+    obj.count_of_polygons = 0;
+    obj.count_of_vertex = 0;
+    reading_counting(filename, &obj);
+    parsing_matrix(filename, &obj);
+        for (int i = 0; i < obj.matrix.rows; i++) {
+            for (int j = 0; j < obj.matrix.columns; j++) {
+                qDebug() << obj.matrix.matrix[i][j];
+            }
+    //        printf("\n");
+        }
+
+        for (int i = 0;i < obj.count_of_polygons ; i++) {
+            for (int j = 0; j < obj.poligons[i].numbers_of_vertexes_in_facets*2; j++) {
+                 qDebug() << obj.poligons[i].vertexes[j];
+            }
+        }
+}
 
 void Widget::paintGL() {
     initializeGL();
     glTranslatef(0,0,-4);
-    Data obj;
-    char filename[50] = "cub.obj";
-    obj.count_of_polygons = 0;
-    obj.count_of_vertex = 0;
-    reading_counting(filename, &obj);
-//    parsing_matrix(filename, &obj);
-    double ver[] {
+
+    double virus[1000];
+    unsigned int facetus[1000];
+    for (int i = 0, k = 0; i < obj.matrix.rows; i++) {
+        for (int j = 0; j < obj.matrix.columns; j++, k++) {
+            virus[k] = obj.matrix.matrix[i][j];
+        }
+//        printf("\n");
+    }
+    for (int i = 0, k = 0;i < obj.count_of_polygons ; i++) {
+        for (int j = 0; j < obj.poligons[i].numbers_of_vertexes_in_facets*2; j++, k++) {
+             facetus[k] = obj.poligons[i].vertexes[j];
+        }
+    }
+
+    double ver[] = {
         1.000000, -1.000000, -1.000000,
         1.000000, -1.000000, 1.000000,
         -1.000000, -1.000000, 1.000000,
@@ -90,16 +121,18 @@ void Widget::paintGL() {
     glColor4f(0.1, 0.75, 0.3, 1); // цвет линий
 
 //    glVertexPointer(3, GL_DOUBLE, 0, obj.matrix.matrix);
-    glVertexPointer(3, GL_DOUBLE, 0, ver);
+    glVertexPointer(3, GL_DOUBLE, 0, virus);
     glEnableClientState(GL_VERTEX_ARRAY);
     glPolygonMode(GL_FRONT,GL_FILL);
     glPolygonMode(GL_RED,GL_LINE);
     double r = 1 ,g = 0, b = 0.5;
 
         glColor4f(r, g, b, 1); // цвет линий
-        glDrawElements(GL_POINTS, 72, GL_UNSIGNED_INT, facets);
+//        glDrawElements(GL_POINTS, 72, GL_UNSIGNED_INT, obj.poligons);
+        glDrawElements(GL_POINTS, 72, GL_UNSIGNED_INT, facetus);
         glColor4f(0.1, 0.75, 0.3, 1);
-        glDrawElements(GL_LINES, 72, GL_UNSIGNED_INT, facets);
+//       glDrawElements(GL_LINES, 72, GL_UNSIGNED_INT, obj.poligons);
+        glDrawElements(GL_LINES, 72, GL_UNSIGNED_INT, facetus);
 
 //    glDrawElements(GL_TRIANGLES, massives.size_polygons / 6, GL_UNSIGNED_INT, massives.polygons);
     glDisable(GL_POINT_SMOOTH);

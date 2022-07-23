@@ -6,25 +6,25 @@
 
 
 //void multiple_facets(Data *obj, Data *obj_new);
-int main() {
-    char filename[50] = "cub.obj";
-    Data obj;
-    Data obj_new;
-    obj.count_of_polygons = 0;
-    obj.count_of_vertex = 0;
-    reading_counting(filename, &obj);
-    printf("%d\n%d\n", obj.count_of_vertex, obj.count_of_polygons);
-    parsing_matrix(filename, &obj);
+ int main() {
+     char filename[50] = "cub.obj";
+     Data obj;
+     Data obj_new;
+     obj.count_of_polygons = 0;
+     obj.count_of_vertex = 0;
+     reading_counting(filename, &obj);
+     printf("%d\n%d\n", obj.count_of_vertex, obj.count_of_polygons);
+     parsing_matrix(filename, &obj);
 
 
-    print_matrix(obj.matrix);
-    poligon_print(obj);
+     print_matrix(obj.matrix);
+     poligon_print(obj);
 
-//    multiple_facets(&obj, &obj_new);
-//    printf("\n----------\n");
-//    print_matrix(obj.matrix);
-//    poligon_print(obj_new);
-}
+ //    multiple_facets(&obj, &obj_new);
+ //    printf("\n----------\n");
+ //    print_matrix(obj.matrix);
+ //    poligon_print(obj_new);
+ }
 
 
 //void multiple_facets(Data *obj, Data *obj_new) {

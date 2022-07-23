@@ -36,10 +36,13 @@ private:
     void paintGL() override;
     void drawCube_23();
 //    void print_matrix_new(matrix_t mat);
+    void filler();
 
 public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
+
+    Data obj;
 private:
     Ui::Widget *ui;
 

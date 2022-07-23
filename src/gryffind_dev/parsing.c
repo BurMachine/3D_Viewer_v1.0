@@ -47,7 +47,8 @@ int parsing_matrix(char *file_name, Data *obj) {
     size_t read;
     //    printf("%s\n", path);
     stream = fopen(path, "r");
-    s21_create_matrix(obj->count_of_vertex + 1, 3, &obj->matrix);
+    // УБРАЛ ЛИШНЮЮ ЕДИНИЦУ ТАК ОНА ПРИВОДИЛА К ЛИШНЕЙ СТРОКЕ В ВЫВОДЕ
+    s21_create_matrix(obj->count_of_vertex, 3, &obj->matrix);
     obj->poligons = malloc((obj->count_of_polygons + 1) * sizeof(polygon_t));
     int row = 0;
     int column = 0;
@@ -58,7 +59,26 @@ int parsing_matrix(char *file_name, Data *obj) {
         while ((read = getline(&line, &len, stream)) != -1) {
             column = 0;
             if (line[0] == 'v' && line[1] == ' ') {
-                vertex_filler(line, obj, &row, &column);
+                int sign = 0;
+                for (int i = 0; line[i] != '\n'; i++) {
+                    if (line[i] == '-') {
+                        i++;
+                        sign = 1;
+                    }
+                    if (line[i] >= 48 && line[i] <= 57) {
+                        char *start_num = &line[i];
+                        while (is_num(line[i]) == 0) {
+                            i++;
+                        }
+                        char *finish = &line[--i];
+                        double num = strtod(start_num, &finish);
+                        if (sign) num *= (-1);
+                        obj->matrix.matrix[row][column] = num;
+                        column++;
+                    }
+                    if (column == 3) break;
+                    sign = 0;
+                }
             }
             if (line[0] == 'f') {
                 poligon_memory(line, obj, polygons);
@@ -108,10 +128,11 @@ void poligon_string_parsing(char *input, Data *obj, int polygons_N) {
             }
             char *finish = &input[--i];
             double num = strtod(start_num, &finish);
-            poligon = (int)num;
+            poligon = (int)num - 1;
             obj->poligons[polygons_N].vertexes[count] = poligon;
             count++;
         }
+//        ДОБАВИЛ ЧТО БЫ СДЕЛАТЬ ИЗ 3 6 ШТУК
         if (count == 2){
             obj->poligons[polygons_N].vertexes[count] = poligon;
             count++;
