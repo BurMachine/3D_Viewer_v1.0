@@ -24,7 +24,7 @@ int reading_counting(char *file_name, Data *obj) {
     if (stream == NULL) code = 1;
     if (code == 0) {
         while ((read = getline(&line, &len, stream)) != -1) {
-            if (line[0] == 'v' && line[1] != 't') counter_v++;
+            if (line[0] == 'v' && line[1] != 't' && line[1] != 'n') counter_v++;
             if (line[0] == 'f') counter_f++;
         }
         obj->count_of_vertex = counter_v;
@@ -79,13 +79,14 @@ int parsing_matrix(char *file_name, Data *obj) {
                     if (column == 3) break;
                     sign = 0;
                 }
+                row++;
             }
             if (line[0] == 'f') {
                 poligon_memory(line, obj, polygons);
                 poligon_string_parsing(line, obj, polygons);
                 polygons++;
             }
-            row++;
+
         }
     }
     free(line);

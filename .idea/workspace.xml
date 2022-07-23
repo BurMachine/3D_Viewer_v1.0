@@ -113,9 +113,9 @@
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/gryffind_dev/main.c</url>
-          <line>19</line>
-          <option name="timeStamp" value="27" />
+          <url>file://$PROJECT_DIR$/src/gryffind_dev/parsing.c</url>
+          <line>29</line>
+          <option name="timeStamp" value="30" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

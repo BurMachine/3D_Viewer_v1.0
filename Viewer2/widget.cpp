@@ -48,33 +48,38 @@ void Widget::resizeGL(int w, int h) {
 
 
 void Widget::filler() {
-    char filename[50] = "cub.obj";
-//    char filename[50] = "easyCube.obj";
+//    char filename[50] = "cub.obj";
+    char filename[50] = "eyeball.obj";
+//        char filename[50] = "hand.obj";
 
+
+//    char filename[50] = "easyCube.obj";
+//    char filename[50] = "cat.obj";
     obj.count_of_polygons = 0;
     obj.count_of_vertex = 0;
     reading_counting(filename, &obj);
     parsing_matrix(filename, &obj);
-        for (int i = 0; i < obj.matrix.rows; i++) {
-            for (int j = 0; j < obj.matrix.columns; j++) {
-                qDebug() << obj.matrix.matrix[i][j];
-            }
-    //        printf("\n");
-        }
+//        for (int i = 0; i < obj.matrix.rows; i++) {
+//            for (int j = 0; j < obj.matrix.columns; j++) {
+//                qDebug() << obj.matrix.matrix[i][j];
+//            }
+//    //        printf("\n");
+//        }
 
-        for (int i = 0;i < obj.count_of_polygons ; i++) {
-            for (int j = 0; j < obj.poligons[i].numbers_of_vertexes_in_facets*2; j++) {
-                 qDebug() << obj.poligons[i].vertexes[j];
-            }
-        }
+//        for (int i = 0;i < obj.count_of_polygons ; i++) {
+//            for (int j = 0; j < obj.poligons[i].numbers_of_vertexes_in_facets*2; j++) {
+//                 qDebug() << obj.poligons[i].vertexes[j];
+//            }
+//        }
 }
 
 void Widget::paintGL() {
     initializeGL();
-    glTranslatef(0,0,-4);
-
-    double virus[1000];
-    unsigned int facetus[1000];
+    glTranslatef(0,0,-5);
+    //на 10 тыщ чтоб пукан хотя бы у кошки отрисовался
+    double virus[obj.count_of_vertex * 4];
+//    calloc(obj.count_of_vertex, sizeof(double))
+    unsigned int facetus[obj.count_of_polygons * 4];
     for (int i = 0, k = 0; i < obj.matrix.rows; i++) {
         for (int j = 0; j < obj.matrix.columns; j++, k++) {
             virus[k] = obj.matrix.matrix[i][j];
@@ -129,10 +134,10 @@ void Widget::paintGL() {
 
         glColor4f(r, g, b, 1); // цвет линий
 //        glDrawElements(GL_POINTS, 72, GL_UNSIGNED_INT, obj.poligons);
-        glDrawElements(GL_POINTS, 72, GL_UNSIGNED_INT, facetus);
+        glDrawElements(GL_POINTS, obj.count_of_polygons * 6, GL_UNSIGNED_INT, facetus);
         glColor4f(0.1, 0.75, 0.3, 1);
 //       glDrawElements(GL_LINES, 72, GL_UNSIGNED_INT, obj.poligons);
-        glDrawElements(GL_LINES, 72, GL_UNSIGNED_INT, facetus);
+        glDrawElements(GL_LINES, obj.count_of_polygons * 6, GL_UNSIGNED_INT, facetus);
 
 //    glDrawElements(GL_TRIANGLES, massives.size_polygons / 6, GL_UNSIGNED_INT, massives.polygons);
     glDisable(GL_POINT_SMOOTH);
