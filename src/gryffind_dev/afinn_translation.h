@@ -8,6 +8,13 @@
 #include "parsing.h"
 
 void change_of_size(Data *obj, double coefficient);
-void move(Data *obj, double constant);
+
+void change_of_size_x(Data *obj, double coefficient);
+void change_of_size_y(Data *obj, double coefficient);
+void change_of_size_z(Data *obj, double coefficient);
+
+void move_x(Data *obj, double constant);
+void move_y(Data *obj, double constant);
+void move_z(Data *obj, double constant);
 
 #endif //GRYFFIND_DEV_AFINN_TRANSLATION_H

@@ -20,8 +20,8 @@
      parsing_matrix(filename, &obj);
 
 
-     change_of_size(&obj, (double)2);
-     move(&obj, (double)2);
+//     change_of_size_z(&obj, (double)2);
+     move_z(&obj, (double)2);
 
      print_matrix(obj.matrix);
      poligon_print(obj);
@@ -34,6 +34,3 @@
  }
 
 
-void move_x(matrix_t *A, double a) {
-    for (int i = 0; i < A->rows; i++) A->matrix[i][0] += a;
-}

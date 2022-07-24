@@ -12,26 +12,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dd752884-a462-46d0-95e7-12bde697c7c6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../Viewer2/mainwindow.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Viewer2/mainwindow.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Viewer2/mainwindow.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Viewer2/Viewer2.pro" beforeDir="false" afterPath="$PROJECT_DIR$/../../Viewer2/Viewer2.pro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Viewer2/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Viewer2/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Viewer2/widget.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Viewer2/widget.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/.qtc_clangd/.cache/clangd/index/main.cpp.5D75367F32A84D0D.idx" beforeDir="false" afterPath="$PROJECT_DIR$/../../build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/.qtc_clangd/.cache/clangd/index/main.cpp.5D75367F32A84D0D.idx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/.qtc_clangd/.cache/clangd/index/parsing.c.A952BF773C75DB10.idx" beforeDir="false" afterPath="$PROJECT_DIR$/../../build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/.qtc_clangd/.cache/clangd/index/parsing.c.A952BF773C75DB10.idx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/.qtc_clangd/.cache/clangd/index/supportFunction.c.9DFBB1CD1BBDDE71.idx" beforeDir="false" afterPath="$PROJECT_DIR$/../../build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/.qtc_clangd/.cache/clangd/index/supportFunction.c.9DFBB1CD1BBDDE71.idx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/.qtc_clangd/.cache/clangd/index/parsing.h.3B1397B53DFF4E65.idx" beforeDir="false" afterPath="$PROJECT_DIR$/../../build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/.qtc_clangd/.cache/clangd/index/parsing.h.3B1397B53DFF4E65.idx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/.qtc_clangd/.cache/clangd/index/qvariant.h.C4653DAA0A741CB5.idx" beforeDir="false" afterPath="$PROJECT_DIR$/../../build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/.qtc_clangd/.cache/clangd/index/qvariant.h.C4653DAA0A741CB5.idx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/.qtc_clangd/.cache/clangd/index/ui_widget.h.9726B2BAFE76555C.idx" beforeDir="false" afterPath="$PROJECT_DIR$/../../build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/.qtc_clangd/.cache/clangd/index/ui_widget.h.9726B2BAFE76555C.idx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/.qtc_clangd/.cache/clangd/index/widget.cpp.F0282E79E02F02FF.idx" beforeDir="false" afterPath="$PROJECT_DIR$/../../build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/.qtc_clangd/.cache/clangd/index/widget.cpp.F0282E79E02F02FF.idx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/.qtc_clangd/.cache/clangd/index/widget.h.7F8494BAA8060498.idx" beforeDir="false" afterPath="$PROJECT_DIR$/../../build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/.qtc_clangd/.cache/clangd/index/widget.h.7F8494BAA8060498.idx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/.qtc_clangd/compile_commands.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/.qtc_clangd/compile_commands.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../../build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/afinn_translation.c" beforeDir="false" afterPath="$PROJECT_DIR$/afinn_translation.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/afinn_translation.h" beforeDir="false" afterPath="$PROJECT_DIR$/afinn_translation.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2022-07-24T12-05-19-0048.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/gryffind_dev" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/gryffind_dev" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parsing.h" beforeDir="false" afterPath="$PROJECT_DIR$/parsing.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/supportFunction.c" beforeDir="false" afterPath="$PROJECT_DIR$/supportFunction.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing.c" beforeDir="false" afterPath="$PROJECT_DIR$/parsing.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

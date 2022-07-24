@@ -37,7 +37,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = Viewer21.0.0
-DISTDIR = /Users/corkiudy/C8_3DViewer_v1.0-0/build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/.tmp/Viewer21.0.0
+DISTDIR = /Users/gryffind/C8_3DViewer_v1.0-1/build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/.tmp/Viewer21.0.0
 LINK          = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
 LFLAGS        = -stdlib=libc++ -headerpad_max_install_names $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11 -Wl,-rpath,@executable_path/../Frameworks -Wl,-rpath,/usr/local/lib
 LIBS          = $(SUBLIBS) -F/usr/local/lib -framework QtOpenGLWidgets -framework QtOpenGL -framework QtWidgets -framework QtGui -framework AppKit -framework ImageIO -framework Metal -framework QtCore -framework DiskArbitration -framework IOKit -framework AGL -framework OpenGL   
@@ -66,7 +66,9 @@ SOURCES       = ../src/gryffind_dev/matrix/check.c \
 		../src/gryffind_dev/supportFunction.c \
 		../src/translator.c \
 		../Viewer2/main.cpp \
-		../Viewer2/widget.cpp moc_widget.cpp
+		../Viewer2/mainwindow.cpp \
+		../Viewer2/widget.cpp moc_mainwindow.cpp \
+		moc_widget.cpp
 OBJECTS       = check.o \
 		determinant.o \
 		s21_calc_complements.o \
@@ -81,7 +83,9 @@ OBJECTS       = check.o \
 		supportFunction.o \
 		translator.o \
 		main.o \
+		mainwindow.o \
 		widget.o \
+		moc_mainwindow.o \
 		moc_widget.o
 DIST          = ../src/gryffind_dev/matrix/Makefile \
 		../src/gryffind_dev/matrix/check.o \
@@ -354,6 +358,7 @@ DIST          = ../src/gryffind_dev/matrix/Makefile \
 		../Viewer2/Viewer2.pro ../src/gryffind_dev/matrix/s21_matrix.h \
 		../src/gryffind_dev/parsing.h \
 		../src/underfile.h \
+		../Viewer2/mainwindow.h \
 		../Viewer2/widget.h ../src/gryffind_dev/matrix/check.c \
 		../src/gryffind_dev/matrix/determinant.c \
 		../src/gryffind_dev/matrix/s21_calc_complements.c \
@@ -368,6 +373,7 @@ DIST          = ../src/gryffind_dev/matrix/Makefile \
 		../src/gryffind_dev/supportFunction.c \
 		../src/translator.c \
 		../Viewer2/main.cpp \
+		../Viewer2/mainwindow.cpp \
 		../Viewer2/widget.cpp
 QMAKE_TARGET  = Viewer2
 DESTDIR       = 
@@ -377,19 +383,19 @@ TARGET        = Viewer2.app/Contents/MacOS/Viewer2
 EXPORT_QMAKE_MAC_SDK = macosx
 EXPORT_QMAKE_MAC_SDK_VERSION = 12.1
 EXPORT_QMAKE_XCODE_DEVELOPER_PATH = /Applications/Xcode.app/Contents/Developer
-EXPORT__QMAKE_STASH_ = /Users/corkiudy/C8_3DViewer_v1.0-0/build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/.qmake.stash
+EXPORT__QMAKE_STASH_ = /Users/gryffind/C8_3DViewer_v1.0-1/build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/.qmake.stash
 EXPORT_VALID_ARCHS = x86_64
 EXPORT_DEFAULT_ARCHS = x86_64
 EXPORT_ARCHS = $(filter $(EXPORT_VALID_ARCHS), $(if $(ARCHS), $(ARCHS), $(if $(EXPORT_DEFAULT_ARCHS), $(EXPORT_DEFAULT_ARCHS), $(EXPORT_VALID_ARCHS))))
 EXPORT_ARCH_ARGS = $(foreach arch, $(if $(EXPORT_ARCHS), $(EXPORT_ARCHS), $(EXPORT_VALID_ARCHS)), -arch $(arch))
-EXPORT__PRO_FILE_ = /Users/corkiudy/C8_3DViewer_v1.0-0/Viewer2/Viewer2.pro
+EXPORT__PRO_FILE_ = /Users/gryffind/C8_3DViewer_v1.0-1/Viewer2/Viewer2.pro
 
 
 include /usr/local/share/qt/mkspecs/features/mac/sdk.mk
 first: all
 ####### Build rules
 
-Viewer2.app/Contents/MacOS/Viewer2: ui_widget.h $(OBJECTS)  
+Viewer2.app/Contents/MacOS/Viewer2: ui_mainwindow.h ui_widget.h $(OBJECTS)  
 	@test -d Viewer2.app/Contents/MacOS/ || mkdir -p Viewer2.app/Contents/MacOS/
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
@@ -932,7 +938,7 @@ Viewer2.app/Contents/Resources/empty.lproj:
 Viewer2.app/Contents/Info.plist: 
 	@test -d Viewer2.app/Contents || mkdir -p Viewer2.app/Contents
 	@$(DEL_FILE) Viewer2.app/Contents/Info.plist
-	@sed -e "s,@SHORT_VERSION@,1.0,g" -e "s,\$${QMAKE_SHORT_VERSION},1.0,g" -e "s,@FULL_VERSION@,1.0.0,g" -e "s,\$${QMAKE_FULL_VERSION},1.0.0,g" -e "s,@TYPEINFO@,????,g" -e "s,\$${QMAKE_PKGINFO_TYPEINFO},????,g" -e "s,@BUNDLEIDENTIFIER@,com.yourcompany.Viewer2,g" -e "s,\$${PRODUCT_BUNDLE_IDENTIFIER},com.yourcompany.Viewer2,g" -e "s,\$${MACOSX_DEPLOYMENT_TARGET},11,g" -e "s,\$${IPHONEOS_DEPLOYMENT_TARGET},,g" -e "s,\$${TVOS_DEPLOYMENT_TARGET},,g" -e "s,\$${WATCHOS_DEPLOYMENT_TARGET},,g" -e "s,\$${IOS_LAUNCH_SCREEN},LaunchScreen,g" -e "s,@ICON@,,g" -e "s,\$${ASSETCATALOG_COMPILER_APPICON_NAME},,g" -e "s,@EXECUTABLE@,Viewer2,g" -e "s,@LIBRARY@,Viewer2,g" -e "s,\$${EXECUTABLE_NAME},Viewer2,g" -e "s,@TYPEINFO@,????,g" -e "s,\$${QMAKE_PKGINFO_TYPEINFO},????,g" /usr/local/share/qt/mkspecs/macx-clang/Info.plist.app >Viewer2.app/Contents/Info.plist
+	@sed -e "s,@SHORT_VERSION@,1.0,g" -e "s,\$${QMAKE_SHORT_VERSION},1.0,g" -e "s,@FULL_VERSION@,1.0.0,g" -e "s,\$${QMAKE_FULL_VERSION},1.0.0,g" -e "s,@TYPEINFO@,????,g" -e "s,\$${QMAKE_PKGINFO_TYPEINFO},????,g" -e "s,@BUNDLEIDENTIFIER@,123.Viewer2,g" -e "s,\$${PRODUCT_BUNDLE_IDENTIFIER},123.Viewer2,g" -e "s,\$${MACOSX_DEPLOYMENT_TARGET},11,g" -e "s,\$${IPHONEOS_DEPLOYMENT_TARGET},,g" -e "s,\$${TVOS_DEPLOYMENT_TARGET},,g" -e "s,\$${WATCHOS_DEPLOYMENT_TARGET},,g" -e "s,\$${IOS_LAUNCH_SCREEN},LaunchScreen,g" -e "s,@ICON@,,g" -e "s,\$${ASSETCATALOG_COMPILER_APPICON_NAME},,g" -e "s,@EXECUTABLE@,Viewer2,g" -e "s,@LIBRARY@,Viewer2,g" -e "s,\$${EXECUTABLE_NAME},Viewer2,g" -e "s,@TYPEINFO@,????,g" -e "s,\$${QMAKE_PKGINFO_TYPEINFO},????,g" /usr/local/share/qt/mkspecs/macx-clang/Info.plist.app >Viewer2.app/Contents/Info.plist
 
 all: Makefile \
 		Viewer2.app/Contents/PkgInfo \
@@ -946,9 +952,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/local/share/qt/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../src/gryffind_dev/matrix/s21_matrix.h ../src/gryffind_dev/parsing.h ../src/underfile.h ../Viewer2/widget.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../src/gryffind_dev/matrix/check.c ../src/gryffind_dev/matrix/determinant.c ../src/gryffind_dev/matrix/s21_calc_complements.c ../src/gryffind_dev/matrix/s21_create_matrix.c ../src/gryffind_dev/matrix/s21_eq_matrix.c ../src/gryffind_dev/matrix/s21_inverse_matrix.c ../src/gryffind_dev/matrix/s21_mult.c ../src/gryffind_dev/matrix/s21_remove_matrix.c ../src/gryffind_dev/matrix/s21_sum_sub.c ../src/gryffind_dev/matrix/s21_transpon.c ../src/gryffind_dev/parsing.c ../src/gryffind_dev/supportFunction.c ../src/translator.c ../Viewer2/main.cpp ../Viewer2/widget.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../Viewer2/widget.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../src/gryffind_dev/matrix/s21_matrix.h ../src/gryffind_dev/parsing.h ../src/underfile.h ../Viewer2/mainwindow.h ../Viewer2/widget.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../src/gryffind_dev/matrix/check.c ../src/gryffind_dev/matrix/determinant.c ../src/gryffind_dev/matrix/s21_calc_complements.c ../src/gryffind_dev/matrix/s21_create_matrix.c ../src/gryffind_dev/matrix/s21_eq_matrix.c ../src/gryffind_dev/matrix/s21_inverse_matrix.c ../src/gryffind_dev/matrix/s21_mult.c ../src/gryffind_dev/matrix/s21_remove_matrix.c ../src/gryffind_dev/matrix/s21_sum_sub.c ../src/gryffind_dev/matrix/s21_transpon.c ../src/gryffind_dev/parsing.c ../src/gryffind_dev/supportFunction.c ../src/translator.c ../Viewer2/main.cpp ../Viewer2/mainwindow.cpp ../Viewer2/widget.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../Viewer2/mainwindow.ui ../Viewer2/widget.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -983,9 +989,16 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/local/share/qt/mkspecs/features/data/dummy.cpp
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -pipe -stdlib=libc++ -g -std=gnu++1z $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11 -Wall -Wextra -dM -E -o moc_predefs.h /usr/local/share/qt/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_widget.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_widget.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_widget.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_widget.cpp
+moc_mainwindow.cpp: ../Viewer2/mainwindow.h \
+		/usr/local/lib/QtWidgets.framework/Headers/QMainWindow \
+		/usr/local/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		moc_predefs.h \
+		/usr/local/share/qt/libexec/moc
+	/usr/local/share/qt/libexec/moc $(DEFINES) --include /Users/gryffind/C8_3DViewer_v1.0-1/build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/moc_predefs.h -I/usr/local/share/qt/mkspecs/macx-clang -I/Users/gryffind/C8_3DViewer_v1.0-1/Viewer2 -I/usr/local/lib/QtOpenGLWidgets.framework/Headers -I/usr/local/lib/QtOpenGL.framework/Headers -I/usr/local/lib/QtWidgets.framework/Headers -I/usr/local/lib/QtGui.framework/Headers -I/usr/local/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/usr/local/lib ../Viewer2/mainwindow.h -o moc_mainwindow.cpp
+
 moc_widget.cpp: ../Viewer2/widget.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QWidget \
 		/usr/local/lib/QtWidgets.framework/Headers/qwidget.h \
@@ -1001,15 +1014,32 @@ moc_widget.cpp: ../Viewer2/widget.h \
 		../src/gryffind_dev/matrix/s21_matrix.h \
 		moc_predefs.h \
 		/usr/local/share/qt/libexec/moc
-	/usr/local/share/qt/libexec/moc $(DEFINES) --include /Users/corkiudy/C8_3DViewer_v1.0-0/build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/moc_predefs.h -I/usr/local/share/qt/mkspecs/macx-clang -I/Users/corkiudy/C8_3DViewer_v1.0-0/Viewer2 -I/usr/local/lib/QtOpenGLWidgets.framework/Headers -I/usr/local/lib/QtOpenGL.framework/Headers -I/usr/local/lib/QtWidgets.framework/Headers -I/usr/local/lib/QtGui.framework/Headers -I/usr/local/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/usr/local/lib ../Viewer2/widget.h -o moc_widget.cpp
+	/usr/local/share/qt/libexec/moc $(DEFINES) --include /Users/gryffind/C8_3DViewer_v1.0-1/build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/moc_predefs.h -I/usr/local/share/qt/mkspecs/macx-clang -I/Users/gryffind/C8_3DViewer_v1.0-1/Viewer2 -I/usr/local/lib/QtOpenGLWidgets.framework/Headers -I/usr/local/lib/QtOpenGL.framework/Headers -I/usr/local/lib/QtWidgets.framework/Headers -I/usr/local/lib/QtGui.framework/Headers -I/usr/local/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/usr/local/lib ../Viewer2/widget.h -o moc_widget.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_widget.h
+compiler_uic_make_all: ui_mainwindow.h ui_widget.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_widget.h
+	-$(DEL_FILE) ui_mainwindow.h ui_widget.h
+ui_mainwindow.h: ../Viewer2/mainwindow.ui \
+		/usr/local/share/qt/libexec/uic \
+		../Viewer2/widget.h \
+		/usr/local/lib/QtWidgets.framework/Headers/QWidget \
+		/usr/local/lib/QtWidgets.framework/Headers/qwidget.h \
+		/usr/local/lib/QtGui.framework/Headers/QOpenGLFunctions \
+		/usr/local/lib/QtGui.framework/Headers/qopenglfunctions.h \
+		/usr/local/lib/QtGui.framework/Headers/QGuiApplication \
+		/usr/local/lib/QtGui.framework/Headers/qguiapplication.h \
+		/usr/local/lib/QtCore.framework/Headers/QTimer \
+		/usr/local/lib/QtCore.framework/Headers/qtimer.h \
+		/usr/local/lib/QtGui.framework/Headers/QMouseEvent \
+		/usr/local/lib/QtGui.framework/Headers/qevent.h \
+		../src/gryffind_dev/parsing.h \
+		../src/gryffind_dev/matrix/s21_matrix.h
+	/usr/local/share/qt/libexec/uic ../Viewer2/mainwindow.ui -o ui_mainwindow.h
+
 ui_widget.h: ../Viewer2/widget.ui \
 		/usr/local/share/qt/libexec/uic
 	/usr/local/share/qt/libexec/uic ../Viewer2/widget.ui -o ui_widget.h
@@ -1080,9 +1110,18 @@ main.o: ../Viewer2/main.cpp ../Viewer2/widget.h \
 		/usr/local/lib/QtGui.framework/Headers/qevent.h \
 		../src/gryffind_dev/parsing.h \
 		../src/gryffind_dev/matrix/s21_matrix.h \
+		../Viewer2/mainwindow.h \
+		/usr/local/lib/QtWidgets.framework/Headers/QMainWindow \
+		/usr/local/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QApplication \
 		/usr/local/lib/QtWidgets.framework/Headers/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Viewer2/main.cpp
+
+mainwindow.o: ../Viewer2/mainwindow.cpp ../Viewer2/mainwindow.h \
+		/usr/local/lib/QtWidgets.framework/Headers/QMainWindow \
+		/usr/local/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		ui_mainwindow.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../Viewer2/mainwindow.cpp
 
 widget.o: ../Viewer2/widget.cpp ../Viewer2/widget.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QWidget \
@@ -1099,6 +1138,9 @@ widget.o: ../Viewer2/widget.cpp ../Viewer2/widget.h \
 		../src/gryffind_dev/matrix/s21_matrix.h \
 		ui_widget.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o widget.o ../Viewer2/widget.cpp
+
+moc_mainwindow.o: moc_mainwindow.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
 
 moc_widget.o: moc_widget.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_widget.o moc_widget.cpp

@@ -23,15 +23,18 @@ SOURCES += \
     ../src/gryffind_dev/supportFunction.c \
     ../src/translator.c \
     main.cpp \
+    mainwindow.cpp \
     widget.cpp
 
 HEADERS += \
     ../src/gryffind_dev/matrix/s21_matrix.h \
     ../src/gryffind_dev/parsing.h \
     ../src/underfile.h \
+    mainwindow.h \
     widget.h
 
 FORMS += \
+    mainwindow.ui \
     widget.ui
 
 # Default rules for deployment.

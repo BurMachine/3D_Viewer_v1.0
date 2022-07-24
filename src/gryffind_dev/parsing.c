@@ -115,37 +115,10 @@ void vertex_filler(char *line, Data *obj, int *row, int *column) {
     }
 }
 void poligon_string_parsing(char *input, Data *obj, int polygons_N) {
-//    int poligon;
-//    int count = 0;
-//    obj->poligons[polygons_N].vertexes =
-//        calloc(obj->poligons[polygons_N].numbers_of_vertexes_in_facets*2, sizeof(int));
-//    for (int i = 0; input[i] != '\n'; i++) {
-//        if ((is_num(input[i]) == 0) && input[i - 1] == ' ') {
-//            char *start_num = &input[i];
-//            while (is_num(input[i]) == 0) {
-//                i++;
-//            }
-//            char *finish = &input[--i];
-//            double num = strtod(start_num, &finish);
-//            poligon = (int)num - 1;
-//            obj->poligons[polygons_N].vertexes[count] = poligon;
-//            count++;
-//        }
-////        ДОБАВИЛ ЧТО БЫ СДЕЛАТЬ ИЗ 3 6 ШТУК
-//        if (count == 2){
-//            obj->poligons[polygons_N].vertexes[count] = poligon;
-//            count++;
-//        }
-//        if (count == 4){
-//            obj->poligons[polygons_N].vertexes[count] = poligon;
-//            count++;
-//            obj->poligons[polygons_N].vertexes[count] = obj->poligons[polygons_N].vertexes[0];
-//        }
-//    }
-
     int poligon;
     int count = 0;
-    obj->poligons[polygons_N].vertexes = calloc(obj->poligons[polygons_N].numbers_of_vertexes_in_facets, (obj->poligons[polygons_N].numbers_of_vertexes_in_facets + 1)*sizeof(int));
+    obj->poligons[polygons_N].vertexes =
+        calloc(obj->poligons[polygons_N].numbers_of_vertexes_in_facets*2, sizeof(int));
     for (int i = 0; input[i] != '\n'; i++) {
         if ((is_num(input[i]) == 0) && input[i - 1] == ' ') {
             char *start_num = &input[i];
@@ -154,11 +127,38 @@ void poligon_string_parsing(char *input, Data *obj, int polygons_N) {
             }
             char *finish = &input[--i];
             double num = strtod(start_num, &finish);
-            poligon = (int)num;
+            poligon = (int)num - 1;
             obj->poligons[polygons_N].vertexes[count] = poligon;
             count++;
         }
+//        ДОБАВИЛ ЧТО БЫ СДЕЛАТЬ ИЗ 3 6 ШТУК
+        if (count == 2){
+            obj->poligons[polygons_N].vertexes[count] = poligon;
+            count++;
+        }
+        if (count == 4){
+            obj->poligons[polygons_N].vertexes[count] = poligon;
+            count++;
+            obj->poligons[polygons_N].vertexes[count] = obj->poligons[polygons_N].vertexes[0];
+        }
     }
+
+//    int poligon;
+//    int count = 0;
+//    obj->poligons[polygons_N].vertexes = calloc(obj->poligons[polygons_N].numbers_of_vertexes_in_facets, (obj->poligons[polygons_N].numbers_of_vertexes_in_facets + 1)*sizeof(int));
+//    for (int i = 0; input[i] != '\n'; i++) {
+//        if ((is_num(input[i]) == 0) && input[i - 1] == ' ') {
+//            char *start_num = &input[i];
+//            while (is_num(input[i]) == 0) {
+//                i++;
+//            }
+//            char *finish = &input[--i];
+//            double num = strtod(start_num, &finish);
+//            poligon = (int)num;
+//            obj->poligons[polygons_N].vertexes[count] = poligon;
+//            count++;
+//        }
+//    }
 
 }
 // смотрит сколько полигонов будет в facets

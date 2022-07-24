@@ -56,8 +56,8 @@ void Widget::filler() {
 //    char filename[50] = "cub.obj";
 //    char filename[50] = "eyeball.obj";
 //   char filename[50] = "hand.obj";
-//    char filename[50] = "easyCube.obj";
-    char filename[50] = "cat.obj";
+    char filename[50] = "Mercedes+Benz+GLS+580.obj";
+//    char filename[50] = "cat.obj";
 
     obj.count_of_polygons = 0;
     obj.count_of_vertex = 0;
@@ -85,8 +85,6 @@ void Widget::paintGL() {
              facetus[k] = obj.poligons[i].vertexes[j];
         }
     }
-
-
 
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
