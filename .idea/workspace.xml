@@ -15,8 +15,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d0186d35-86bf-404b-8949-ccffa4f66aed" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/underfile.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/underfile.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Viewer2/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Viewer2/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Viewer2/widget.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Viewer2/widget.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Viewer2/widget.h" beforeDir="false" afterPath="$PROJECT_DIR$/Viewer2/widget.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/.qtc_clangd/.cache/clangd/index/widget.cpp.895A461CEAE9455C.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/.qtc_clangd/.cache/clangd/index/widget.cpp.895A461CEAE9455C.idx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/.qtc_clangd/compile_commands.json" beforeDir="false" afterPath="$PROJECT_DIR$/build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/.qtc_clangd/compile_commands.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gryffind_dev/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/gryffind_dev/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,12 +73,12 @@
     </key>
   </component>
   <component name="RunManager" selected="CMake Application.gryffind_dev">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration name="C8_3DViewer_v1_0_0" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="gryffind_dev" TARGET_NAME="C8_3DViewer_v1_0_0" RUN_TARGET_PROJECT_NAME="gryffind_dev" RUN_TARGET_NAME="C8_3DViewer_v1_0_0">
       <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="C8_3DViewer_v1_0_0" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="gryffind_dev" TARGET_NAME="C8_3DViewer_v1_0_0" RUN_TARGET_PROJECT_NAME="gryffind_dev" RUN_TARGET_NAME="C8_3DViewer_v1_0_0">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -98,6 +103,7 @@
       <updated>1658512958647</updated>
       <workItem from="1658512962475" duration="1636000" />
       <workItem from="1658516153045" duration="1606000" />
+      <workItem from="1658662465512" duration="180000" />
     </task>
     <servers />
   </component>
