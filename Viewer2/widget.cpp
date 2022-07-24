@@ -10,7 +10,7 @@ Widget::Widget(QWidget *parent)
 {
     setWindowTitle("the game");
     setGeometry(400,200,800,600);
-    filler();
+    filler(0, 0, 0, 0);
 }
 
 Widget::~Widget()
@@ -52,22 +52,29 @@ max*=1.2;
 
 
 
-void Widget::filler() {
+void Widget::filler(int a, double x, double y, double z) {
 //    char filename[50] = "cub.obj";
 //    char filename[50] = "eyeball.obj";
-//   char filename[50] = "hand.obj";
-    char filename[50] = "Mercedes+Benz+GLS+580.obj";
+   char filename[50] = "Low-Poly-Racing-Car.obj";
+//    char filename[50] = "Mercedes+Benz+GLS+580.obj";
 //    char filename[50] = "cat.obj";
-
+    printf("kek\n");
     obj.count_of_polygons = 0;
     obj.count_of_vertex = 0;
     reading_counting(filename, &obj);
     parsing_matrix(filename, &obj);
+    if(a == 1) {
+        change_of_size_x(&obj, x);
+        change_of_size_y(&obj, y);
+        change_of_size_z(&obj, z);
+    } else if (a == 2) {
 
+    }
+    update();
 }
 
 void Widget::paintGL() {
-    initializeGL();
+//    initializeGL();
     glTranslatef(0,0,-4);
     //на 10 тыщ чтоб пукан хотя бы у кошки отрисовался
 //    double virus[obj.count_of_vertex * 10];
@@ -111,7 +118,7 @@ void Widget::paintGL() {
 
 
     glDisableClientState(GL_VERTEX_ARRAY);
-    free(vertex);
+//    free(vertex);
 //    free(facets);
 }
 //width - ширина

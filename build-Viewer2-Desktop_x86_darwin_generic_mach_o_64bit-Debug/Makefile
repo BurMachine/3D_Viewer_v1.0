@@ -67,7 +67,8 @@ SOURCES       = ../src/gryffind_dev/matrix/check.c \
 		../src/translator.c \
 		../Viewer2/main.cpp \
 		../Viewer2/mainwindow.cpp \
-		../Viewer2/widget.cpp moc_mainwindow.cpp \
+		../Viewer2/widget.cpp \
+		../src/gryffind_dev/afinn_translation.c moc_mainwindow.cpp \
 		moc_widget.cpp
 OBJECTS       = check.o \
 		determinant.o \
@@ -85,6 +86,7 @@ OBJECTS       = check.o \
 		main.o \
 		mainwindow.o \
 		widget.o \
+		afinn_translation.o \
 		moc_mainwindow.o \
 		moc_widget.o
 DIST          = ../src/gryffind_dev/matrix/Makefile \
@@ -359,7 +361,8 @@ DIST          = ../src/gryffind_dev/matrix/Makefile \
 		../src/gryffind_dev/parsing.h \
 		../src/underfile.h \
 		../Viewer2/mainwindow.h \
-		../Viewer2/widget.h ../src/gryffind_dev/matrix/check.c \
+		../Viewer2/widget.h \
+		../src/gryffind_dev/afinn_translation.h ../src/gryffind_dev/matrix/check.c \
 		../src/gryffind_dev/matrix/determinant.c \
 		../src/gryffind_dev/matrix/s21_calc_complements.c \
 		../src/gryffind_dev/matrix/s21_create_matrix.c \
@@ -374,7 +377,8 @@ DIST          = ../src/gryffind_dev/matrix/Makefile \
 		../src/translator.c \
 		../Viewer2/main.cpp \
 		../Viewer2/mainwindow.cpp \
-		../Viewer2/widget.cpp
+		../Viewer2/widget.cpp \
+		../src/gryffind_dev/afinn_translation.c
 QMAKE_TARGET  = Viewer2
 DESTDIR       = 
 TARGET        = Viewer2.app/Contents/MacOS/Viewer2
@@ -952,8 +956,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/local/share/qt/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../src/gryffind_dev/matrix/s21_matrix.h ../src/gryffind_dev/parsing.h ../src/underfile.h ../Viewer2/mainwindow.h ../Viewer2/widget.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../src/gryffind_dev/matrix/check.c ../src/gryffind_dev/matrix/determinant.c ../src/gryffind_dev/matrix/s21_calc_complements.c ../src/gryffind_dev/matrix/s21_create_matrix.c ../src/gryffind_dev/matrix/s21_eq_matrix.c ../src/gryffind_dev/matrix/s21_inverse_matrix.c ../src/gryffind_dev/matrix/s21_mult.c ../src/gryffind_dev/matrix/s21_remove_matrix.c ../src/gryffind_dev/matrix/s21_sum_sub.c ../src/gryffind_dev/matrix/s21_transpon.c ../src/gryffind_dev/parsing.c ../src/gryffind_dev/supportFunction.c ../src/translator.c ../Viewer2/main.cpp ../Viewer2/mainwindow.cpp ../Viewer2/widget.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../src/gryffind_dev/matrix/s21_matrix.h ../src/gryffind_dev/parsing.h ../src/underfile.h ../Viewer2/mainwindow.h ../Viewer2/widget.h ../src/gryffind_dev/afinn_translation.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../src/gryffind_dev/matrix/check.c ../src/gryffind_dev/matrix/determinant.c ../src/gryffind_dev/matrix/s21_calc_complements.c ../src/gryffind_dev/matrix/s21_create_matrix.c ../src/gryffind_dev/matrix/s21_eq_matrix.c ../src/gryffind_dev/matrix/s21_inverse_matrix.c ../src/gryffind_dev/matrix/s21_mult.c ../src/gryffind_dev/matrix/s21_remove_matrix.c ../src/gryffind_dev/matrix/s21_sum_sub.c ../src/gryffind_dev/matrix/s21_transpon.c ../src/gryffind_dev/parsing.c ../src/gryffind_dev/supportFunction.c ../src/translator.c ../Viewer2/main.cpp ../Viewer2/mainwindow.cpp ../Viewer2/widget.cpp ../src/gryffind_dev/afinn_translation.c $(DISTDIR)/
 	$(COPY_FILE) --parents ../Viewer2/mainwindow.ui ../Viewer2/widget.ui $(DISTDIR)/
 
 
@@ -995,6 +999,20 @@ compiler_moc_header_clean:
 moc_mainwindow.cpp: ../Viewer2/mainwindow.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QMainWindow \
 		/usr/local/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../Viewer2/widget.h \
+		/usr/local/lib/QtWidgets.framework/Headers/QWidget \
+		/usr/local/lib/QtWidgets.framework/Headers/qwidget.h \
+		/usr/local/lib/QtGui.framework/Headers/QOpenGLFunctions \
+		/usr/local/lib/QtGui.framework/Headers/qopenglfunctions.h \
+		/usr/local/lib/QtGui.framework/Headers/QGuiApplication \
+		/usr/local/lib/QtGui.framework/Headers/qguiapplication.h \
+		/usr/local/lib/QtCore.framework/Headers/QTimer \
+		/usr/local/lib/QtCore.framework/Headers/qtimer.h \
+		/usr/local/lib/QtGui.framework/Headers/QMouseEvent \
+		/usr/local/lib/QtGui.framework/Headers/qevent.h \
+		../src/gryffind_dev/parsing.h \
+		../src/gryffind_dev/matrix/s21_matrix.h \
+		../src/gryffind_dev/afinn_translation.h \
 		moc_predefs.h \
 		/usr/local/share/qt/libexec/moc
 	/usr/local/share/qt/libexec/moc $(DEFINES) --include /Users/gryffind/C8_3DViewer_v1.0-1/build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/moc_predefs.h -I/usr/local/share/qt/mkspecs/macx-clang -I/Users/gryffind/C8_3DViewer_v1.0-1/Viewer2 -I/usr/local/lib/QtOpenGLWidgets.framework/Headers -I/usr/local/lib/QtOpenGL.framework/Headers -I/usr/local/lib/QtWidgets.framework/Headers -I/usr/local/lib/QtGui.framework/Headers -I/usr/local/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/usr/local/lib ../Viewer2/mainwindow.h -o moc_mainwindow.cpp
@@ -1012,6 +1030,7 @@ moc_widget.cpp: ../Viewer2/widget.h \
 		/usr/local/lib/QtGui.framework/Headers/qevent.h \
 		../src/gryffind_dev/parsing.h \
 		../src/gryffind_dev/matrix/s21_matrix.h \
+		../src/gryffind_dev/afinn_translation.h \
 		moc_predefs.h \
 		/usr/local/share/qt/libexec/moc
 	/usr/local/share/qt/libexec/moc $(DEFINES) --include /Users/gryffind/C8_3DViewer_v1.0-1/build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/moc_predefs.h -I/usr/local/share/qt/mkspecs/macx-clang -I/Users/gryffind/C8_3DViewer_v1.0-1/Viewer2 -I/usr/local/lib/QtOpenGLWidgets.framework/Headers -I/usr/local/lib/QtOpenGL.framework/Headers -I/usr/local/lib/QtWidgets.framework/Headers -I/usr/local/lib/QtGui.framework/Headers -I/usr/local/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/usr/local/lib ../Viewer2/widget.h -o moc_widget.cpp
@@ -1037,7 +1056,8 @@ ui_mainwindow.h: ../Viewer2/mainwindow.ui \
 		/usr/local/lib/QtGui.framework/Headers/QMouseEvent \
 		/usr/local/lib/QtGui.framework/Headers/qevent.h \
 		../src/gryffind_dev/parsing.h \
-		../src/gryffind_dev/matrix/s21_matrix.h
+		../src/gryffind_dev/matrix/s21_matrix.h \
+		../src/gryffind_dev/afinn_translation.h
 	/usr/local/share/qt/libexec/uic ../Viewer2/mainwindow.ui -o ui_mainwindow.h
 
 ui_widget.h: ../Viewer2/widget.ui \
@@ -1110,6 +1130,7 @@ main.o: ../Viewer2/main.cpp ../Viewer2/widget.h \
 		/usr/local/lib/QtGui.framework/Headers/qevent.h \
 		../src/gryffind_dev/parsing.h \
 		../src/gryffind_dev/matrix/s21_matrix.h \
+		../src/gryffind_dev/afinn_translation.h \
 		../Viewer2/mainwindow.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QMainWindow \
 		/usr/local/lib/QtWidgets.framework/Headers/qmainwindow.h \
@@ -1120,6 +1141,20 @@ main.o: ../Viewer2/main.cpp ../Viewer2/widget.h \
 mainwindow.o: ../Viewer2/mainwindow.cpp ../Viewer2/mainwindow.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QMainWindow \
 		/usr/local/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../Viewer2/widget.h \
+		/usr/local/lib/QtWidgets.framework/Headers/QWidget \
+		/usr/local/lib/QtWidgets.framework/Headers/qwidget.h \
+		/usr/local/lib/QtGui.framework/Headers/QOpenGLFunctions \
+		/usr/local/lib/QtGui.framework/Headers/qopenglfunctions.h \
+		/usr/local/lib/QtGui.framework/Headers/QGuiApplication \
+		/usr/local/lib/QtGui.framework/Headers/qguiapplication.h \
+		/usr/local/lib/QtCore.framework/Headers/QTimer \
+		/usr/local/lib/QtCore.framework/Headers/qtimer.h \
+		/usr/local/lib/QtGui.framework/Headers/QMouseEvent \
+		/usr/local/lib/QtGui.framework/Headers/qevent.h \
+		../src/gryffind_dev/parsing.h \
+		../src/gryffind_dev/matrix/s21_matrix.h \
+		../src/gryffind_dev/afinn_translation.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../Viewer2/mainwindow.cpp
 
@@ -1136,8 +1171,14 @@ widget.o: ../Viewer2/widget.cpp ../Viewer2/widget.h \
 		/usr/local/lib/QtGui.framework/Headers/qevent.h \
 		../src/gryffind_dev/parsing.h \
 		../src/gryffind_dev/matrix/s21_matrix.h \
+		../src/gryffind_dev/afinn_translation.h \
 		ui_widget.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o widget.o ../Viewer2/widget.cpp
+
+afinn_translation.o: ../src/gryffind_dev/afinn_translation.c ../src/gryffind_dev/afinn_translation.h \
+		../src/gryffind_dev/parsing.h \
+		../src/gryffind_dev/matrix/s21_matrix.h
+	$(CC) -c $(CFLAGS) $(INCPATH) -o afinn_translation.o ../src/gryffind_dev/afinn_translation.c
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp

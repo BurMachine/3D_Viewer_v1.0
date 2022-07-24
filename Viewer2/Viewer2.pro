@@ -24,14 +24,16 @@ SOURCES += \
     ../src/translator.c \
     main.cpp \
     mainwindow.cpp \
-    widget.cpp
+    widget.cpp \
+    ../src/gryffind_dev/afinn_translation.c
 
 HEADERS += \
     ../src/gryffind_dev/matrix/s21_matrix.h \
     ../src/gryffind_dev/parsing.h \
     ../src/underfile.h \
     mainwindow.h \
-    widget.h
+    widget.h \
+    ../src/gryffind_dev/afinn_translation.h
 
 FORMS += \
     mainwindow.ui \

@@ -21,11 +21,11 @@
 
 
 //     change_of_size_z(&obj, (double)2);
-     move_z(&obj, (double)2);
-
+//     move_z(&obj, (double)2);
+//     turn_z(&obj, 50);
      print_matrix(obj.matrix);
      poligon_print(obj);
-//     s21_remove_matrix(&obj.matrix);
+     s21_remove_matrix(&obj.matrix);
 ////     obj->poligons[polygons_N].vertexes = calloc(obj->poligons[polygons_N].numbers_of_vertexes_in_facets, (obj->poligons[polygons_N].numbers_of_vertexes_in_facets + 1)*sizeof(int));
 //     for (int i = 0; i < obj.poligons->numbers_of_vertexes_in_facets + 1; i++) {
 //         free(&obj.poligons[i]);

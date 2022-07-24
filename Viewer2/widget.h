@@ -11,6 +11,7 @@
 extern "C" {
 #include "../src/gryffind_dev/parsing.h"
 #include "../src/gryffind_dev/matrix/s21_matrix.h"
+#include "../src/gryffind_dev/afinn_translation.h"
 }
 
 QT_BEGIN_NAMESPACE
@@ -28,11 +29,12 @@ private:
     void initializeGL() override;
     void resizeGL(int w, int h) override;
     void paintGL() override;
-    void filler();
+
 
 public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
+    void filler(int a, double x, double y, double z);
 
     Data obj;
 private:
