@@ -1,6 +1,6 @@
 # Prerequisites
 *.d
-src/gryffind_dev/build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/
+
 # Object files
 *.o
 *.ko
@@ -50,3 +50,4 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+/src
