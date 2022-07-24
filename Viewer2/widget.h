@@ -21,21 +21,13 @@ class Widget : public QOpenGLWidget
 {
     Q_OBJECT
 private:
-//    double z;
     double xRot, yRot, zRot;
     QPoint mPos;
-    QTimer tmr;
-//    void drawCube(float a);
-//    void drawCube_2();
-//    void drawCube_3();
-//    void drawCube_kube();
     void mousePressEvent(QMouseEvent *) override;
     void mouseMoveEvent(QMouseEvent *) override;
     void initializeGL() override;
     void resizeGL(int w, int h) override;
     void paintGL() override;
-    void drawCube_23();
-//    void print_matrix_new(matrix_t mat);
     void filler();
 
 public:
@@ -46,8 +38,7 @@ public:
 private:
     Ui::Widget *ui;
 
-//public slots:
-//    void changeZ();
+
 };
 #endif // WIDGET_H
-//, protected QOpenGLFunctions
+

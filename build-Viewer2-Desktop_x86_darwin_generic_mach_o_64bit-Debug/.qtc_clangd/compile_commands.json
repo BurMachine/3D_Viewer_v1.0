@@ -7,7 +7,11 @@
         "-I",
         "/opt/goinfre/gryffind/Qt Creator.app/Contents/Resources/cplusplus/wrappedQtHeaders/QtCore",
         "-I",
+<<<<<<< HEAD
         "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vslh00yycw/T/QtCreator-tJIxPO/clang-uiheader-cesgFS",
+=======
+        "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vt1r00yyhf/T/QtCreator-xqtCnZ/clang-uiheader-hNqRoX",
+>>>>>>> b3e6d7e37c3d20edb55d0c6b4376b5cc00f3b498
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -85,7 +89,11 @@
         "-I",
         "/opt/goinfre/gryffind/Qt Creator.app/Contents/Resources/cplusplus/wrappedQtHeaders/QtCore",
         "-I",
+<<<<<<< HEAD
         "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vslh00yycw/T/QtCreator-tJIxPO/clang-uiheader-cesgFS",
+=======
+        "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vt1r00yyhf/T/QtCreator-xqtCnZ/clang-uiheader-hNqRoX",
+>>>>>>> b3e6d7e37c3d20edb55d0c6b4376b5cc00f3b498
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -163,7 +171,11 @@
         "-I",
         "/opt/goinfre/gryffind/Qt Creator.app/Contents/Resources/cplusplus/wrappedQtHeaders/QtCore",
         "-I",
+<<<<<<< HEAD
         "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vslh00yycw/T/QtCreator-tJIxPO/clang-uiheader-cesgFS",
+=======
+        "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vt1r00yyhf/T/QtCreator-xqtCnZ/clang-uiheader-hNqRoX",
+>>>>>>> b3e6d7e37c3d20edb55d0c6b4376b5cc00f3b498
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -241,7 +253,11 @@
         "-I",
         "/opt/goinfre/gryffind/Qt Creator.app/Contents/Resources/cplusplus/wrappedQtHeaders/QtCore",
         "-I",
+<<<<<<< HEAD
         "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vslh00yycw/T/QtCreator-tJIxPO/clang-uiheader-cesgFS",
+=======
+        "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vt1r00yyhf/T/QtCreator-xqtCnZ/clang-uiheader-hNqRoX",
+>>>>>>> b3e6d7e37c3d20edb55d0c6b4376b5cc00f3b498
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -319,7 +335,11 @@
         "-I",
         "/opt/goinfre/gryffind/Qt Creator.app/Contents/Resources/cplusplus/wrappedQtHeaders/QtCore",
         "-I",
+<<<<<<< HEAD
         "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vslh00yycw/T/QtCreator-tJIxPO/clang-uiheader-cesgFS",
+=======
+        "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vt1r00yyhf/T/QtCreator-xqtCnZ/clang-uiheader-hNqRoX",
+>>>>>>> b3e6d7e37c3d20edb55d0c6b4376b5cc00f3b498
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -397,7 +417,11 @@
         "-I",
         "/opt/goinfre/gryffind/Qt Creator.app/Contents/Resources/cplusplus/wrappedQtHeaders/QtCore",
         "-I",
+<<<<<<< HEAD
         "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vslh00yycw/T/QtCreator-tJIxPO/clang-uiheader-cesgFS",
+=======
+        "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vt1r00yyhf/T/QtCreator-xqtCnZ/clang-uiheader-hNqRoX",
+>>>>>>> b3e6d7e37c3d20edb55d0c6b4376b5cc00f3b498
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -475,7 +499,11 @@
         "-I",
         "/opt/goinfre/gryffind/Qt Creator.app/Contents/Resources/cplusplus/wrappedQtHeaders/QtCore",
         "-I",
+<<<<<<< HEAD
         "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vslh00yycw/T/QtCreator-tJIxPO/clang-uiheader-cesgFS",
+=======
+        "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vt1r00yyhf/T/QtCreator-xqtCnZ/clang-uiheader-hNqRoX",
+>>>>>>> b3e6d7e37c3d20edb55d0c6b4376b5cc00f3b498
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -553,7 +581,11 @@
         "-I",
         "/opt/goinfre/gryffind/Qt Creator.app/Contents/Resources/cplusplus/wrappedQtHeaders/QtCore",
         "-I",
+<<<<<<< HEAD
         "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vslh00yycw/T/QtCreator-tJIxPO/clang-uiheader-cesgFS",
+=======
+        "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vt1r00yyhf/T/QtCreator-xqtCnZ/clang-uiheader-hNqRoX",
+>>>>>>> b3e6d7e37c3d20edb55d0c6b4376b5cc00f3b498
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -627,7 +659,11 @@
         "-I",
         "/opt/goinfre/gryffind/Qt Creator.app/Contents/Resources/cplusplus/wrappedQtHeaders/QtCore",
         "-I",
+<<<<<<< HEAD
         "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vslh00yycw/T/QtCreator-tJIxPO/clang-uiheader-cesgFS",
+=======
+        "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vt1r00yyhf/T/QtCreator-xqtCnZ/clang-uiheader-hNqRoX",
+>>>>>>> b3e6d7e37c3d20edb55d0c6b4376b5cc00f3b498
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -701,7 +737,11 @@
         "-I",
         "/opt/goinfre/gryffind/Qt Creator.app/Contents/Resources/cplusplus/wrappedQtHeaders/QtCore",
         "-I",
+<<<<<<< HEAD
         "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vslh00yycw/T/QtCreator-tJIxPO/clang-uiheader-cesgFS",
+=======
+        "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vt1r00yyhf/T/QtCreator-xqtCnZ/clang-uiheader-hNqRoX",
+>>>>>>> b3e6d7e37c3d20edb55d0c6b4376b5cc00f3b498
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -775,7 +815,11 @@
         "-I",
         "/opt/goinfre/gryffind/Qt Creator.app/Contents/Resources/cplusplus/wrappedQtHeaders/QtCore",
         "-I",
+<<<<<<< HEAD
         "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vslh00yycw/T/QtCreator-tJIxPO/clang-uiheader-cesgFS",
+=======
+        "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vt1r00yyhf/T/QtCreator-xqtCnZ/clang-uiheader-hNqRoX",
+>>>>>>> b3e6d7e37c3d20edb55d0c6b4376b5cc00f3b498
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -849,7 +893,11 @@
         "-I",
         "/opt/goinfre/gryffind/Qt Creator.app/Contents/Resources/cplusplus/wrappedQtHeaders/QtCore",
         "-I",
+<<<<<<< HEAD
         "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vslh00yycw/T/QtCreator-tJIxPO/clang-uiheader-cesgFS",
+=======
+        "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vt1r00yyhf/T/QtCreator-xqtCnZ/clang-uiheader-hNqRoX",
+>>>>>>> b3e6d7e37c3d20edb55d0c6b4376b5cc00f3b498
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -923,7 +971,11 @@
         "-I",
         "/opt/goinfre/gryffind/Qt Creator.app/Contents/Resources/cplusplus/wrappedQtHeaders/QtCore",
         "-I",
+<<<<<<< HEAD
         "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vslh00yycw/T/QtCreator-tJIxPO/clang-uiheader-cesgFS",
+=======
+        "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vt1r00yyhf/T/QtCreator-xqtCnZ/clang-uiheader-hNqRoX",
+>>>>>>> b3e6d7e37c3d20edb55d0c6b4376b5cc00f3b498
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -997,7 +1049,11 @@
         "-I",
         "/opt/goinfre/gryffind/Qt Creator.app/Contents/Resources/cplusplus/wrappedQtHeaders/QtCore",
         "-I",
+<<<<<<< HEAD
         "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vslh00yycw/T/QtCreator-tJIxPO/clang-uiheader-cesgFS",
+=======
+        "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vt1r00yyhf/T/QtCreator-xqtCnZ/clang-uiheader-hNqRoX",
+>>>>>>> b3e6d7e37c3d20edb55d0c6b4376b5cc00f3b498
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -1071,7 +1127,11 @@
         "-I",
         "/opt/goinfre/gryffind/Qt Creator.app/Contents/Resources/cplusplus/wrappedQtHeaders/QtCore",
         "-I",
+<<<<<<< HEAD
         "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vslh00yycw/T/QtCreator-tJIxPO/clang-uiheader-cesgFS",
+=======
+        "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vt1r00yyhf/T/QtCreator-xqtCnZ/clang-uiheader-hNqRoX",
+>>>>>>> b3e6d7e37c3d20edb55d0c6b4376b5cc00f3b498
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -1145,7 +1205,11 @@
         "-I",
         "/opt/goinfre/gryffind/Qt Creator.app/Contents/Resources/cplusplus/wrappedQtHeaders/QtCore",
         "-I",
+<<<<<<< HEAD
         "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vslh00yycw/T/QtCreator-tJIxPO/clang-uiheader-cesgFS",
+=======
+        "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vt1r00yyhf/T/QtCreator-xqtCnZ/clang-uiheader-hNqRoX",
+>>>>>>> b3e6d7e37c3d20edb55d0c6b4376b5cc00f3b498
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -1219,7 +1283,11 @@
         "-I",
         "/opt/goinfre/gryffind/Qt Creator.app/Contents/Resources/cplusplus/wrappedQtHeaders/QtCore",
         "-I",
+<<<<<<< HEAD
         "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vslh00yycw/T/QtCreator-tJIxPO/clang-uiheader-cesgFS",
+=======
+        "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vt1r00yyhf/T/QtCreator-xqtCnZ/clang-uiheader-hNqRoX",
+>>>>>>> b3e6d7e37c3d20edb55d0c6b4376b5cc00f3b498
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -1293,7 +1361,11 @@
         "-I",
         "/opt/goinfre/gryffind/Qt Creator.app/Contents/Resources/cplusplus/wrappedQtHeaders/QtCore",
         "-I",
+<<<<<<< HEAD
         "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vslh00yycw/T/QtCreator-tJIxPO/clang-uiheader-cesgFS",
+=======
+        "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vt1r00yyhf/T/QtCreator-xqtCnZ/clang-uiheader-hNqRoX",
+>>>>>>> b3e6d7e37c3d20edb55d0c6b4376b5cc00f3b498
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -1367,7 +1439,11 @@
         "-I",
         "/opt/goinfre/gryffind/Qt Creator.app/Contents/Resources/cplusplus/wrappedQtHeaders/QtCore",
         "-I",
+<<<<<<< HEAD
         "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vslh00yycw/T/QtCreator-tJIxPO/clang-uiheader-cesgFS",
+=======
+        "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vt1r00yyhf/T/QtCreator-xqtCnZ/clang-uiheader-hNqRoX",
+>>>>>>> b3e6d7e37c3d20edb55d0c6b4376b5cc00f3b498
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -1441,7 +1517,11 @@
         "-I",
         "/opt/goinfre/gryffind/Qt Creator.app/Contents/Resources/cplusplus/wrappedQtHeaders/QtCore",
         "-I",
+<<<<<<< HEAD
         "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vslh00yycw/T/QtCreator-tJIxPO/clang-uiheader-cesgFS",
+=======
+        "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vt1r00yyhf/T/QtCreator-xqtCnZ/clang-uiheader-hNqRoX",
+>>>>>>> b3e6d7e37c3d20edb55d0c6b4376b5cc00f3b498
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -1515,7 +1595,11 @@
         "-I",
         "/opt/goinfre/gryffind/Qt Creator.app/Contents/Resources/cplusplus/wrappedQtHeaders/QtCore",
         "-I",
+<<<<<<< HEAD
         "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vslh00yycw/T/QtCreator-tJIxPO/clang-uiheader-cesgFS",
+=======
+        "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vt1r00yyhf/T/QtCreator-xqtCnZ/clang-uiheader-hNqRoX",
+>>>>>>> b3e6d7e37c3d20edb55d0c6b4376b5cc00f3b498
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -1589,7 +1673,11 @@
         "-I",
         "/opt/goinfre/gryffind/Qt Creator.app/Contents/Resources/cplusplus/wrappedQtHeaders/QtCore",
         "-I",
+<<<<<<< HEAD
         "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vslh00yycw/T/QtCreator-tJIxPO/clang-uiheader-cesgFS",
+=======
+        "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vt1r00yyhf/T/QtCreator-xqtCnZ/clang-uiheader-hNqRoX",
+>>>>>>> b3e6d7e37c3d20edb55d0c6b4376b5cc00f3b498
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -1663,7 +1751,11 @@
         "-I",
         "/opt/goinfre/gryffind/Qt Creator.app/Contents/Resources/cplusplus/wrappedQtHeaders/QtCore",
         "-I",
+<<<<<<< HEAD
         "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vslh00yycw/T/QtCreator-tJIxPO/clang-uiheader-cesgFS",
+=======
+        "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vt1r00yyhf/T/QtCreator-xqtCnZ/clang-uiheader-hNqRoX",
+>>>>>>> b3e6d7e37c3d20edb55d0c6b4376b5cc00f3b498
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -1737,7 +1829,11 @@
         "-I",
         "/opt/goinfre/gryffind/Qt Creator.app/Contents/Resources/cplusplus/wrappedQtHeaders/QtCore",
         "-I",
+<<<<<<< HEAD
         "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vslh00yycw/T/QtCreator-tJIxPO/clang-uiheader-cesgFS",
+=======
+        "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vt1r00yyhf/T/QtCreator-xqtCnZ/clang-uiheader-hNqRoX",
+>>>>>>> b3e6d7e37c3d20edb55d0c6b4376b5cc00f3b498
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -1811,7 +1907,11 @@
         "-I",
         "/opt/goinfre/gryffind/Qt Creator.app/Contents/Resources/cplusplus/wrappedQtHeaders/QtCore",
         "-I",
+<<<<<<< HEAD
         "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vslh00yycw/T/QtCreator-tJIxPO/clang-uiheader-cesgFS",
+=======
+        "/private/var/folders/zz/zyxvpxvq6csfxvn_n003vt1r00yyhf/T/QtCreator-xqtCnZ/clang-uiheader-hNqRoX",
+>>>>>>> b3e6d7e37c3d20edb55d0c6b4376b5cc00f3b498
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
