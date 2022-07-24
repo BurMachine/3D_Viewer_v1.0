@@ -17,4 +17,8 @@ void move_x(Data *obj, double constant);
 void move_y(Data *obj, double constant);
 void move_z(Data *obj, double constant);
 
+void turn_x(Data *obj, double corner);
+void turn_y(Data *obj, double corner);
+void turn_z(Data *obj, double corner);
+
 #endif //GRYFFIND_DEV_AFINN_TRANSLATION_H

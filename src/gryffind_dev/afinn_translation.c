@@ -4,6 +4,7 @@
 
 #include "afinn_translation.h"
 #include "parsing.h"
+#include "math.h"
 
 
 void change_of_size(Data *obj, double coefficient) {
@@ -103,20 +104,61 @@ void move_z(Data *obj, double constant) {
     (*obj).matrix = result;
 }
 
-void tern_x(Data *obj, double corner) {
+void turn_x(Data *obj, double corner) {
     matrix_t tmp;
     tmp  = (*obj).matrix;
     matrix_t turn_matrix;
     s21_create_matrix(3, 3, &turn_matrix);
-    turn_matrix.matrix[][] =
-    turn_matrix.matrix[][] =
-    turn_matrix.matrix[][] =
-    turn_matrix.matrix[][] =
-    turn_matrix.matrix[][] =
-    turn_matrix.matrix[][] =
-    turn_matrix.matrix[][] =
-    turn_matrix.matrix[][] =
-    turn_matrix.matrix[][] =
+    turn_matrix.matrix[0][0] = 1;
+    turn_matrix.matrix[0][1] = 0;
+    turn_matrix.matrix[0][2] = 0;
+    turn_matrix.matrix[1][0] = 0;
+    turn_matrix.matrix[1][1] = cos(corner);
+    turn_matrix.matrix[1][2] = sin(corner);
+    turn_matrix.matrix[2][0] = 0;
+    turn_matrix.matrix[2][1] = -sin(corner);
+    turn_matrix.matrix[2][2] = cos(corner);
+    matrix_t result;
+    s21_mult_matrix(&tmp, &turn_matrix, &result);
+    (*obj).matrix = result;
+    s21_remove_matrix(&turn_matrix);
+}
 
-            matrix_t result;
+void turn_y(Data *obj, double corner) {
+    matrix_t tmp;
+    tmp  = (*obj).matrix;
+    matrix_t turn_matrix;
+    s21_create_matrix(3, 3, &turn_matrix);
+    turn_matrix.matrix[0][0] = cos(corner);
+    turn_matrix.matrix[0][1] = 0;
+    turn_matrix.matrix[0][2] = -sin(corner);;
+    turn_matrix.matrix[1][0] = 0;
+    turn_matrix.matrix[1][1] = 1;
+    turn_matrix.matrix[1][2] = 0;
+    turn_matrix.matrix[2][0] = sin(corner);
+    turn_matrix.matrix[2][1] = 0;
+    turn_matrix.matrix[2][2] = cos(corner);
+    matrix_t result;
+    s21_mult_matrix(&tmp, &turn_matrix, &result);
+    (*obj).matrix = result;
+    s21_remove_matrix(&turn_matrix);
+}
+void turn_z(Data *obj, double corner) {
+    matrix_t tmp;
+    tmp  = (*obj).matrix;
+    matrix_t turn_matrix;
+    s21_create_matrix(3, 3, &turn_matrix);
+    turn_matrix.matrix[0][0] = cos(corner);
+    turn_matrix.matrix[0][1] = sin(corner);
+    turn_matrix.matrix[0][2] = 0;
+    turn_matrix.matrix[1][0] = -sin(corner);
+    turn_matrix.matrix[1][1] = cos(corner);
+    turn_matrix.matrix[1][2] = 0;
+    turn_matrix.matrix[2][0] = 0;
+    turn_matrix.matrix[2][1] = 0;
+    turn_matrix.matrix[2][2] = 1;
+    matrix_t result;
+    s21_mult_matrix(&tmp, &turn_matrix, &result);
+    (*obj).matrix = result;
+    s21_remove_matrix(&turn_matrix);
 }
