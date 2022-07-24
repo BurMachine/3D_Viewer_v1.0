@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "gryffind_dev::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-gryffind_dev-Debug-6a2d684010cc98063eee.json",
+					"jsonFile" : "target-gryffind_dev-Debug-09289fca2a1ed91cb1ae.json",
 					"name" : "gryffind_dev",
 					"projectIndex" : 0
 				}
@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/cmake-build-debug",
-		"source" : "/Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev"
+		"build" : "/Users/gryffind/C8_3DViewer_v1.0-1/src/gryffind_dev/cmake-build-debug",
+		"source" : "/Users/gryffind/C8_3DViewer_v1.0-1/src/gryffind_dev"
 	},
 	"version" : 
 	{

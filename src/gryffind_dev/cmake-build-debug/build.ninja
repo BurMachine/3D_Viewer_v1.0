@@ -39,13 +39,13 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = /Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/cmake-build-debug/
+cmake_ninja_workdir = /Users/gryffind/C8_3DViewer_v1.0-1/src/gryffind_dev/cmake-build-debug/
 
 #############################################
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev -B/Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/cmake-build-debug
+  COMMAND = cd /Users/gryffind/C8_3DViewer_v1.0-1/src/gryffind_dev/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/gryffind/C8_3DViewer_v1.0-1/src/gryffind_dev -B/Users/gryffind/C8_3DViewer_v1.0-1/src/gryffind_dev/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -57,7 +57,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /Users/gryffind/C8_3DViewer_v1.0-1/src/gryffind_dev/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -72,85 +72,91 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 
 build cmake_object_order_depends_target_gryffind_dev: phony || CMakeFiles/gryffind_dev.dir
 
-build CMakeFiles/gryffind_dev.dir/matrix/s21_calc_complements.c.o: C_COMPILER__gryffind_dev_Debug /Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/matrix/s21_calc_complements.c || cmake_object_order_depends_target_gryffind_dev
+build CMakeFiles/gryffind_dev.dir/afinn_translation.c.o: C_COMPILER__gryffind_dev_Debug /Users/gryffind/C8_3DViewer_v1.0-1/src/gryffind_dev/afinn_translation.c || cmake_object_order_depends_target_gryffind_dev
+  DEP_FILE = CMakeFiles/gryffind_dev.dir/afinn_translation.c.o.d
+  FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11.6 -std=gnu11
+  OBJECT_DIR = CMakeFiles/gryffind_dev.dir
+  OBJECT_FILE_DIR = CMakeFiles/gryffind_dev.dir
+
+build CMakeFiles/gryffind_dev.dir/matrix/s21_calc_complements.c.o: C_COMPILER__gryffind_dev_Debug /Users/gryffind/C8_3DViewer_v1.0-1/src/gryffind_dev/matrix/s21_calc_complements.c || cmake_object_order_depends_target_gryffind_dev
   DEP_FILE = CMakeFiles/gryffind_dev.dir/matrix/s21_calc_complements.c.o.d
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11.6 -std=gnu11
   OBJECT_DIR = CMakeFiles/gryffind_dev.dir
   OBJECT_FILE_DIR = CMakeFiles/gryffind_dev.dir/matrix
 
-build CMakeFiles/gryffind_dev.dir/matrix/s21_create_matrix.c.o: C_COMPILER__gryffind_dev_Debug /Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/matrix/s21_create_matrix.c || cmake_object_order_depends_target_gryffind_dev
+build CMakeFiles/gryffind_dev.dir/matrix/s21_create_matrix.c.o: C_COMPILER__gryffind_dev_Debug /Users/gryffind/C8_3DViewer_v1.0-1/src/gryffind_dev/matrix/s21_create_matrix.c || cmake_object_order_depends_target_gryffind_dev
   DEP_FILE = CMakeFiles/gryffind_dev.dir/matrix/s21_create_matrix.c.o.d
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11.6 -std=gnu11
   OBJECT_DIR = CMakeFiles/gryffind_dev.dir
   OBJECT_FILE_DIR = CMakeFiles/gryffind_dev.dir/matrix
 
-build CMakeFiles/gryffind_dev.dir/matrix/s21_eq_matrix.c.o: C_COMPILER__gryffind_dev_Debug /Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/matrix/s21_eq_matrix.c || cmake_object_order_depends_target_gryffind_dev
+build CMakeFiles/gryffind_dev.dir/matrix/s21_eq_matrix.c.o: C_COMPILER__gryffind_dev_Debug /Users/gryffind/C8_3DViewer_v1.0-1/src/gryffind_dev/matrix/s21_eq_matrix.c || cmake_object_order_depends_target_gryffind_dev
   DEP_FILE = CMakeFiles/gryffind_dev.dir/matrix/s21_eq_matrix.c.o.d
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11.6 -std=gnu11
   OBJECT_DIR = CMakeFiles/gryffind_dev.dir
   OBJECT_FILE_DIR = CMakeFiles/gryffind_dev.dir/matrix
 
-build CMakeFiles/gryffind_dev.dir/matrix/s21_inverse_matrix.c.o: C_COMPILER__gryffind_dev_Debug /Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/matrix/s21_inverse_matrix.c || cmake_object_order_depends_target_gryffind_dev
+build CMakeFiles/gryffind_dev.dir/matrix/s21_inverse_matrix.c.o: C_COMPILER__gryffind_dev_Debug /Users/gryffind/C8_3DViewer_v1.0-1/src/gryffind_dev/matrix/s21_inverse_matrix.c || cmake_object_order_depends_target_gryffind_dev
   DEP_FILE = CMakeFiles/gryffind_dev.dir/matrix/s21_inverse_matrix.c.o.d
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11.6 -std=gnu11
   OBJECT_DIR = CMakeFiles/gryffind_dev.dir
   OBJECT_FILE_DIR = CMakeFiles/gryffind_dev.dir/matrix
 
-build CMakeFiles/gryffind_dev.dir/matrix/s21_mult.c.o: C_COMPILER__gryffind_dev_Debug /Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/matrix/s21_mult.c || cmake_object_order_depends_target_gryffind_dev
+build CMakeFiles/gryffind_dev.dir/matrix/s21_mult.c.o: C_COMPILER__gryffind_dev_Debug /Users/gryffind/C8_3DViewer_v1.0-1/src/gryffind_dev/matrix/s21_mult.c || cmake_object_order_depends_target_gryffind_dev
   DEP_FILE = CMakeFiles/gryffind_dev.dir/matrix/s21_mult.c.o.d
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11.6 -std=gnu11
   OBJECT_DIR = CMakeFiles/gryffind_dev.dir
   OBJECT_FILE_DIR = CMakeFiles/gryffind_dev.dir/matrix
 
-build CMakeFiles/gryffind_dev.dir/matrix/s21_remove_matrix.c.o: C_COMPILER__gryffind_dev_Debug /Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/matrix/s21_remove_matrix.c || cmake_object_order_depends_target_gryffind_dev
+build CMakeFiles/gryffind_dev.dir/matrix/s21_remove_matrix.c.o: C_COMPILER__gryffind_dev_Debug /Users/gryffind/C8_3DViewer_v1.0-1/src/gryffind_dev/matrix/s21_remove_matrix.c || cmake_object_order_depends_target_gryffind_dev
   DEP_FILE = CMakeFiles/gryffind_dev.dir/matrix/s21_remove_matrix.c.o.d
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11.6 -std=gnu11
   OBJECT_DIR = CMakeFiles/gryffind_dev.dir
   OBJECT_FILE_DIR = CMakeFiles/gryffind_dev.dir/matrix
 
-build CMakeFiles/gryffind_dev.dir/matrix/s21_sum_sub.c.o: C_COMPILER__gryffind_dev_Debug /Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/matrix/s21_sum_sub.c || cmake_object_order_depends_target_gryffind_dev
+build CMakeFiles/gryffind_dev.dir/matrix/s21_sum_sub.c.o: C_COMPILER__gryffind_dev_Debug /Users/gryffind/C8_3DViewer_v1.0-1/src/gryffind_dev/matrix/s21_sum_sub.c || cmake_object_order_depends_target_gryffind_dev
   DEP_FILE = CMakeFiles/gryffind_dev.dir/matrix/s21_sum_sub.c.o.d
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11.6 -std=gnu11
   OBJECT_DIR = CMakeFiles/gryffind_dev.dir
   OBJECT_FILE_DIR = CMakeFiles/gryffind_dev.dir/matrix
 
-build CMakeFiles/gryffind_dev.dir/matrix/s21_transpon.c.o: C_COMPILER__gryffind_dev_Debug /Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/matrix/s21_transpon.c || cmake_object_order_depends_target_gryffind_dev
+build CMakeFiles/gryffind_dev.dir/matrix/s21_transpon.c.o: C_COMPILER__gryffind_dev_Debug /Users/gryffind/C8_3DViewer_v1.0-1/src/gryffind_dev/matrix/s21_transpon.c || cmake_object_order_depends_target_gryffind_dev
   DEP_FILE = CMakeFiles/gryffind_dev.dir/matrix/s21_transpon.c.o.d
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11.6 -std=gnu11
   OBJECT_DIR = CMakeFiles/gryffind_dev.dir
   OBJECT_FILE_DIR = CMakeFiles/gryffind_dev.dir/matrix
 
-build CMakeFiles/gryffind_dev.dir/matrix/determinant.c.o: C_COMPILER__gryffind_dev_Debug /Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/matrix/determinant.c || cmake_object_order_depends_target_gryffind_dev
+build CMakeFiles/gryffind_dev.dir/matrix/determinant.c.o: C_COMPILER__gryffind_dev_Debug /Users/gryffind/C8_3DViewer_v1.0-1/src/gryffind_dev/matrix/determinant.c || cmake_object_order_depends_target_gryffind_dev
   DEP_FILE = CMakeFiles/gryffind_dev.dir/matrix/determinant.c.o.d
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11.6 -std=gnu11
   OBJECT_DIR = CMakeFiles/gryffind_dev.dir
   OBJECT_FILE_DIR = CMakeFiles/gryffind_dev.dir/matrix
 
-build CMakeFiles/gryffind_dev.dir/matrix/check.c.o: C_COMPILER__gryffind_dev_Debug /Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/matrix/check.c || cmake_object_order_depends_target_gryffind_dev
+build CMakeFiles/gryffind_dev.dir/matrix/check.c.o: C_COMPILER__gryffind_dev_Debug /Users/gryffind/C8_3DViewer_v1.0-1/src/gryffind_dev/matrix/check.c || cmake_object_order_depends_target_gryffind_dev
   DEP_FILE = CMakeFiles/gryffind_dev.dir/matrix/check.c.o.d
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11.6 -std=gnu11
   OBJECT_DIR = CMakeFiles/gryffind_dev.dir
   OBJECT_FILE_DIR = CMakeFiles/gryffind_dev.dir/matrix
 
-build CMakeFiles/gryffind_dev.dir/main.c.o: C_COMPILER__gryffind_dev_Debug /Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/main.c || cmake_object_order_depends_target_gryffind_dev
+build CMakeFiles/gryffind_dev.dir/main.c.o: C_COMPILER__gryffind_dev_Debug /Users/gryffind/C8_3DViewer_v1.0-1/src/gryffind_dev/main.c || cmake_object_order_depends_target_gryffind_dev
   DEP_FILE = CMakeFiles/gryffind_dev.dir/main.c.o.d
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11.6 -std=gnu11
   OBJECT_DIR = CMakeFiles/gryffind_dev.dir
   OBJECT_FILE_DIR = CMakeFiles/gryffind_dev.dir
 
-build CMakeFiles/gryffind_dev.dir/supportFunction.c.o: C_COMPILER__gryffind_dev_Debug /Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/supportFunction.c || cmake_object_order_depends_target_gryffind_dev
+build CMakeFiles/gryffind_dev.dir/supportFunction.c.o: C_COMPILER__gryffind_dev_Debug /Users/gryffind/C8_3DViewer_v1.0-1/src/gryffind_dev/supportFunction.c || cmake_object_order_depends_target_gryffind_dev
   DEP_FILE = CMakeFiles/gryffind_dev.dir/supportFunction.c.o.d
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11.6 -std=gnu11
   OBJECT_DIR = CMakeFiles/gryffind_dev.dir
   OBJECT_FILE_DIR = CMakeFiles/gryffind_dev.dir
 
-build CMakeFiles/gryffind_dev.dir/parsing.c.o: C_COMPILER__gryffind_dev_Debug /Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/parsing.c || cmake_object_order_depends_target_gryffind_dev
+build CMakeFiles/gryffind_dev.dir/parsing.c.o: C_COMPILER__gryffind_dev_Debug /Users/gryffind/C8_3DViewer_v1.0-1/src/gryffind_dev/parsing.c || cmake_object_order_depends_target_gryffind_dev
   DEP_FILE = CMakeFiles/gryffind_dev.dir/parsing.c.o.d
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11.6 -std=gnu11
   OBJECT_DIR = CMakeFiles/gryffind_dev.dir
   OBJECT_FILE_DIR = CMakeFiles/gryffind_dev.dir
 
-build CMakeFiles/gryffind_dev.dir/printers.c.o: C_COMPILER__gryffind_dev_Debug /Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/printers.c || cmake_object_order_depends_target_gryffind_dev
+build CMakeFiles/gryffind_dev.dir/printers.c.o: C_COMPILER__gryffind_dev_Debug /Users/gryffind/C8_3DViewer_v1.0-1/src/gryffind_dev/printers.c || cmake_object_order_depends_target_gryffind_dev
   DEP_FILE = CMakeFiles/gryffind_dev.dir/printers.c.o.d
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11.6 -std=gnu11
   OBJECT_DIR = CMakeFiles/gryffind_dev.dir
@@ -164,7 +170,7 @@ build CMakeFiles/gryffind_dev.dir/printers.c.o: C_COMPILER__gryffind_dev_Debug /
 #############################################
 # Link the executable gryffind_dev
 
-build gryffind_dev: C_EXECUTABLE_LINKER__gryffind_dev_Debug CMakeFiles/gryffind_dev.dir/matrix/s21_calc_complements.c.o CMakeFiles/gryffind_dev.dir/matrix/s21_create_matrix.c.o CMakeFiles/gryffind_dev.dir/matrix/s21_eq_matrix.c.o CMakeFiles/gryffind_dev.dir/matrix/s21_inverse_matrix.c.o CMakeFiles/gryffind_dev.dir/matrix/s21_mult.c.o CMakeFiles/gryffind_dev.dir/matrix/s21_remove_matrix.c.o CMakeFiles/gryffind_dev.dir/matrix/s21_sum_sub.c.o CMakeFiles/gryffind_dev.dir/matrix/s21_transpon.c.o CMakeFiles/gryffind_dev.dir/matrix/determinant.c.o CMakeFiles/gryffind_dev.dir/matrix/check.c.o CMakeFiles/gryffind_dev.dir/main.c.o CMakeFiles/gryffind_dev.dir/supportFunction.c.o CMakeFiles/gryffind_dev.dir/parsing.c.o CMakeFiles/gryffind_dev.dir/printers.c.o
+build gryffind_dev: C_EXECUTABLE_LINKER__gryffind_dev_Debug CMakeFiles/gryffind_dev.dir/afinn_translation.c.o CMakeFiles/gryffind_dev.dir/matrix/s21_calc_complements.c.o CMakeFiles/gryffind_dev.dir/matrix/s21_create_matrix.c.o CMakeFiles/gryffind_dev.dir/matrix/s21_eq_matrix.c.o CMakeFiles/gryffind_dev.dir/matrix/s21_inverse_matrix.c.o CMakeFiles/gryffind_dev.dir/matrix/s21_mult.c.o CMakeFiles/gryffind_dev.dir/matrix/s21_remove_matrix.c.o CMakeFiles/gryffind_dev.dir/matrix/s21_sum_sub.c.o CMakeFiles/gryffind_dev.dir/matrix/s21_transpon.c.o CMakeFiles/gryffind_dev.dir/matrix/determinant.c.o CMakeFiles/gryffind_dev.dir/matrix/check.c.o CMakeFiles/gryffind_dev.dir/main.c.o CMakeFiles/gryffind_dev.dir/supportFunction.c.o CMakeFiles/gryffind_dev.dir/parsing.c.o CMakeFiles/gryffind_dev.dir/printers.c.o
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11.6
   OBJECT_DIR = CMakeFiles/gryffind_dev.dir
   POST_BUILD = :
@@ -181,7 +187,7 @@ build gryffind_dev: C_EXECUTABLE_LINKER__gryffind_dev_Debug CMakeFiles/gryffind_
 # =============================================================================
 
 #############################################
-# Folder: /Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/cmake-build-debug
+# Folder: /Users/gryffind/C8_3DViewer_v1.0-1/src/gryffind_dev/cmake-build-debug
 
 build all: phony gryffind_dev
 
