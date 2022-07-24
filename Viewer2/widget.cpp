@@ -30,7 +30,22 @@ void Widget::resizeGL(int w, int h) {
      glMatrixMode(GL_PROJECTION);
      glLoadIdentity();
 //     glOrtho(-1,1,-1,1,1,2);
-     glFrustum(-1,1,-1,1,1,8);
+//     glFrustum(-1,1,-1,1,1,8);
+     int min;
+     int max;
+
+get_max_min_frustum(&max, &min, obj);
+
+if (qFabs(min) > max) {
+        max = qFabs(min);
+    } else if (max > qFabs(min)) {
+        min = -max;
+    }
+min*=1.2;
+max*=1.2;
+//     glOrtho(max,min,max,min,max,min);
+     glOrtho(min,max,min,max,min,max);
+    glFrustum(min,max,min,max,min,max);
 
 }
 
@@ -39,10 +54,10 @@ void Widget::resizeGL(int w, int h) {
 
 void Widget::filler() {
 //    char filename[50] = "cub.obj";
-    char filename[50] = "eyeball.obj";
+//    char filename[50] = "eyeball.obj";
 //   char filename[50] = "hand.obj";
 //    char filename[50] = "easyCube.obj";
-//    char filename[50] = "cat.obj";
+    char filename[50] = "cat.obj";
 
     obj.count_of_polygons = 0;
     obj.count_of_vertex = 0;
@@ -53,13 +68,16 @@ void Widget::filler() {
 
 void Widget::paintGL() {
     initializeGL();
-    glTranslatef(0,0,-5);
+    glTranslatef(0,0,-4);
     //на 10 тыщ чтоб пукан хотя бы у кошки отрисовался
-    double virus[obj.count_of_vertex * 4];
-    unsigned int facetus[obj.count_of_polygons * 4];
+//    double virus[obj.count_of_vertex * 10];
+    double *vertex = (double *)calloc(obj.count_of_vertex*6, sizeof(double));
+    unsigned int facetus[obj.count_of_polygons * 10];
+//    unsigned int *facets = (unsigned int *)calloc(obj.count_of_polygons * 6, sizeof(unsigned int));
+
     for (int i = 0, k = 0; i < obj.matrix.rows; i++) {
         for (int j = 0; j < obj.matrix.columns; j++, k++) {
-            virus[k] = obj.matrix.matrix[i][j];
+            vertex[k] = obj.matrix.matrix[i][j];
         }
     }
     for (int i = 0, k = 0;i < obj.count_of_polygons ; i++) {
@@ -79,7 +97,7 @@ void Widget::paintGL() {
     glColor4f(0.1, 0.75, 0.3, 1); // цвет линий
 
 
-    glVertexPointer(3, GL_DOUBLE, 0, virus);
+    glVertexPointer(3, GL_DOUBLE, 0, vertex);
     glEnableClientState(GL_VERTEX_ARRAY);
     glPolygonMode(GL_FRONT,GL_FILL);
     glPolygonMode(GL_RED,GL_LINE);
@@ -95,7 +113,8 @@ void Widget::paintGL() {
 
 
     glDisableClientState(GL_VERTEX_ARRAY);
-
+    free(vertex);
+//    free(facets);
 }
 //width - ширина
 //heigth - высота

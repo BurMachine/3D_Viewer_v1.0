@@ -10,7 +10,7 @@
  int main() {
 //     char filename[50] = "cub.obj";
 //     char filename[50] = "easyCube.obj";
-    char filename[50] = "cub.obj";
+    char filename[50] = "cat.obj";
      
      Data obj;
      obj.count_of_polygons = 0;
@@ -21,14 +21,16 @@
 
 
      change_of_size(&obj, (double)2);
+     move(&obj, (double)2);
+
      print_matrix(obj.matrix);
-//     poligon_print(obj);
-     s21_remove_matrix(&obj.matrix);
-//     obj->poligons[polygons_N].vertexes = calloc(obj->poligons[polygons_N].numbers_of_vertexes_in_facets, (obj->poligons[polygons_N].numbers_of_vertexes_in_facets + 1)*sizeof(int));
-     for (int i = 0; i < obj.poligons->numbers_of_vertexes_in_facets + 1; i++) {
-         free(&obj.poligons[i]);
-     }
-    free(obj.poligons);
+     poligon_print(obj);
+//     s21_remove_matrix(&obj.matrix);
+////     obj->poligons[polygons_N].vertexes = calloc(obj->poligons[polygons_N].numbers_of_vertexes_in_facets, (obj->poligons[polygons_N].numbers_of_vertexes_in_facets + 1)*sizeof(int));
+//     for (int i = 0; i < obj.poligons->numbers_of_vertexes_in_facets + 1; i++) {
+//         free(&obj.poligons[i]);
+//     }
+//    free(obj.poligons);
  }
 
 

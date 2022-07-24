@@ -27,3 +27,20 @@ void copy_matrix(matrix_t *A, matrix_t *result) {
         }
     }
 }
+
+void get_max_min_frustum(int *max, int *min, Data obj) {
+    double min_vertex = obj.matrix.matrix[0][0];
+    double max_vertex = obj.matrix.matrix[0][1];
+    for (int i = 0; i < obj.count_of_vertex; i++) {
+        for (int j = 0; j < 3; j++) {
+            if (min_vertex > obj.matrix.matrix[i][j]) {
+                min_vertex = obj.matrix.matrix[i][j];
+            }
+            if (max_vertex < obj.matrix.matrix[i][j]) {
+                max_vertex = obj.matrix.matrix[i][j];
+            }
+        }
+    }
+    *max = max_vertex;
+    *min = min_vertex;
+}

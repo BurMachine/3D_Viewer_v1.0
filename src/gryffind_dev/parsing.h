@@ -36,5 +36,5 @@ void poligon_print(Data obj);
 // ---- support
 void copy_obj(Data *obj, Data *obj_new);
 void copy_matrix(matrix_t *A, matrix_t *result);
-
+void get_max_min_frustum(int *max, int *min, Data obj);
 #endif //GRYFFIND_DEV_PARSING_H
