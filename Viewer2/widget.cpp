@@ -57,10 +57,10 @@ max*=1.2;
 
 
 void Widget::filler() {
-//    char filename[50] = "cub.obj";
+    char filename[50] = "cub.obj";
 //    char filename[50] = "eyeball.obj";
 //   char filename[50] = "Low-Poly-Racing-Car.obj";
-    char filename[50] = "Mercedes+Benz+GLS+580.obj";
+//    char filename[50] = "Mercedes+Benz+GLS+580.obj";
 //    char filename[50] = "cat.obj";
     printf("kek\n");
     obj.count_of_polygons = 0;
@@ -121,18 +121,35 @@ void Widget::paintGL() {
 
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glClearColor(r1, g1, b1, 1);
+    glClear(GL_COLOR_BUFFER_BIT);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
     glRotatef(xRot, 1.0, 0.0, 0.0);
     glRotatef(yRot, 0.0, 1.0, 0.0);
     glColor4f(0.1, 0.75, 0.3, 1); // цвет линий
+    if (line_type) {
+        glLineStipple(20, 0x3333);
+        glEnable(GL_LINE_STIPPLE);
+    }
+    if (color_point == 1) {
+    } else if (color_point == 2) {
+        glPointSize(point_size);
+        glEnable(GL_POINT_SMOOTH);
+        glDisable(GL_POINT_SMOOTH);
+    } else if (color_point == 3) {
 
+    }
+//    glClearColor(r1, g1, b1, 0);s
+    glLineWidth(width);
 
     glVertexPointer(3, GL_DOUBLE, 0, vertex);
     glEnableClientState(GL_VERTEX_ARRAY);
     glPolygonMode(GL_FRONT,GL_FILL);
     glPolygonMode(GL_RED,GL_LINE);
-    double r = 1 ,g = 0, b = 0.5;
+//    double r = 1 ,g = 0, b = 0.5;
+    //********************
+//    r = 1; g = 0; b = 0.5;
 
         glColor4f(r, g, b, 1); // цвет линий
         glDrawElements(GL_POINTS, obj.count_of_polygons * 6, GL_UNSIGNED_INT, facetus);
@@ -143,8 +160,9 @@ void Widget::paintGL() {
     glDisable(GL_LINE_STIPPLE);
 
 
+
     glDisableClientState(GL_VERTEX_ARRAY);
-//    free(vertex);
+    free(vertex);
 //    free(facets);
 }
 //width - ширина

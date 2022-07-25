@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     connect(ui->equal, SIGNAL(clicked()), this, SLOT(on_equal_clicked()));
+//    connect(ui->combobox, SIGNAL(isChecked()), this, SLOT(on_comboBox_activated()));
     ui->x_size->setText("1");
     ui->y_size->setText("1");
     ui->z_size->setText("1");
@@ -17,6 +18,15 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->x_turn->setText("0");
     ui->y_turn->setText("0");
     ui->z_turn->setText("0");
+    ui->R1->setText("0");
+    ui->G1->setText("0");
+    ui->B1->setText("0");
+    ui->R1_2->setText("1");
+    ui->G1_2->setText("0");
+    ui->B1_2->setText("0.5");
+    ui->R1_3->setText("0");
+    ui->G1_3->setText("0");
+    ui->B1_3->setText("0");
 }
 
 MainWindow::~MainWindow()
@@ -96,5 +106,112 @@ void MainWindow::on_restart_clicked()
 
 //    ui->widget->shift(1, x, y, z);
     ui->widget->update();
+}
+
+
+void MainWindow::on_comboBox_activated(int index)
+{
+    if (index == 0) {
+        ui->widget->r1 = 255;
+        ui->widget->g1 = 0;
+        ui->widget->b1 = 0;
+    } else if (index == 1) {
+        ui->widget->r1 = 0;
+        ui->widget->g1 = 255;
+        ui->widget->b1 = 0;
+    } else if (index == 2) {
+        ui->widget->r1 = 0;
+        ui->widget->g1 = 0;
+        ui->widget->b1 = 255;
+    } else if (index == 3) {
+        ui->widget->r1 = 0;
+        ui->widget->g1 = 0;
+        ui->widget->b1 = 0;
+    } else if (index == 4) {
+        ui->widget->r1 = 255;
+        ui->widget->g1 = 255;
+        ui->widget->b1 = 255;
+    } else {
+        ui->widget->r1 = 0;
+        ui->widget->g1 = 0;
+        ui->widget->b1 = 0;
+    }
+    ui->widget->update();
+}
+
+
+void MainWindow::on_color_fon_clicked()
+{
+    ui->widget->r1 = ui->R1->text().toDouble();
+    ui->widget->g1 = ui->G1->text().toDouble();
+    ui->widget->b1 = ui->B1->text().toDouble();
+    ui->widget->update();
+}
+
+
+void MainWindow::on_color_line_clicked()
+{
+    ui->widget->r = ui->R1_2->text().toDouble();
+    ui->widget->g = ui->G1_2->text().toDouble();
+    ui->widget->b = ui->B1_2->text().toDouble();
+    ui->widget->update();
+}
+
+
+void MainWindow::on_width_plus_clicked()
+{
+    ui->widget->width += 0.5;
+    ui->widget->update();
+}
+
+
+void MainWindow::on_width_minus_clicked()
+{
+    ui->widget->width -= 0.5;
+    ui->widget->update();
+}
+
+
+void MainWindow::on_radioButton_2_toggled()
+{
+    ui->widget->line_type = 1;
+    ui->widget->update();
+}
+
+
+void MainWindow::on_radioButton_toggled()
+{
+    ui->widget->line_type = 0;
+    ui->widget->update();
+}
+
+
+void MainWindow::on_color_line_2_clicked()
+{
+    ui->widget->r2 = ui->R1_3->text().toDouble();
+    ui->widget->g2 = ui->G1_3->text().toDouble();
+    ui->widget->b2 = ui->B1_3->text().toDouble();
+    ui->widget->point_size = ui->point_size2->text().toDouble();
+    ui->widget->update();
+}
+
+
+void MainWindow::on_radioButton_3_toggled()
+{
+    ui->widget->color_point = 1;
+
+}
+
+
+void MainWindow::on_radioButton_4_toggled()
+{
+    ui->widget->color_point = 2;
+    ui->widget->update();
+}
+
+
+void MainWindow::on_radioButton_5_toggled()
+{
+    ui->widget->color_point = 3;
 }
 

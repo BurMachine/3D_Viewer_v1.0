@@ -36,8 +36,16 @@ public:
     ~Widget();
     void filler();
     void shift(int code, double x, double y, double z);
+    double r, g, b;
+    double r1, g1, b1;
+    double r2, g2, b2;
+    double width;
+    int line_type;
+    int color_point;
+    double point_size;
 
     Data obj;
+
 private:
     Ui::Widget *ui;
 

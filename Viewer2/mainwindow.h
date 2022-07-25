@@ -22,6 +22,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void on_comboBox_activated(int index);
 
 private slots:
 //    void on_plus_plus_clicked();
@@ -37,6 +38,28 @@ private slots:
     void on_rotate_clicked();
 
     void on_restart_clicked();
+
+
+
+    void on_color_fon_clicked();
+
+    void on_color_line_clicked();
+
+    void on_width_plus_clicked();
+
+    void on_width_minus_clicked();
+
+    void on_radioButton_2_toggled();
+
+    void on_radioButton_toggled();
+
+    void on_color_line_2_clicked();
+
+    void on_radioButton_3_toggled();
+
+    void on_radioButton_4_toggled();
+
+    void on_radioButton_5_toggled();
 
 private:
     Ui::MainWindow *ui;
