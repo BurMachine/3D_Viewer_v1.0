@@ -64,6 +64,7 @@ private slots:
     void on_pushButton_open_clicked();
         void wheelEvent(QWheelEvent *event) override;
     void change_information_about_obj(char* file_name_str);
+
 private:
     Ui::MainWindow *ui;
 };

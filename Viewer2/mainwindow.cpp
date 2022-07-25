@@ -7,6 +7,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    connect(ui->color_line_2, SIGNAL(clicked()), this, SLOT(on_color_line_2_clicked()));
     connect(ui->equal, SIGNAL(clicked()), this, SLOT(on_equal_clicked()));
 //    connect(ui->combobox, SIGNAL(isChecked()), this, SLOT(on_comboBox_activated()));
     ui->x_size->setText("1");
@@ -200,20 +201,21 @@ void MainWindow::on_color_line_2_clicked()
 void MainWindow::on_radioButton_3_toggled()
 {
     ui->widget->color_point = 1;
-
+//    ui->widget->update();
 }
 
 
 void MainWindow::on_radioButton_4_toggled()
 {
     ui->widget->color_point = 2;
-    ui->widget->update();
+//    ui->widget->update();
 }
 
 
 void MainWindow::on_radioButton_5_toggled()
 {
     ui->widget->color_point = 3;
+//    ui->widget->update();
 }
 
 
@@ -222,7 +224,8 @@ void MainWindow::on_radioButton_5_toggled()
 void MainWindow::on_pushButton_open_clicked()
 {
     //ПЕРЕД СОРКОЙ ПОМЕНЯТЬ НА /USERS/
-    QString path_to_file = QFileDialog::getOpenFileName(NULL, "Open", "/Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/obj", "*.obj");
+//       QString path_to_file = QFileDialog::getOpenFileName(NULL, "Open", "/Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/obj", "*.obj");
+    QString path_to_file = QFileDialog::getOpenFileName(NULL, "Open", "/Users/gryffind/C8_3DViewer_v1.0-1/src/gryffind_dev/obj/", "*.obj");
     char* path_to_file_str = new char[path_to_file.length()];
     QByteArray barr = path_to_file.toLatin1();
     strlcpy(path_to_file_str, barr, path_to_file.length() + 1);
@@ -265,3 +268,5 @@ void MainWindow::change_information_about_obj(char* file_name_str){
     QString str_polygons =  QString::number(polygons, 'g', 15);
     ui->label_name->setText(file_name_q_str + "\nКоличество вершин: " + str_vertex + "\nКоличество полигонов: " + str_polygons);
 }
+
+

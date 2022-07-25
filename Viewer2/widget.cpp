@@ -61,7 +61,7 @@ max*=1.2;
 //    char filename[50] = "cat.obj";
 void Widget::filler_first() {
 //    char filename[100] = "/Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/obj/cat.obj";
-    char filename[100] = "/Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/obj/cat.obj";
+    char filename[100] = "/Users/gryffind/C8_3DViewer_v1.0-1/src/gryffind_dev/obj/cat.obj";
     obj.count_of_polygons = 0;
     obj.count_of_vertex = 0;
     if (!reading_counting(filename, &obj)) {
@@ -135,18 +135,32 @@ void Widget::paintGL() {
     glRotatef(xRot, 1.0, 0.0, 0.0);
     glRotatef(yRot, 0.0, 1.0, 0.0);
     glColor4f(0.1, 0.75, 0.3, 1); // цвет линий
+//    qDebug() << r2;
+//    qDebug() << g2;
+//    qDebug() << b2;
     if (line_type) {
         glLineStipple(20, 0x3333);
         glEnable(GL_LINE_STIPPLE);
     }
-    if (color_point == 1) {
-    } else if (color_point == 2) {
-        glPointSize(point_size);
-        glEnable(GL_POINT_SMOOTH);
-        glDisable(GL_POINT_SMOOTH);
-    } else if (color_point == 3) {
-
+    glPointSize(point_size);
+    for (int i = 0; i < obj.count_of_vertex + 1; i++) {
+        if (color_point == 1) {
+        } else if (color_point == 2) {
+//            glPointSize(point_size);
+            glEnable(GL_POINT_SMOOTH);
+            glBegin(GL_POINT_SMOOTH);
+            glEnd();
+            glDisable(GL_POINT_SMOOTH);
+        } else if (color_point == 3) {
+//            glPointSize(point_size);
+            glBegin(GL_POINT);
+//            glColor3d(r2, g2, b2);
+//            glClear(GL_COLOR_BUFFER_BIT);
+//            glVertex3d(obj.matrix.matrix[i][0], obj.matrix.matrix[i][1], obj.matrix.matrix[i][2]);
+            glEnd();
+        }
     }
+//     glClear(GL_COLOR_BUFFER_BIT);
 //    glClearColor(r1, g1, b1, 0);s
     glLineWidth(width);
 
@@ -158,9 +172,11 @@ void Widget::paintGL() {
     //********************
 //    r = 1; g = 0; b = 0.5;
 
-        glColor4f(r, g, b, 1); // цвет линий
+
+        glColor4f(r2, g2, b2, 1); // цвет линий
         glDrawElements(GL_POINTS, obj.count_of_polygons * 6, GL_UNSIGNED_INT, facets);
-        glColor4f(0.1, 0.75, 0.3, 1);
+//        glColor4f(0.1, 0.75, 0.3, 1);
+        glColor4f(r, g, b, 1);
         glDrawElements(GL_LINES, obj.count_of_polygons * 6, GL_UNSIGNED_INT, facets);
 
     glDisable(GL_POINT_SMOOTH);
