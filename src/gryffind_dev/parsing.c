@@ -16,11 +16,11 @@ int reading_counting(char *file_name, Data *obj) {
     char *line = NULL;
     //    char path[200] =
     //    "/Users/gryffind/C8_3DViewer_v1.0-1/src/gryffind_dev/obj/";
-    char path[200] = "/Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/obj/";
-    strcat(path, file_name);
+//    char path[200] = "/Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/obj/";
+//    strcat(path, file_name);
     size_t len = 0;
     ssize_t read;
-    stream = fopen(path, "r");
+    stream = fopen(file_name, "r");
     if (stream == NULL) code = 1;
     if (code == 0) {
         while ((read = getline(&line, &len, stream)) != -1) {
@@ -39,12 +39,12 @@ int parsing_matrix(char *file_name, Data *obj) {
     int code = 0;
     FILE *stream;
     char *line = NULL;
-    char path[200] = "/Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/obj/";
-    strcat(path, file_name);
+//    char path[200] = "/Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/obj/";
+//    strcat(path, file_name);
     size_t len = 0;
     int read;
     //    printf("%s\n", path);
-    stream = fopen(path, "r");
+    stream = fopen(file_name, "r");
     // УБРАЛ ЛИШНЮЮ ЕДИНИЦУ ТАК ОНА ПРИВОДИЛА К ЛИШНЕЙ СТРОКЕ В ВЫВОДЕ
     s21_create_matrix(obj->count_of_vertex, 3, &obj->matrix);
     obj->poligons = malloc((obj->count_of_polygons + 1) * sizeof(polygon_t));

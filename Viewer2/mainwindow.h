@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 #include "widget.h"
-
+#include <QFileDialog>
 
 extern "C" {
 #include "../src/gryffind_dev/parsing.h"
@@ -61,6 +61,9 @@ private slots:
 
     void on_radioButton_5_toggled();
 
+    void on_pushButton_open_clicked();
+        void wheelEvent(QWheelEvent *event) override;
+    void change_information_about_obj(char* file_name_str);
 private:
     Ui::MainWindow *ui;
 };

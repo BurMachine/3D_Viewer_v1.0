@@ -8,6 +8,7 @@
 #include <QTimer>
 #include <QMouseEvent>
 
+
 extern "C" {
 #include "../src/gryffind_dev/parsing.h"
 #include "../src/gryffind_dev/matrix/s21_matrix.h"
@@ -34,7 +35,6 @@ private:
 public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
-    void filler();
     void shift(int code, double x, double y, double z);
     double r, g, b;
     double r1, g1, b1;
@@ -44,7 +44,11 @@ public:
     int color_point;
     double point_size;
 
+
     Data obj;
+
+    void filler(char *filename);
+    void filler_first();
 
 private:
     Ui::Widget *ui;

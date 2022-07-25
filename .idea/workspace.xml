@@ -14,7 +14,19 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d0186d35-86bf-404b-8949-ccffa4f66aed" name="Changes" comment="" />
+    <list default="true" id="d0186d35-86bf-404b-8949-ccffa4f66aed" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Viewer2/mainwindow.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Viewer2/mainwindow.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Viewer2/mainwindow.h" beforeDir="false" afterPath="$PROJECT_DIR$/Viewer2/mainwindow.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Viewer2/mainwindow.ui" beforeDir="false" afterPath="$PROJECT_DIR$/Viewer2/mainwindow.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Viewer2/widget.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Viewer2/widget.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Viewer2/widget.h" beforeDir="false" afterPath="$PROJECT_DIR$/Viewer2/widget.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/.qtc_clangd/.cache/clangd/index/parsing.c.934080F0DEFC88A9.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/.qtc_clangd/.cache/clangd/index/parsing.c.934080F0DEFC88A9.idx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/.qtc_clangd/.cache/clangd/index/parsing.h.718B9129688130C3.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/.qtc_clangd/.cache/clangd/index/parsing.h.718B9129688130C3.idx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/.qtc_clangd/.cache/clangd/index/stdbool.h.C1E153A56F3BC147.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/.qtc_clangd/.cache/clangd/index/stdbool.h.C1E153A56F3BC147.idx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/.qtc_clangd/.cache/clangd/index/stdint.h.36C0C2E5C3DB6275.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/.qtc_clangd/.cache/clangd/index/stdint.h.36C0C2E5C3DB6275.idx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gryffind_dev/parsing.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/gryffind_dev/parsing.c" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

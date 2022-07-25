@@ -88,7 +88,8 @@ void MainWindow::on_rotate_clicked()
 
 void MainWindow::on_restart_clicked()
 {
-    ui->widget->filler();
+    //ОТКЛЮЧИЛ ФУНКЦИЮ НИЖЕ ПОТОМУ ЧТО НУЖНО ТУДА ПЕРЕДАТЬ СТРОКУ
+//    ui->widget->filler();
 //    double x = ui->x_turn->text().toDouble();
 //    double y = ui->y_turn->text().toDouble();
 //    double z = ui->z_turn->text().toDouble();
@@ -215,3 +216,52 @@ void MainWindow::on_radioButton_5_toggled()
     ui->widget->color_point = 3;
 }
 
+
+
+
+void MainWindow::on_pushButton_open_clicked()
+{
+    //ПЕРЕД СОРКОЙ ПОМЕНЯТЬ НА /USERS/
+    QString path_to_file = QFileDialog::getOpenFileName(NULL, "Open", "/Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/obj", "*.obj");
+    char* path_to_file_str = new char[path_to_file.length()];
+    QByteArray barr = path_to_file.toLatin1();
+    strlcpy(path_to_file_str, barr, path_to_file.length() + 1);
+    ui->widget->filler(path_to_file_str);
+
+    char* file_name_str = strrchr(path_to_file_str, '/');
+
+    change_information_about_obj(file_name_str);
+
+    qDebug() << path_to_file_str;
+    delete[] path_to_file_str;
+    path_to_file_str = NULL;
+    update();
+}
+
+void MainWindow::wheelEvent(QWheelEvent *event)
+{
+    QPoint numDegrees = event->angleDelta() / 8;
+
+    if (numDegrees.ry() == -15) {
+//        отдалять
+        ui->widget->shift(1, 1.1, 1.1, 1.1);
+                qDebug() << 1;
+    } else if (numDegrees.ry() == 15) {
+//        приближать
+        ui->widget->shift(1, 0.9, 0.9, 0.9);
+        qDebug() << 0;
+    }
+    event->accept();
+}
+
+void MainWindow::change_information_about_obj(char* file_name_str){
+    QString file_name_q_str;
+    file_name_q_str = file_name_str;
+    qDebug() << file_name_q_str;
+
+    int vertex = ui->widget->obj.count_of_vertex;
+    int polygons = ui->widget->obj.count_of_polygons;
+    QString str_vertex =  QString::number(vertex, 'g', 15);
+    QString str_polygons =  QString::number(polygons, 'g', 15);
+    ui->label_name->setText(file_name_q_str + "\nКоличество вершин: " + str_vertex + "\nКоличество полигонов: " + str_polygons);
+}
