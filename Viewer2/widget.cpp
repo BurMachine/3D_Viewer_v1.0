@@ -46,9 +46,11 @@ min*=1.2;
 max*=1.2;
 //     glOrtho(max,min,max,min,max,min);
      glOrtho(min,max,min,max,min,max);
-//    glFrustum(max,min,max,min,max,min+10);
+    if (obj.count_of_vertex < 10000) {
+        glFrustum(max,min,max,min,max,min+20);
+    } else {
     glFrustum(min,max,min,max,min,max);
-
+    }
 }
 
 
