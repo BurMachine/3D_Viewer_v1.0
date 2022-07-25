@@ -28,6 +28,16 @@ private slots:
 
     void on_equal_clicked();
 
+    void on_plus_plus_clicked();
+
+    void on_minus_minus_clicked();
+
+    void on_move_go_clicked();
+
+    void on_rotate_clicked();
+
+    void on_restart_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

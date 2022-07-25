@@ -2,6 +2,7 @@
 #include "widget.h"
 #include "ui_widget.h"
 #include "math.h"
+#include <QMessageBox>
 
 //Конструктор класса
 Widget::Widget(QWidget *parent)
@@ -10,7 +11,7 @@ Widget::Widget(QWidget *parent)
 {
     setWindowTitle("the game");
     setGeometry(400,200,800,600);
-    filler(0, 0, 0, 0);
+    filler();
 }
 
 Widget::~Widget()
@@ -45,6 +46,7 @@ min*=1.2;
 max*=1.2;
 //     glOrtho(max,min,max,min,max,min);
      glOrtho(min,max,min,max,min,max);
+//    glFrustum(max,min,max,min,max,min+10);
     glFrustum(min,max,min,max,min,max);
 
 }
@@ -52,23 +54,45 @@ max*=1.2;
 
 
 
-void Widget::filler(int a, double x, double y, double z) {
+void Widget::filler() {
 //    char filename[50] = "cub.obj";
 //    char filename[50] = "eyeball.obj";
-   char filename[50] = "Low-Poly-Racing-Car.obj";
-//    char filename[50] = "Mercedes+Benz+GLS+580.obj";
+//   char filename[50] = "Low-Poly-Racing-Car.obj";
+    char filename[50] = "Mercedes+Benz+GLS+580.obj";
 //    char filename[50] = "cat.obj";
     printf("kek\n");
     obj.count_of_polygons = 0;
     obj.count_of_vertex = 0;
-    reading_counting(filename, &obj);
+    if (!reading_counting(filename, &obj)) {
     parsing_matrix(filename, &obj);
-    if(a == 1) {
+//    if(a == 1) {
+//        change_of_size_x(&obj, x);
+//        change_of_size_y(&obj, y);
+//        change_of_size_z(&obj, z);
+//    } else if (a == 2) {
+
+//    }
+
+    } else {
+        QMessageBox::warning(this, "Внимание","File not open");
+    }
+
+}
+
+
+void Widget::shift(int code, double x, double y, double z) {
+    if(code == 1) {
         change_of_size_x(&obj, x);
         change_of_size_y(&obj, y);
         change_of_size_z(&obj, z);
-    } else if (a == 2) {
-
+    } else if (code == 2) {
+        move_x(&obj, x);
+        move_y(&obj, y);
+        move_z(&obj, z);
+    } else if (code == 3) {
+        turn_x(&obj, x);
+        turn_y(&obj, y);
+        turn_z(&obj, z);
     }
     update();
 }

@@ -34,7 +34,8 @@ private:
 public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
-    void filler(int a, double x, double y, double z);
+    void filler();
+    void shift(int code, double x, double y, double z);
 
     Data obj;
 private:

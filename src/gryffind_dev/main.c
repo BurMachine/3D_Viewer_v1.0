@@ -8,9 +8,9 @@
 
 
  int main() {
-//     char filename[50] = "cub.obj";
+     char filename[50] = "cub.obj";
 //     char filename[50] = "easyCube.obj";
-    char filename[50] = "cat.obj";
+//    char filename[50] = "cat.obj";
      
      Data obj;
      obj.count_of_polygons = 0;
