@@ -14,10 +14,10 @@ EQ            = =
 
 CC            = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang
 CXX           = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
-DEFINES       = -DQT_QML_DEBUG -DQT_OPENGLWIDGETS_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
+DEFINES       = -DGIFIMAGE_NO_LIB -DQT_QML_DEBUG -DQT_OPENGLWIDGETS_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11 -Wall -Wextra -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -stdlib=libc++ -g -std=gnu++1z $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11 -Wall -Wextra -fPIC $(DEFINES)
-INCPATH       = -I../Viewer2 -I. -I/usr/local/lib/QtOpenGLWidgets.framework/Headers -I/usr/local/lib/QtOpenGL.framework/Headers -I/usr/local/lib/QtWidgets.framework/Headers -I/usr/local/lib/QtGui.framework/Headers -I/usr/local/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/AGL.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/AGL.framework/Headers -I/usr/local/share/qt/mkspecs/macx-clang -F/usr/local/lib
+INCPATH       = -I../Viewer2 -I. -I../QtGifImage-master/src/gifimage -I../QtGifImage-master/src/3rdParty/giflib -I/usr/local/lib/QtOpenGLWidgets.framework/Headers -I/usr/local/lib/QtOpenGL.framework/Headers -I/usr/local/lib/QtWidgets.framework/Headers -I/usr/local/lib/QtGui.framework/Headers -I/usr/local/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/AGL.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/AGL.framework/Headers -I/usr/local/share/qt/mkspecs/macx-clang -F/usr/local/lib
 QMAKE         = /usr/local/Cellar/qt/6.2.3/bin/qmake6
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -68,7 +68,14 @@ SOURCES       = ../src/gryffind_dev/matrix/check.c \
 		../Viewer2/main.cpp \
 		../Viewer2/mainwindow.cpp \
 		../Viewer2/widget.cpp \
-		../src/gryffind_dev/afinn_translation.c moc_mainwindow.cpp \
+		../src/gryffind_dev/afinn_translation.c \
+		../QtGifImage-master/src/3rdParty/giflib/dgif_lib.c \
+		../QtGifImage-master/src/3rdParty/giflib/egif_lib.c \
+		../QtGifImage-master/src/3rdParty/giflib/gif_err.c \
+		../QtGifImage-master/src/3rdParty/giflib/gif_hash.c \
+		../QtGifImage-master/src/3rdParty/giflib/gifalloc.c \
+		../QtGifImage-master/src/3rdParty/giflib/quantize.c \
+		../QtGifImage-master/src/gifimage/qgifimage.cpp moc_mainwindow.cpp \
 		moc_widget.cpp
 OBJECTS       = check.o \
 		determinant.o \
@@ -87,6 +94,13 @@ OBJECTS       = check.o \
 		mainwindow.o \
 		widget.o \
 		afinn_translation.o \
+		dgif_lib.o \
+		egif_lib.o \
+		gif_err.o \
+		gif_hash.o \
+		gifalloc.o \
+		quantize.o \
+		qgifimage.o \
 		moc_mainwindow.o \
 		moc_widget.o
 DIST          = ../src/gryffind_dev/matrix/Makefile \
@@ -335,6 +349,8 @@ DIST          = ../src/gryffind_dev/matrix/Makefile \
 		/usr/local/share/qt/mkspecs/features/mac/toolchain.prf \
 		/usr/local/share/qt/mkspecs/features/default_pre.prf \
 		/usr/local/share/qt/mkspecs/features/mac/default_pre.prf \
+		../QtGifImage-master/src/3rdParty/giflib.pri \
+		../QtGifImage-master/src/gifimage/qtgifimage.pri \
 		/usr/local/share/qt/mkspecs/features/resolve_config.prf \
 		/usr/local/share/qt/mkspecs/features/default_post.prf \
 		/usr/local/share/qt/mkspecs/features/mac/default_post.prf \
@@ -362,7 +378,10 @@ DIST          = ../src/gryffind_dev/matrix/Makefile \
 		../src/underfile.h \
 		../Viewer2/mainwindow.h \
 		../Viewer2/widget.h \
-		../src/gryffind_dev/afinn_translation.h ../src/gryffind_dev/matrix/check.c \
+		../src/gryffind_dev/afinn_translation.h \
+		../QtGifImage-master/src/gifimage/qgifglobal.h \
+		../QtGifImage-master/src/gifimage/qgifimage.h \
+		../QtGifImage-master/src/gifimage/qgifimage_p.h ../src/gryffind_dev/matrix/check.c \
 		../src/gryffind_dev/matrix/determinant.c \
 		../src/gryffind_dev/matrix/s21_calc_complements.c \
 		../src/gryffind_dev/matrix/s21_create_matrix.c \
@@ -378,7 +397,14 @@ DIST          = ../src/gryffind_dev/matrix/Makefile \
 		../Viewer2/main.cpp \
 		../Viewer2/mainwindow.cpp \
 		../Viewer2/widget.cpp \
-		../src/gryffind_dev/afinn_translation.c
+		../src/gryffind_dev/afinn_translation.c \
+		../QtGifImage-master/src/3rdParty/giflib/dgif_lib.c \
+		../QtGifImage-master/src/3rdParty/giflib/egif_lib.c \
+		../QtGifImage-master/src/3rdParty/giflib/gif_err.c \
+		../QtGifImage-master/src/3rdParty/giflib/gif_hash.c \
+		../QtGifImage-master/src/3rdParty/giflib/gifalloc.c \
+		../QtGifImage-master/src/3rdParty/giflib/quantize.c \
+		../QtGifImage-master/src/gifimage/qgifimage.cpp
 QMAKE_TARGET  = Viewer2
 DESTDIR       = 
 TARGET        = Viewer2.app/Contents/MacOS/Viewer2
@@ -636,6 +662,8 @@ Makefile: ../Viewer2/Viewer2.pro /usr/local/share/qt/mkspecs/macx-clang/qmake.co
 		/usr/local/share/qt/mkspecs/features/mac/toolchain.prf \
 		/usr/local/share/qt/mkspecs/features/default_pre.prf \
 		/usr/local/share/qt/mkspecs/features/mac/default_pre.prf \
+		../QtGifImage-master/src/3rdParty/giflib.pri \
+		../QtGifImage-master/src/gifimage/qtgifimage.pri \
 		/usr/local/share/qt/mkspecs/features/resolve_config.prf \
 		/usr/local/share/qt/mkspecs/features/default_post.prf \
 		/usr/local/share/qt/mkspecs/features/mac/default_post.prf \
@@ -898,6 +926,8 @@ Makefile: ../Viewer2/Viewer2.pro /usr/local/share/qt/mkspecs/macx-clang/qmake.co
 /usr/local/share/qt/mkspecs/features/mac/toolchain.prf:
 /usr/local/share/qt/mkspecs/features/default_pre.prf:
 /usr/local/share/qt/mkspecs/features/mac/default_pre.prf:
+../QtGifImage-master/src/3rdParty/giflib.pri:
+../QtGifImage-master/src/gifimage/qtgifimage.pri:
 /usr/local/share/qt/mkspecs/features/resolve_config.prf:
 /usr/local/share/qt/mkspecs/features/default_post.prf:
 /usr/local/share/qt/mkspecs/features/mac/default_post.prf:
@@ -956,8 +986,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/local/share/qt/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../src/gryffind_dev/matrix/s21_matrix.h ../src/gryffind_dev/parsing.h ../src/underfile.h ../Viewer2/mainwindow.h ../Viewer2/widget.h ../src/gryffind_dev/afinn_translation.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../src/gryffind_dev/matrix/check.c ../src/gryffind_dev/matrix/determinant.c ../src/gryffind_dev/matrix/s21_calc_complements.c ../src/gryffind_dev/matrix/s21_create_matrix.c ../src/gryffind_dev/matrix/s21_eq_matrix.c ../src/gryffind_dev/matrix/s21_inverse_matrix.c ../src/gryffind_dev/matrix/s21_mult.c ../src/gryffind_dev/matrix/s21_remove_matrix.c ../src/gryffind_dev/matrix/s21_sum_sub.c ../src/gryffind_dev/matrix/s21_transpon.c ../src/gryffind_dev/parsing.c ../src/gryffind_dev/supportFunction.c ../src/translator.c ../Viewer2/main.cpp ../Viewer2/mainwindow.cpp ../Viewer2/widget.cpp ../src/gryffind_dev/afinn_translation.c $(DISTDIR)/
+	$(COPY_FILE) --parents ../src/gryffind_dev/matrix/s21_matrix.h ../src/gryffind_dev/parsing.h ../src/underfile.h ../Viewer2/mainwindow.h ../Viewer2/widget.h ../src/gryffind_dev/afinn_translation.h ../QtGifImage-master/src/gifimage/qgifglobal.h ../QtGifImage-master/src/gifimage/qgifimage.h ../QtGifImage-master/src/gifimage/qgifimage_p.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../src/gryffind_dev/matrix/check.c ../src/gryffind_dev/matrix/determinant.c ../src/gryffind_dev/matrix/s21_calc_complements.c ../src/gryffind_dev/matrix/s21_create_matrix.c ../src/gryffind_dev/matrix/s21_eq_matrix.c ../src/gryffind_dev/matrix/s21_inverse_matrix.c ../src/gryffind_dev/matrix/s21_mult.c ../src/gryffind_dev/matrix/s21_remove_matrix.c ../src/gryffind_dev/matrix/s21_sum_sub.c ../src/gryffind_dev/matrix/s21_transpon.c ../src/gryffind_dev/parsing.c ../src/gryffind_dev/supportFunction.c ../src/translator.c ../Viewer2/main.cpp ../Viewer2/mainwindow.cpp ../Viewer2/widget.cpp ../src/gryffind_dev/afinn_translation.c ../QtGifImage-master/src/3rdParty/giflib/dgif_lib.c ../QtGifImage-master/src/3rdParty/giflib/egif_lib.c ../QtGifImage-master/src/3rdParty/giflib/gif_err.c ../QtGifImage-master/src/3rdParty/giflib/gif_hash.c ../QtGifImage-master/src/3rdParty/giflib/gifalloc.c ../QtGifImage-master/src/3rdParty/giflib/quantize.c ../QtGifImage-master/src/gifimage/qgifimage.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../Viewer2/mainwindow.ui ../Viewer2/widget.ui $(DISTDIR)/
 
 
@@ -1013,9 +1043,29 @@ moc_mainwindow.cpp: ../Viewer2/mainwindow.h \
 		../src/gryffind_dev/parsing.h \
 		../src/gryffind_dev/matrix/s21_matrix.h \
 		../src/gryffind_dev/afinn_translation.h \
+		/usr/local/lib/QtWidgets.framework/Headers/QFileDialog \
+		/usr/local/lib/QtWidgets.framework/Headers/qfiledialog.h \
+		/usr/local/lib/QtCore.framework/Headers/QVector \
+		/usr/local/lib/QtCore.framework/Headers/qvector.h \
+		/usr/local/lib/QtGui.framework/Headers/QImage \
+		/usr/local/lib/QtGui.framework/Headers/qimage.h \
+		../QtGifImage-master/src/gifimage/qgifimage.h \
+		../QtGifImage-master/src/gifimage/qgifglobal.h \
+		/usr/local/lib/QtCore.framework/Headers/QtGlobal \
+		/usr/local/lib/QtCore.framework/Headers/qglobal.h \
+		/usr/local/lib/QtGui.framework/Headers/QColor \
+		/usr/local/lib/QtGui.framework/Headers/qcolor.h \
+		/usr/local/lib/QtCore.framework/Headers/QList \
+		/usr/local/lib/QtCore.framework/Headers/qlist.h \
+		/usr/local/lib/QtGui.framework/Headers/QPainter \
+		/usr/local/lib/QtGui.framework/Headers/qpainter.h \
+		/usr/local/lib/QtGui.framework/Headers/QPixmap \
+		/usr/local/lib/QtGui.framework/Headers/qpixmap.h \
+		/usr/local/lib/QtCore.framework/Headers/QSize \
+		/usr/local/lib/QtCore.framework/Headers/qsize.h \
 		moc_predefs.h \
 		/usr/local/share/qt/libexec/moc
-	/usr/local/share/qt/libexec/moc $(DEFINES) --include /Users/gryffind/C8_3DViewer_v1.0-1/build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/moc_predefs.h -I/usr/local/share/qt/mkspecs/macx-clang -I/Users/gryffind/C8_3DViewer_v1.0-1/Viewer2 -I/usr/local/lib/QtOpenGLWidgets.framework/Headers -I/usr/local/lib/QtOpenGL.framework/Headers -I/usr/local/lib/QtWidgets.framework/Headers -I/usr/local/lib/QtGui.framework/Headers -I/usr/local/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/usr/local/lib ../Viewer2/mainwindow.h -o moc_mainwindow.cpp
+	/usr/local/share/qt/libexec/moc $(DEFINES) --include /Users/gryffind/C8_3DViewer_v1.0-1/build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/moc_predefs.h -I/usr/local/share/qt/mkspecs/macx-clang -I/Users/gryffind/C8_3DViewer_v1.0-1/Viewer2 -I/Users/gryffind/C8_3DViewer_v1.0-1/QtGifImage-master/src/gifimage -I/Users/gryffind/C8_3DViewer_v1.0-1/QtGifImage-master/src/3rdParty/giflib -I/usr/local/lib/QtOpenGLWidgets.framework/Headers -I/usr/local/lib/QtOpenGL.framework/Headers -I/usr/local/lib/QtWidgets.framework/Headers -I/usr/local/lib/QtGui.framework/Headers -I/usr/local/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/usr/local/lib ../Viewer2/mainwindow.h -o moc_mainwindow.cpp
 
 moc_widget.cpp: ../Viewer2/widget.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QWidget \
@@ -1033,7 +1083,7 @@ moc_widget.cpp: ../Viewer2/widget.h \
 		../src/gryffind_dev/afinn_translation.h \
 		moc_predefs.h \
 		/usr/local/share/qt/libexec/moc
-	/usr/local/share/qt/libexec/moc $(DEFINES) --include /Users/gryffind/C8_3DViewer_v1.0-1/build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/moc_predefs.h -I/usr/local/share/qt/mkspecs/macx-clang -I/Users/gryffind/C8_3DViewer_v1.0-1/Viewer2 -I/usr/local/lib/QtOpenGLWidgets.framework/Headers -I/usr/local/lib/QtOpenGL.framework/Headers -I/usr/local/lib/QtWidgets.framework/Headers -I/usr/local/lib/QtGui.framework/Headers -I/usr/local/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/usr/local/lib ../Viewer2/widget.h -o moc_widget.cpp
+	/usr/local/share/qt/libexec/moc $(DEFINES) --include /Users/gryffind/C8_3DViewer_v1.0-1/build-Viewer2-Desktop_x86_darwin_generic_mach_o_64bit-Debug/moc_predefs.h -I/usr/local/share/qt/mkspecs/macx-clang -I/Users/gryffind/C8_3DViewer_v1.0-1/Viewer2 -I/Users/gryffind/C8_3DViewer_v1.0-1/QtGifImage-master/src/gifimage -I/Users/gryffind/C8_3DViewer_v1.0-1/QtGifImage-master/src/3rdParty/giflib -I/usr/local/lib/QtOpenGLWidgets.framework/Headers -I/usr/local/lib/QtOpenGL.framework/Headers -I/usr/local/lib/QtWidgets.framework/Headers -I/usr/local/lib/QtGui.framework/Headers -I/usr/local/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/usr/local/lib ../Viewer2/widget.h -o moc_widget.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -1134,6 +1184,26 @@ main.o: ../Viewer2/main.cpp ../Viewer2/widget.h \
 		../Viewer2/mainwindow.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QMainWindow \
 		/usr/local/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		/usr/local/lib/QtWidgets.framework/Headers/QFileDialog \
+		/usr/local/lib/QtWidgets.framework/Headers/qfiledialog.h \
+		/usr/local/lib/QtCore.framework/Headers/QVector \
+		/usr/local/lib/QtCore.framework/Headers/qvector.h \
+		/usr/local/lib/QtGui.framework/Headers/QImage \
+		/usr/local/lib/QtGui.framework/Headers/qimage.h \
+		../QtGifImage-master/src/gifimage/qgifimage.h \
+		../QtGifImage-master/src/gifimage/qgifglobal.h \
+		/usr/local/lib/QtCore.framework/Headers/QtGlobal \
+		/usr/local/lib/QtCore.framework/Headers/qglobal.h \
+		/usr/local/lib/QtGui.framework/Headers/QColor \
+		/usr/local/lib/QtGui.framework/Headers/qcolor.h \
+		/usr/local/lib/QtCore.framework/Headers/QList \
+		/usr/local/lib/QtCore.framework/Headers/qlist.h \
+		/usr/local/lib/QtGui.framework/Headers/QPainter \
+		/usr/local/lib/QtGui.framework/Headers/qpainter.h \
+		/usr/local/lib/QtGui.framework/Headers/QPixmap \
+		/usr/local/lib/QtGui.framework/Headers/qpixmap.h \
+		/usr/local/lib/QtCore.framework/Headers/QSize \
+		/usr/local/lib/QtCore.framework/Headers/qsize.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QApplication \
 		/usr/local/lib/QtWidgets.framework/Headers/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Viewer2/main.cpp
@@ -1155,6 +1225,26 @@ mainwindow.o: ../Viewer2/mainwindow.cpp ../Viewer2/mainwindow.h \
 		../src/gryffind_dev/parsing.h \
 		../src/gryffind_dev/matrix/s21_matrix.h \
 		../src/gryffind_dev/afinn_translation.h \
+		/usr/local/lib/QtWidgets.framework/Headers/QFileDialog \
+		/usr/local/lib/QtWidgets.framework/Headers/qfiledialog.h \
+		/usr/local/lib/QtCore.framework/Headers/QVector \
+		/usr/local/lib/QtCore.framework/Headers/qvector.h \
+		/usr/local/lib/QtGui.framework/Headers/QImage \
+		/usr/local/lib/QtGui.framework/Headers/qimage.h \
+		../QtGifImage-master/src/gifimage/qgifimage.h \
+		../QtGifImage-master/src/gifimage/qgifglobal.h \
+		/usr/local/lib/QtCore.framework/Headers/QtGlobal \
+		/usr/local/lib/QtCore.framework/Headers/qglobal.h \
+		/usr/local/lib/QtGui.framework/Headers/QColor \
+		/usr/local/lib/QtGui.framework/Headers/qcolor.h \
+		/usr/local/lib/QtCore.framework/Headers/QList \
+		/usr/local/lib/QtCore.framework/Headers/qlist.h \
+		/usr/local/lib/QtGui.framework/Headers/QPainter \
+		/usr/local/lib/QtGui.framework/Headers/qpainter.h \
+		/usr/local/lib/QtGui.framework/Headers/QPixmap \
+		/usr/local/lib/QtGui.framework/Headers/qpixmap.h \
+		/usr/local/lib/QtCore.framework/Headers/QSize \
+		/usr/local/lib/QtCore.framework/Headers/qsize.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../Viewer2/mainwindow.cpp
 
@@ -1172,13 +1262,65 @@ widget.o: ../Viewer2/widget.cpp ../Viewer2/widget.h \
 		../src/gryffind_dev/parsing.h \
 		../src/gryffind_dev/matrix/s21_matrix.h \
 		../src/gryffind_dev/afinn_translation.h \
-		ui_widget.h
+		ui_widget.h \
+		/usr/local/lib/QtWidgets.framework/Headers/QMessageBox \
+		/usr/local/lib/QtWidgets.framework/Headers/qmessagebox.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o widget.o ../Viewer2/widget.cpp
 
 afinn_translation.o: ../src/gryffind_dev/afinn_translation.c ../src/gryffind_dev/afinn_translation.h \
 		../src/gryffind_dev/parsing.h \
 		../src/gryffind_dev/matrix/s21_matrix.h
 	$(CC) -c $(CFLAGS) $(INCPATH) -o afinn_translation.o ../src/gryffind_dev/afinn_translation.c
+
+dgif_lib.o: ../QtGifImage-master/src/3rdParty/giflib/dgif_lib.c ../QtGifImage-master/src/3rdParty/giflib/gif_lib.h \
+		../QtGifImage-master/src/3rdParty/giflib/gif_lib_private.h \
+		../QtGifImage-master/src/3rdParty/giflib/gif_hash.h
+	$(CC) -c $(CFLAGS) $(INCPATH) -o dgif_lib.o ../QtGifImage-master/src/3rdParty/giflib/dgif_lib.c
+
+egif_lib.o: ../QtGifImage-master/src/3rdParty/giflib/egif_lib.c ../QtGifImage-master/src/3rdParty/giflib/gif_lib.h \
+		../QtGifImage-master/src/3rdParty/giflib/gif_lib_private.h \
+		../QtGifImage-master/src/3rdParty/giflib/gif_hash.h
+	$(CC) -c $(CFLAGS) $(INCPATH) -o egif_lib.o ../QtGifImage-master/src/3rdParty/giflib/egif_lib.c
+
+gif_err.o: ../QtGifImage-master/src/3rdParty/giflib/gif_err.c ../QtGifImage-master/src/3rdParty/giflib/gif_lib.h \
+		../QtGifImage-master/src/3rdParty/giflib/gif_lib_private.h \
+		../QtGifImage-master/src/3rdParty/giflib/gif_hash.h
+	$(CC) -c $(CFLAGS) $(INCPATH) -o gif_err.o ../QtGifImage-master/src/3rdParty/giflib/gif_err.c
+
+gif_hash.o: ../QtGifImage-master/src/3rdParty/giflib/gif_hash.c ../QtGifImage-master/src/3rdParty/giflib/gif_lib.h \
+		../QtGifImage-master/src/3rdParty/giflib/gif_hash.h \
+		../QtGifImage-master/src/3rdParty/giflib/gif_lib_private.h
+	$(CC) -c $(CFLAGS) $(INCPATH) -o gif_hash.o ../QtGifImage-master/src/3rdParty/giflib/gif_hash.c
+
+gifalloc.o: ../QtGifImage-master/src/3rdParty/giflib/gifalloc.c ../QtGifImage-master/src/3rdParty/giflib/gif_lib.h
+	$(CC) -c $(CFLAGS) $(INCPATH) -o gifalloc.o ../QtGifImage-master/src/3rdParty/giflib/gifalloc.c
+
+quantize.o: ../QtGifImage-master/src/3rdParty/giflib/quantize.c ../QtGifImage-master/src/3rdParty/giflib/gif_lib.h \
+		../QtGifImage-master/src/3rdParty/giflib/gif_lib_private.h \
+		../QtGifImage-master/src/3rdParty/giflib/gif_hash.h
+	$(CC) -c $(CFLAGS) $(INCPATH) -o quantize.o ../QtGifImage-master/src/3rdParty/giflib/quantize.c
+
+qgifimage.o: ../QtGifImage-master/src/gifimage/qgifimage.cpp ../QtGifImage-master/src/gifimage/qgifimage.h \
+		../QtGifImage-master/src/gifimage/qgifglobal.h \
+		/usr/local/lib/QtCore.framework/Headers/QtGlobal \
+		/usr/local/lib/QtCore.framework/Headers/qglobal.h \
+		/usr/local/lib/QtGui.framework/Headers/QImage \
+		/usr/local/lib/QtGui.framework/Headers/qimage.h \
+		/usr/local/lib/QtGui.framework/Headers/QColor \
+		/usr/local/lib/QtGui.framework/Headers/qcolor.h \
+		/usr/local/lib/QtCore.framework/Headers/QList \
+		/usr/local/lib/QtCore.framework/Headers/qlist.h \
+		/usr/local/lib/QtCore.framework/Headers/QVector \
+		/usr/local/lib/QtCore.framework/Headers/qvector.h \
+		../QtGifImage-master/src/gifimage/qgifimage_p.h \
+		../QtGifImage-master/src/3rdParty/giflib/gif_lib.h \
+		/usr/local/lib/QtCore.framework/Headers/QFile \
+		/usr/local/lib/QtCore.framework/Headers/qfile.h \
+		/usr/local/lib/QtCore.framework/Headers/QDebug \
+		/usr/local/lib/QtCore.framework/Headers/qdebug.h \
+		/usr/local/lib/QtCore.framework/Headers/QScopedPointer \
+		/usr/local/lib/QtCore.framework/Headers/qscopedpointer.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qgifimage.o ../QtGifImage-master/src/gifimage/qgifimage.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp

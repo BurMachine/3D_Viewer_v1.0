@@ -45,6 +45,7 @@ public:
     double point_size;
 
 
+
     Data obj;
 
     void filler(char *filename);

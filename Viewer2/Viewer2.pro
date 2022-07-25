@@ -1,4 +1,4 @@
-QT       += core gui opengl openglwidgets
+QT       += core gui opengl openglwidgets #testlib gifimage
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -38,6 +38,8 @@ HEADERS += \
 FORMS += \
     mainwindow.ui \
     widget.ui
+
+include (../QtGifImage-master/src/gifimage/qtgifimage.pri)
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

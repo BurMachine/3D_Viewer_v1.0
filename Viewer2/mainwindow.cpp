@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "widget.h"
 
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -49,19 +50,21 @@ void MainWindow::on_equal_clicked()
     double z = ui->z_size->text().toDouble();
 
     ui->widget->shift(1, x, y, z);
-
+    create_screen();
 }
 
 
 void MainWindow::on_plus_plus_clicked()
 {
     ui->widget->shift(1, 1.1, 1.1, 1.1);
+    create_screen();
 }
 
 
 void MainWindow::on_minus_minus_clicked()
 {
     ui->widget->shift(1, 0.9, 0.9, 0.9);
+    create_screen();
 }
 
 
@@ -72,6 +75,7 @@ void MainWindow::on_move_go_clicked()
     double z = ui->z_move->text().toDouble();
 
     ui->widget->shift(2, x, y, z);
+    create_screen();
 }
 
 
@@ -84,6 +88,7 @@ void MainWindow::on_rotate_clicked()
     double z = ui->z_turn->text().toDouble();
 
     ui->widget->shift(3, x, y, z);
+    create_screen();
 }
 
 
@@ -108,6 +113,7 @@ void MainWindow::on_restart_clicked()
 
 //    ui->widget->shift(1, x, y, z);
     ui->widget->update();
+    create_screen();
 }
 
 
@@ -148,6 +154,7 @@ void MainWindow::on_color_fon_clicked()
     ui->widget->g1 = ui->G1->text().toDouble();
     ui->widget->b1 = ui->B1->text().toDouble();
     ui->widget->update();
+    create_screen();
 }
 
 
@@ -157,6 +164,7 @@ void MainWindow::on_color_line_clicked()
     ui->widget->g = ui->G1_2->text().toDouble();
     ui->widget->b = ui->B1_2->text().toDouble();
     ui->widget->update();
+    create_screen();
 }
 
 
@@ -164,6 +172,7 @@ void MainWindow::on_width_plus_clicked()
 {
     ui->widget->width += 0.5;
     ui->widget->update();
+    create_screen();
 }
 
 
@@ -171,6 +180,7 @@ void MainWindow::on_width_minus_clicked()
 {
     ui->widget->width -= 0.5;
     ui->widget->update();
+    create_screen();
 }
 
 
@@ -195,6 +205,7 @@ void MainWindow::on_color_line_2_clicked()
     ui->widget->b2 = ui->B1_3->text().toDouble();
     ui->widget->point_size = ui->point_size2->text().toDouble();
     ui->widget->update();
+    create_screen();
 }
 
 
@@ -255,6 +266,7 @@ void MainWindow::wheelEvent(QWheelEvent *event)
         qDebug() << 0;
     }
     event->accept();
+    create_screen();
 }
 
 void MainWindow::change_information_about_obj(char* file_name_str){
@@ -269,4 +281,54 @@ void MainWindow::change_information_about_obj(char* file_name_str){
     ui->label_name->setText(file_name_q_str + "\nКоличество вершин: " + str_vertex + "\nКоличество полигонов: " + str_polygons);
 }
 
+
+
+
+
+
+void MainWindow::create_screen()
+{
+    if (flag == 1) {
+        mas_image.push_back(ui->widget->grab().toImage());
+    }
+}
+
+void MainWindow::on_jpeg_pressed()
+{
+    QString file = QFileDialog::getSaveFileName(this, "Save as...", "name", "BMP (*.bmp);; JPEG (*.jpeg)");
+        ui->widget->grab().save(file);
+}
+
+
+void MainWindow::on_start_screen_pressed()
+{
+    flag = 1;
+}
+
+
+void MainWindow::on_stop_screen_pressed()
+{
+    flag = 0;
+        QString fileName = QFileDialog::getSaveFileName(this, tr("Save screenshot"), "", tr("GIF screenshot (*.gif);;GIF screenshot (*.gif)"));
+        QGifImage gif(QSize(5000, 5000));
+        QVector<QRgb> ctable;
+        ctable << qRgb(255, 255, 255)
+               << qRgb(0, 0, 0)
+               << qRgb(255, 0, 0)
+               << qRgb(0, 255, 0)
+               << qRgb(0, 0, 255)
+               << qRgb(255, 255, 0)
+               << qRgb(0, 255, 255)
+               << qRgb(255, 0, 255);
+
+        gif.setGlobalColorTable(ctable, Qt::black);
+        gif.setDefaultTransparentColor(Qt::black);
+        gif.setDefaultDelay(100);
+
+        for (QVector<QImage>::Iterator img = mas_image.begin(); img != mas_image.end(); ++img) {
+            gif.addFrame(*img);
+        }
+        gif.save(fileName);
+
+}
 
