@@ -16,7 +16,7 @@ int reading_counting(char *file_name, Data *obj) {
     char *line = NULL;
     //    char path[200] =
     //    "/Users/gryffind/C8_3DViewer_v1.0-1/src/gryffind_dev/obj/";
-    char path[200] = "/Users/gryffind/C8_3DViewer_v1.0-1/src/gryffind_dev/obj/";
+    char path[200] = "/Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/obj/";
     strcat(path, file_name);
     size_t len = 0;
     ssize_t read;
@@ -39,7 +39,7 @@ int parsing_matrix(char *file_name, Data *obj) {
     int code = 0;
     FILE *stream;
     char *line = NULL;
-    char path[200] = "/Users/gryffind/C8_3DViewer_v1.0-1/src/gryffind_dev/obj/";
+    char path[200] = "/Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/obj/";
     strcat(path, file_name);
     size_t len = 0;
     int read;
