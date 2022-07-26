@@ -78,3 +78,10 @@ check: $(NAME)
 	cp ../../materials/linters/CPPLINT.cfg CPPLINT.cfg
 	python3 ../../materials/linters/cpplint.py --extension=c $(SRC)/gryffind_dev/* $(TEST) *.h *.c
 	rm CPPLINT.cfg
+
+# dist:
+# 	rm -rf ../../Viewer2.0/
+# 	mkdir ../../Viewer2.0/
+# 	mkdir ../../Viewer2.0/
+# 	cp ../../build/Contents/MacOS/Viewer2 ../../Viewer2.0/
+# 	cd ../.. && tar cvzf Viewer2.0.tgz ../../Viewer2.0 && mv ../Viewer2.0

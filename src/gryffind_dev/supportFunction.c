@@ -55,8 +55,7 @@ int deparse(Data obj, char *filename) {
     path_parse(filename, path);
     FILE *file;
     // получать эту строку из фронта
-    // char path_2[200] = strcat(path, "/DEPARSE.obj");
-    // file = fopen(path "w");
+    file = fopen(strcat(path, "/DEPARSE.obj"), "w");
     // fprintf(file, "Это файл который сохраняет состояние модели\n");
     if (file) {
         for (int i = 0; i < obj.matrix.rows; i++) {
