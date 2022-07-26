@@ -65,9 +65,11 @@ install:
 	make clean
 	mkdir ../../build
 	cd ../../Viewer2 && qmake && make && make clean && rm Makefile && cd ../ && mv Viewer2/Viewer2.app build
-
+	open ../../build/Viewer2.app/Contents/MacOS/Viewer2
 uninstall:
 	rm -rf ../../build*
+open:
+	open ../../build/Viewer2.app/Contents/MacOS/Viewer2
 
 check: $(NAME)
 	@echo ---------------------CPPCHECK---------------------
@@ -83,5 +85,3 @@ dist:
 	mkdir ../../bistViewer2.bist/
 	cp ../../build/Contents/MacOS/Viewer2 ../../bistViewer2.bist/
 	cd ../.. && tar cvzf bistViewer2.bist.tgz ../../bistViewer2.bist && mv ../bistViewer2.bist
-u:
-	open ../../build/Viewer2
