@@ -60,8 +60,9 @@ max*=1.2;
 //    char filename[50] = "Mercedes+Benz+GLS+580.obj";
 //    char filename[50] = "cat.obj";
 void Widget::filler_first() {
+      char filename[100] = "/Users/wcorkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/obj/cat.obj";
 //    char filename[100] = "/Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/obj/cat.obj";
-    char filename[100] = "/Users/gryffind/C8_3DViewer_v1.0-1/src/gryffind_dev/obj/cat.obj";
+//    char filename[100] = "/Users/gryffind/C8_3DViewer_v1.0-1/src/gryffind_dev/obj/cat.obj";
     obj.count_of_polygons = 0;
     obj.count_of_vertex = 0;
     if (!reading_counting(filename, &obj)) {

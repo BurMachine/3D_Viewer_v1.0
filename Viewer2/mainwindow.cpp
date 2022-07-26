@@ -235,8 +235,8 @@ void MainWindow::on_radioButton_5_toggled()
 void MainWindow::on_pushButton_open_clicked()
 {
     //ПЕРЕД СОРКОЙ ПОМЕНЯТЬ НА /USERS/
-//       QString path_to_file = QFileDialog::getOpenFileName(NULL, "Open", "/Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/obj", "*.obj");
-    QString path_to_file = QFileDialog::getOpenFileName(NULL, "Open", "/Users/gryffind/C8_3DViewer_v1.0-1/src/gryffind_dev/obj/", "*.obj");
+       QString path_to_file = QFileDialog::getOpenFileName(NULL, "Open", "/Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/obj", "*.obj");
+//    QString path_to_file = QFileDialog::getOpenFileName(NULL, "Open", "/Users/gryffind/C8_3DViewer_v1.0-1/src/gryffind_dev/obj/", "*.obj");
     char* path_to_file_str = new char[path_to_file.length()];
     QByteArray barr = path_to_file.toLatin1();
     strlcpy(path_to_file_str, barr, path_to_file.length() + 1);
