@@ -67,7 +67,7 @@ install:
 	make clean
 	mkdir ../../build
 	cd ../../Viewer2 && qmake && make && make clean && rm Makefile && cd ../ && mv Viewer2/Viewer2.app build
-	cd ../../build/Contents/MacOS && open Viewer2
+
 uninstall:
 	rm -rf ../../build*
 
@@ -75,6 +75,6 @@ check: $(NAME)
 	@echo ---------------------CPPCHECK---------------------
 	cppcheck *.h $(SRC)
 	@echo ---------------------CPPLINT----------------------
-	cp ../materials/linters/CPPLINT.cfg CPPLINT.cfg
-	python3 ../materials/linters/cpplint.py --extension=c $(SRC) $(TEST) *.h *.c
+	cp ../../materials/linters/CPPLINT.cfg CPPLINT.cfg
+	python3 ../../materials/linters/cpplint.py --extension=c $(SRC)/gryffind_dev/* $(TEST) *.h *.c
 	rm CPPLINT.cfg

@@ -51,11 +51,12 @@ void get_max_min_frustum(int *max, int *min, Data obj) {
 // функция записывает в файл объект obj
 int deparse(Data obj, char *filename) {
     int code = 0;
-    char path[100] = "";;
+    char path[100] = "";
     path_parse(filename, path);
     FILE *file;
     // получать эту строку из фронта
-    file = fopen(strcat(path, "/DEPARSE.obj"), "w");
+    // char path_2[200] = strcat(path, "/DEPARSE.obj");
+    // file = fopen(path "w");
     // fprintf(file, "Это файл который сохраняет состояние модели\n");
     if (file) {
         for (int i = 0; i < obj.matrix.rows; i++) {
@@ -82,18 +83,19 @@ int deparse(Data obj, char *filename) {
 
     return code;
 }
-void path_parse(char *filename, char * result_str) {
-//    char filename[100] = "/Users/corkiudy/C8_3DViewer_v1.0-0/1_OBJECTS/hand.obj";
-   int len = strlen(filename);
-   int j  = 0;
-   for (int i = 0; i  < len && j < 5; i++) {
-       if (filename[i] == '/') {
-           j++;
-       }
-       if (j < 5) {
-           result_str[i] = filename[i];
-       } else {
-           break;
-       }
-   }
+void path_parse(char *filename, char *result_str) {
+    //    char filename[100] =
+    //    "/Users/corkiudy/C8_3DViewer_v1.0-0/1_OBJECTS/hand.obj";
+    int len = strlen(filename);
+    int j = 0;
+    for (int i = 0; i < len && j < 5; i++) {
+        if (filename[i] == '/') {
+            j++;
+        }
+        if (j < 5) {
+            result_str[i] = filename[i];
+        } else {
+            break;
+        }
+    }
 }
