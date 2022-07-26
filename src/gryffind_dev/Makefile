@@ -44,9 +44,6 @@ clean:
 	@rm -rf build
 	@rm -rf gcov_test
 
-dvi:
-	open dvi.html
-
 tests:
 	@$(CC) $(TEST) $(SRC_TEST) $(FLAGS_PLATFORM) -o tests.out
 	@./tests.out
@@ -63,6 +60,7 @@ gcov_report:
 	open ./report/index.html
 	rm $(REPORT)
 	rm -rf *.dSYM
+
 install:
 	make clean
 	mkdir ../../build
@@ -79,9 +77,11 @@ check: $(NAME)
 	python3 ../../materials/linters/cpplint.py --extension=c $(SRC)/gryffind_dev/* $(TEST) *.h *.c
 	rm CPPLINT.cfg
 
-# dist:
-# 	rm -rf ../../Viewer2.0/
-# 	mkdir ../../Viewer2.0/
-# 	mkdir ../../Viewer2.0/
-# 	cp ../../build/Contents/MacOS/Viewer2 ../../Viewer2.0/
-# 	cd ../.. && tar cvzf Viewer2.0.tgz ../../Viewer2.0 && mv ../Viewer2.0
+dist:
+	rm -rf ../../bistViewer2.bist/
+	mkdir ../../bistViewer2.bist/
+	mkdir ../../bistViewer2.bist/
+	cp ../../build/Contents/MacOS/Viewer2 ../../bistViewer2.bist/
+	cd ../.. && tar cvzf bistViewer2.bist.tgz ../../bistViewer2.bist && mv ../bistViewer2.bist
+u:
+	open ../../build/Viewer2
