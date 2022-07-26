@@ -20,7 +20,7 @@ FLAGS_PLATFORM = -lcheck
 GCOVFLAGS = -fprofile-arcs -ftest-coverage
 REPORT = GcovReport
 
-all: test
+all: install
 
 .PHONY: all, install, uninstall,clean, dvi, dist, tests, gcov_report
 
@@ -61,6 +61,14 @@ gcov_report:
 	rm $(REPORT)
 	rm -rf *.dSYM
 
+# check: $(NAME)
+# 	@echo ---------------------CPPCHECK---------------------
+# 	cppcheck *.h $(SRC)
+# 	@echo ---------------------CPPLINT----------------------
+# 	cp ../../materials/linters/CPPLINT.cfg CPPLINT.cfg
+# 	python3 ../../materials/linters/cpplint.py --extension=c $(SRC)/gryffind_dev/* $(TEST) *.h *.c
+# 	rm CPPLINT.cfg
+
 install:
 	make clean
 	mkdir ../../build
@@ -71,17 +79,19 @@ uninstall:
 open:
 	open ../../build/Viewer2.app/Contents/MacOS/Viewer2
 
-check: $(NAME)
-	@echo ---------------------CPPCHECK---------------------
-	cppcheck *.h $(SRC)
-	@echo ---------------------CPPLINT----------------------
-	cp ../../materials/linters/CPPLINT.cfg CPPLINT.cfg
-	python3 ../../materials/linters/cpplint.py --extension=c $(SRC)/gryffind_dev/* $(TEST) *.h *.c
-	rm CPPLINT.cfg
 
+# distViewer2
 dist:
-	rm -rf ../../bistViewer2.bist/
-	mkdir ../../bistViewer2.bist/
-	mkdir ../../bistViewer2.bist/
-	cp ../../build/Contents/MacOS/Viewer2 ../../bistViewer2.bist/
-	cd ../.. && tar cvzf bistViewer2.bist.tgz ../../bistViewer2.bist && mv ../bistViewer2.bist
+	rm -rf ../../distViewer2.0/
+	rm -rf distViewer2.0
+	mkdir ../../distViewer2.0/
+	mkdir ../../distViewer2.0/src
+	cp ../../build/Viewer2.app/Contents/MacOS/Viewer2 ../../distViewer2.0/src/
+	mv ../../distViewer2.0/ .
+	tar cvzf distViewer2.0.tgz distViewer2.0
+	open .
+
+cl:
+	rm -rf distViewer2.0
+	rm -rf ../../distViewer2.0/
+	rm -rf distViewer2.0
