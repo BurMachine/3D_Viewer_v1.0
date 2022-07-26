@@ -43,8 +43,8 @@ public:
     int line_type;
     int color_point;
     double point_size;
-
-
+    int flag_for_start;
+    char *fiename_global;
 
     Data obj;
 

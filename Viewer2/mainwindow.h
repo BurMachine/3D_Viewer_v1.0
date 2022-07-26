@@ -10,7 +10,6 @@
 #include <QPainter>
 #include <QPixmap>
 #include <QSize>
-
 extern "C" {
 #include "../src/gryffind_dev/parsing.h"
 #include "../src/gryffind_dev/matrix/s21_matrix.h"

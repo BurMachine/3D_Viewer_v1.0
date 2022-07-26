@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "stdlib.h": "c",
-        "underfile.h": "c"
+        "underfile.h": "c",
+        "algorithm": "c",
+        "random": "c"
     }
 }

@@ -235,8 +235,8 @@ void MainWindow::on_radioButton_5_toggled()
 void MainWindow::on_pushButton_open_clicked()
 {
     //ПЕРЕД СОРКОЙ ПОМЕНЯТЬ НА /USERS/
-       QString path_to_file = QFileDialog::getOpenFileName(NULL, "Open", "/Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/obj", "*.obj");
-//    QString path_to_file = QFileDialog::getOpenFileName(NULL, "Open", "/Users/gryffind/C8_3DViewer_v1.0-1/src/gryffind_dev/obj/", "*.obj");
+      QString path_to_file = QFileDialog::getOpenFileName(NULL, "Open", "/Users/", "*.obj");
+      ui->widget->flag_for_start = 1;
     char* path_to_file_str = new char[path_to_file.length()];
     QByteArray barr = path_to_file.toLatin1();
     strlcpy(path_to_file_str, barr, path_to_file.length() + 1);
@@ -246,10 +246,11 @@ void MainWindow::on_pushButton_open_clicked()
 
     change_information_about_obj(file_name_str);
 
-    qDebug() << path_to_file_str;
+//    qDebug() << path_to_file_str;
     delete[] path_to_file_str;
     path_to_file_str = NULL;
     update();
+//    ui->widget->resizeGL(1021, 781);
 }
 
 void MainWindow::wheelEvent(QWheelEvent *event)
@@ -259,11 +260,11 @@ void MainWindow::wheelEvent(QWheelEvent *event)
     if (numDegrees.ry() == -15) {
 //        отдалять
         ui->widget->shift(1, 1.1, 1.1, 1.1);
-                qDebug() << 1;
+//                qDebug() << 1;
     } else if (numDegrees.ry() == 15) {
 //        приближать
         ui->widget->shift(1, 0.9, 0.9, 0.9);
-        qDebug() << 0;
+//        qDebug() << 0;
     }
     event->accept();
     create_screen();
@@ -272,7 +273,7 @@ void MainWindow::wheelEvent(QWheelEvent *event)
 void MainWindow::change_information_about_obj(char* file_name_str){
     QString file_name_q_str;
     file_name_q_str = file_name_str;
-    qDebug() << file_name_q_str;
+//    qDebug() << file_name_q_str;
 
     int vertex = ui->widget->obj.count_of_vertex;
     int polygons = ui->widget->obj.count_of_polygons;

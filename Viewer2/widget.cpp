@@ -3,6 +3,7 @@
 #include "ui_widget.h"
 #include "math.h"
 #include <QMessageBox>
+#include <QFileDialog>
 
 //Конструктор класса
 Widget::Widget(QWidget *parent)
@@ -32,25 +33,28 @@ void Widget::resizeGL(int w, int h) {
      glLoadIdentity();
 //     glOrtho(-1,1,-1,1,1,2);
 //     glFrustum(-1,1,-1,1,1,8);
-     int min;
-     int max;
 
-get_max_min_frustum(&max, &min, obj);
+     int min = -484;
+     int max = 338;
 
+//get_max_min_frustum(&max, &min, obj);
+//qDebug() << min;
+//  qDebug() << max ;
 if (qFabs(min) > max) {
         max = qFabs(min);
     } else if (max > qFabs(min)) {
         min = -max;
     }
-min*=1.2;
-max*=1.2;
+    min*=1.2;
+    max*=1.2;
 //     glOrtho(max,min,max,min,max,min);
      glOrtho(min,max,min,max,min,max);
-    if (obj.count_of_vertex < 10000) {
-        glFrustum(max,min,max,min,max,min+20);
-    } else {
+//    if (obj.count_of_vertex < 10000) {
+//        glFrustum(max,min,max,min,max,min+20);
+//    } else {
     glFrustum(min,max,min,max,min,max);
-    }
+//    }
+
 }
 
 
@@ -60,8 +64,17 @@ max*=1.2;
 //    char filename[50] = "Mercedes+Benz+GLS+580.obj";
 //    char filename[50] = "cat.obj";
 void Widget::filler_first() {
-      char filename[100] = "/Users/wcorkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/obj/cat.obj";
-//    char filename[100] = "/Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/obj/cat.obj";
+//      char filename[100] = "/Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/obj/cat.obj";
+        QString path_to_file = QFileDialog::getOpenFileName(NULL, "Open", "/Users/", "*.obj");
+
+//    QString path_to_file = QFileDialog::getOpenFileName(NULL, "Open", "/Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/obj", "*.obj");
+  char* filename = new char[path_to_file.length()];
+  QByteArray barr = path_to_file.toLatin1();
+  strlcpy(filename, barr, path_to_file.length() + 1);
+qDebug() << filename << "aaaaaaaaaa";
+fiename_global = filename;
+//     username[40] = system("whoami");
+//    char filename[100] = "/Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/obj/deparse.obj";
 //    char filename[100] = "/Users/gryffind/C8_3DViewer_v1.0-1/src/gryffind_dev/obj/cat.obj";
     obj.count_of_polygons = 0;
     obj.count_of_vertex = 0;
@@ -75,7 +88,7 @@ void Widget::filler_first() {
 }
 
 void Widget::filler(char *filename) {
-    qDebug() << filename;
+//    qDebug() << filename;
     obj.count_of_polygons = 0;
     obj.count_of_vertex = 0;
     if (!reading_counting(filename, &obj)) {
@@ -179,6 +192,9 @@ void Widget::paintGL() {
 //        glColor4f(0.1, 0.75, 0.3, 1);
         glColor4f(r, g, b, 1);
         glDrawElements(GL_LINES, obj.count_of_polygons * 6, GL_UNSIGNED_INT, facets);
+    //        --------------- deparse
+         deparse(obj, fiename_global);
+    //    ------------------
 
     glDisable(GL_POINT_SMOOTH);
     glDisable(GL_LINE_STIPPLE);

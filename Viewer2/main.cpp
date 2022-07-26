@@ -1,14 +1,13 @@
 #include "widget.h"
 #include "mainwindow.h"
-
 #include <QApplication>
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
-    return a.exec();
+    QApplication app(argc, argv);
+    MainWindow main;
+    main.show();
+    return app.exec();
 }
 //ШТУКИ НЕОБХОДИМЫЕ ДЛЯ ДЕБАГИНГА
 //qDebug() << "This will output to the spawned console!";

@@ -1,11 +1,14 @@
 //
 // Created by Gryffindor Dodie on 7/22/22.
+// And corkiudy aka Vadim 
+// all rigth reserved
 //
 
 #ifndef GRYFFIND_DEV_PARSING_H
 #define GRYFFIND_DEV_PARSING_H
-
+#include <string.h>
 #include "./matrix/s21_matrix.h"
+
 
 typedef struct facets {
     int *vertexes;
@@ -37,4 +40,6 @@ void poligon_print(Data obj);
 void copy_obj(Data *obj, Data *obj_new);
 void copy_matrix(matrix_t *A, matrix_t *result);
 void get_max_min_frustum(int *max, int *min, Data obj);
+int deparse(Data obj, char *filename);
+void path_parse(char *filename, char * result_str);
 #endif //GRYFFIND_DEV_PARSING_H
