@@ -16,8 +16,9 @@ int reading_counting(char *file_name, Data *obj) {
     char *line = NULL;
     //    char path[200] =
     //    "/Users/gryffind/C8_3DViewer_v1.0-1/src/gryffind_dev/obj/";
-//    char path[200] = "/Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/obj/";
-//    strcat(path, file_name);
+    //    char path[200] =
+    //    "/Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/obj/";
+    //    strcat(path, file_name);
     size_t len = 0;
     ssize_t read;
     stream = fopen(file_name, "r");
@@ -39,8 +40,9 @@ int parsing_matrix(char *file_name, Data *obj) {
     int code = 0;
     FILE *stream;
     char *line = NULL;
-//    char path[200] = "/Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/obj/";
-//    strcat(path, file_name);
+    //    char path[200] =
+    //    "/Users/corkiudy/C8_3DViewer_v1.0-0/src/gryffind_dev/obj/";
+    //    strcat(path, file_name);
     size_t len = 0;
     int read;
     //    printf("%s\n", path);
@@ -84,7 +86,6 @@ int parsing_matrix(char *file_name, Data *obj) {
                 poligon_string_parsing(line, obj, polygons);
                 polygons++;
             }
-
         }
     }
     free(line);
@@ -93,7 +94,7 @@ int parsing_matrix(char *file_name, Data *obj) {
 }
 
 void vertex_filler(char *line, Data *obj, int *row, int *column) {
-     int sign = 0;
+    int sign = 0;
     for (int i = 0; line[i] != '\n'; i++) {
         if (line[i] == '-') {
             i++;
@@ -118,7 +119,8 @@ void poligon_string_parsing(char *input, Data *obj, int polygons_N) {
     int poligon;
     int count = 0;
     obj->poligons[polygons_N].vertexes =
-        calloc(obj->poligons[polygons_N].numbers_of_vertexes_in_facets*2, sizeof(int));
+        calloc(obj->poligons[polygons_N].numbers_of_vertexes_in_facets * 2,
+               sizeof(int));
     for (int i = 0; input[i] != '\n'; i++) {
         if ((is_num(input[i]) == 0) && input[i - 1] == ' ') {
             char *start_num = &input[i];
@@ -131,35 +133,37 @@ void poligon_string_parsing(char *input, Data *obj, int polygons_N) {
             obj->poligons[polygons_N].vertexes[count] = poligon;
             count++;
         }
-//        ДОБАВИЛ ЧТО БЫ СДЕЛАТЬ ИЗ 3 6 ШТУК
-        if (count == 2){
+        //        ДОБАВИЛ ЧТО БЫ СДЕЛАТЬ ИЗ 3 6 ШТУК
+        if (count == 2) {
             obj->poligons[polygons_N].vertexes[count] = poligon;
             count++;
         }
-        if (count == 4){
+        if (count == 4) {
             obj->poligons[polygons_N].vertexes[count] = poligon;
             count++;
-            obj->poligons[polygons_N].vertexes[count] = obj->poligons[polygons_N].vertexes[0];
+            obj->poligons[polygons_N].vertexes[count] =
+                obj->poligons[polygons_N].vertexes[0];
         }
     }
 
-//    int poligon;
-//    int count = 0;
-//    obj->poligons[polygons_N].vertexes = calloc(obj->poligons[polygons_N].numbers_of_vertexes_in_facets, (obj->poligons[polygons_N].numbers_of_vertexes_in_facets + 1)*sizeof(int));
-//    for (int i = 0; input[i] != '\n'; i++) {
-//        if ((is_num(input[i]) == 0) && input[i - 1] == ' ') {
-//            char *start_num = &input[i];
-//            while (is_num(input[i]) == 0) {
-//                i++;
-//            }
-//            char *finish = &input[--i];
-//            double num = strtod(start_num, &finish);
-//            poligon = (int)num;
-//            obj->poligons[polygons_N].vertexes[count] = poligon;
-//            count++;
-//        }
-//    }
-
+    //    int poligon;
+    //    int count = 0;
+    //    obj->poligons[polygons_N].vertexes =
+    //    calloc(obj->poligons[polygons_N].numbers_of_vertexes_in_facets,
+    //    (obj->poligons[polygons_N].numbers_of_vertexes_in_facets +
+    //    1)*sizeof(int)); for (int i = 0; input[i] != '\n'; i++) {
+    //        if ((is_num(input[i]) == 0) && input[i - 1] == ' ') {
+    //            char *start_num = &input[i];
+    //            while (is_num(input[i]) == 0) {
+    //                i++;
+    //            }
+    //            char *finish = &input[--i];
+    //            double num = strtod(start_num, &finish);
+    //            poligon = (int)num;
+    //            obj->poligons[polygons_N].vertexes[count] = poligon;
+    //            count++;
+    //        }
+    //    }
 }
 // смотрит сколько полигонов будет в facets
 
@@ -180,4 +184,3 @@ int is_num(char ex) {
     }
     return flag_error;
 }
-

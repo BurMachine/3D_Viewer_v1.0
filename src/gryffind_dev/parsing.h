@@ -1,14 +1,14 @@
 //
 // Created by Gryffindor Dodie on 7/22/22.
-// And corkiudy aka Vadim 
+// And corkiudy aka Vadim
 // all rigth reserved
 //
 
-#ifndef GRYFFIND_DEV_PARSING_H
-#define GRYFFIND_DEV_PARSING_H
+#ifndef SRC_GRYFFIND_DEV_PARSING_H_
+#define SRC_GRYFFIND_DEV_PARSING_H_
 #include <string.h>
-#include "./matrix/s21_matrix.h"
 
+#include "./matrix/s21_matrix.h"
 
 typedef struct facets {
     int *vertexes;
@@ -20,9 +20,7 @@ typedef struct info {
     int count_of_polygons;
     matrix_t matrix;
     polygon_t *poligons;
-}Data;
-
-
+} Data;
 
 int reading_counting(char *file_name, Data *obj);
 int parsing_matrix(char *file_name, Data *obj);
@@ -41,5 +39,5 @@ void copy_obj(Data *obj, Data *obj_new);
 void copy_matrix(matrix_t *A, matrix_t *result);
 void get_max_min_frustum(int *max, int *min, Data obj);
 int deparse(Data obj, char *filename);
-void path_parse(char *filename, char * result_str);
-#endif //GRYFFIND_DEV_PARSING_H
+void path_parse(char *filename, char *result_str);
+#endif  // SRC_GRYFFIND_DEV_PARSING_H_

@@ -3,6 +3,7 @@
         "stdlib.h": "c",
         "underfile.h": "c",
         "algorithm": "c",
-        "random": "c"
+        "random": "c",
+        "s21_matrix.h": "c"
     }
 }

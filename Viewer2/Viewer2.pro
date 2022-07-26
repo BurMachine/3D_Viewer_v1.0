@@ -21,7 +21,6 @@ SOURCES += \
     ../src/gryffind_dev/matrix/s21_transpon.c \
     ../src/gryffind_dev/parsing.c \
     ../src/gryffind_dev/supportFunction.c \
-    ../src/translator.c \
     main.cpp \
     mainwindow.cpp \
     widget.cpp \

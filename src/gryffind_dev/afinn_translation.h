@@ -2,8 +2,8 @@
 // Created by Gryffindor Dodie on 7/24/22.
 //
 
-#ifndef GRYFFIND_DEV_AFINN_TRANSLATION_H
-#define GRYFFIND_DEV_AFINN_TRANSLATION_H
+#ifndef SRC_GRYFFIND_DEV_AFINN_TRANSLATION_H_
+#define SRC_GRYFFIND_DEV_AFINN_TRANSLATION_H_
 
 #include "parsing.h"
 
@@ -21,4 +21,4 @@ void turn_x(Data *obj, double corner);
 void turn_y(Data *obj, double corner);
 void turn_z(Data *obj, double corner);
 
-#endif //GRYFFIND_DEV_AFINN_TRANSLATION_H
+#endif  //  SRC_GRYFFIND_DEV_AFINN_TRANSLATION_H_
